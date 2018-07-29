@@ -19,6 +19,10 @@ if(isNil("_maxDistance"))then{_maxDistance = 400;}else{_maxDistance = _maxDistan
 
 _groupArr = [];
 
+//TEST COMBAT MODE
+	_unit setBehaviour "AWARE";		// "CARELESS", "SAFE", "AWARE", "COMBAT" and "STEALTH". 
+	_unit setCombatMode "RED";
+
 if(((typeName _target) == "ARRAY"))then{
 _ttE = _target select 0;
 if(_ttE in allMapMarkers)then{
@@ -30,7 +34,7 @@ if(_ttE in allMapMarkers)then{
 				if(!alive _unit) exitWith{};
 				_targetM = _target select _i2;
 				_unit doMove (getMarkerPos _targetM);
-				while { ((alive _unit)&&((_unit distance (getMarkerPos _targetM)) > 10))||(!unitReady _unit) } do { sleep 10; };
+				while { ((alive _unit)&&((_unit distance (getMarkerPos _targetM)) > 10))||(!unitReady _unit) } do { uiSleep 60; };
 				_i2 = _i2 + 1;
 			};
 		};
@@ -41,7 +45,7 @@ if(_ttE in allMapMarkers)then{
 			if(!alive _unit) exitWith{};
 			_targetM = _target select _i2;
 			_unit doMove (getMarkerPos _targetM);
-			while { ((alive _unit)&&((_unit distance (getMarkerPos _targetM)) > 10))||(!unitReady _unit) } do { sleep 10; };
+			while { ((alive _unit)&&((_unit distance (getMarkerPos _targetM)) > 10))||(!unitReady _unit) } do { uiSleep 15; };
 			_i2 = _i2 + 1;
 		};
 	};
@@ -72,7 +76,7 @@ if(_ttE in allMapMarkers)then{
 				}else{
 					//hint "Target too far, AI idling";
 				};
-				sleep 10;
+				uiSleep 10;
 			};
 
 		};
@@ -102,13 +106,13 @@ if(_ttE in allMapMarkers)then{
 			}else{
 				hint "Target too far, AI idling";
 			};
-			sleep 10;
+			uiSleep 10;
 		};
 			
 	}else{ 
 	//hint "Target is single UNIT";
 		while {true} do { 
-			if(!alive _target)then{waitUntil{sleep 1; alive _target};};
+			if(!alive _target)then{waitUntil{uiSleep 1; alive _target};};
 			if(side _unit == side _target)then{
 				_dir = random 360;
 				_nearTarget = [((getPos _target) select 0) + (sin _dir) * 35, ((getPos _target) select 1) + (cos _dir) * 35, 0];
@@ -116,7 +120,7 @@ if(_ttE in allMapMarkers)then{
 			}else{
 				_unit doMove (getPos _target);
 			};
-			sleep 10; 
+			uiSleep 10; 
 		};
 	};
 };

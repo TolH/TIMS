@@ -185,6 +185,7 @@ if((_men select 0)||(_men select 1))then{
 };
 
 _newGroupOPFOR setBehaviour "AWARE";
+_newGroupOPFOR setCombatMode "RED";
 _wMode = 1;
 
 if((_vehicles select 0)||(_vehicles select 1)||(_vehicles select 2))then{

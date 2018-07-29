@@ -95,7 +95,7 @@ while { alive _unit }do{
 							waitUntil {(unitReady _unit || _unit distance _newPos < 2) && behaviour _unit != "COMBAT"};
 							_unit doMove _newPos;						
 							waitUntil {(unitReady _unit || _unit distance _newPos < 2) && behaviour _unit != "COMBAT"};
-							sleep 5 + random 25;
+							uiSleep 5 + random 20;
 							_i2 = _i2 + 1;
 						};
 					_justDidBuilding = true;
@@ -104,7 +104,7 @@ while { alive _unit }do{
 							private["_unit","_building"];
 							_unit = _this select 0;
 							_building = _this select 1;
-							waitUntil{sleep 2;((_unit distance _building)>20)};
+							waitUntil{uiSleep 2;((_unit distance _building)>20)};
 							if((_unit getVariable "TargetBuilding")==_building)then{
 								_unit setVariable ["TargetBuilding", nil, false];
 							};
@@ -117,7 +117,7 @@ while { alive _unit }do{
 	};
 	_break = _unit getVariable "breakPatrol";
 	if(!isNil("_break"))exitWith{};
-    sleep 1 + random 59;
+    uiSleep 1 + random 59;
 	if(!isNil("_break"))exitWith{};
 };
 

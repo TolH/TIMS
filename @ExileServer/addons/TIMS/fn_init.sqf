@@ -1,5 +1,5 @@
 //============================================////============================================//
-	//WAIT 1 MINUTE BEFORE STARTING AT SERVER RESTART.
+	//WAIT 1 MINUTE BEFORE STARTING TIMS AFTER A SERVER RESTART.
 		uiSleep 60;
 	//LOAD CONFIG
 		config_script = [] execVM "TIMS\config.sqf";

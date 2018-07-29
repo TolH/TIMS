@@ -4,7 +4,7 @@
 		NORMAL_Loot_Setup = "TIMS\Loot\NORMAL_Loot_Config.sqf";
 		//HIGH_Loot_Setup = "TIMS\Loot\HIGH_Loot_Config.sqf";
 	//MARKER FOLLOW LOOT
-		LOOT_MARKER = "TIMS\custom\Loot_Crate_Markers.sqf";
+		//LOOT_MARKER = "TIMS\custom\Loot_Crate_Markers.sqf";
 	//FLAG CAPTURE Timer
 		FLAG1_TIMER = "TIMS\custom\Flag1_Timer.sqf";
 		FLAG2_TIMER = "TIMS\custom\Flag2_Timer.sqf";

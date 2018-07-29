@@ -283,11 +283,12 @@ if(_patrol)then{
 		}else{ //TARGET is array of Markers or Groups
 			{ 
 				_x setVariable ["target0",_target,false];
-				_x setVariable ["mDis0", 1000, false];
+				_x setVariable ["mDis0", 2000, false];
 				if(_cycle)then{
 					nul = [_x,true] execVM "TIMS\LV\LV_functions\LV_fnc_follow.sqf";
 				}else{
-					nul = [_x,false] execVM "TIMS\LV\LV_functions\LV_fnc_follow.sqf";
+					//nul = [_x,false] execVM "TIMS\LV\LV_functions\LV_fnc_follow.sqf";
+					nul = [_x,true] execVM "TIMS\LV\LV_functions\LV_fnc_follow.sqf";
 				};
 				sleep 2;
 			}forEach units _newGroupOPFOR;//forEach units _grp2;
@@ -298,12 +299,21 @@ if(_patrol)then{
 		}else{
 				{ ////TARGET is single Unit/Object
 					_x setVariable ["target0",_target,false];
-					_x setVariable ["mDis0", 1000, false];
+					_x setVariable ["mDis0", 2000, false];
 					nul = [_x] execVM "TIMS\LV\LV_functions\LV_fnc_follow.sqf";
 				}forEach units _newGroupOPFOR;//forEach units _grp2;
 		};
 	};
 }else{
 	//If patrol is set to false, units will idle. Additionally you can set custom actions here:
-	
+			{ 
+				_x setVariable ["target0",_target,false];
+				_x setVariable ["mDis0", 2000, false];
+				if(_cycle)then{
+					nul = [_x,true] execVM "TIMS\LV\LV_functions\LV_fnc_follow.sqf";
+				}else{
+					nul = [_x,true] execVM "TIMS\LV\LV_functions\LV_fnc_follow.sqf";
+				};
+				sleep 2;
+			}forEach units _newGroupOPFOR;//forEach units _grp2;
 };
