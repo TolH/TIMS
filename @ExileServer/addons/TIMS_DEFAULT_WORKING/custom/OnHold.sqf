@@ -12,6 +12,8 @@
 	_radius = _this select 1;	// SECOND ELEMENT == RADIUS OF WICH PAUSED MISSION WILL RESUME WHEN 
 	_colorDifficulty = _this select 2;	//THIRD ELEMENT
 //============================================////============================================//
+	//SEND MESSAGE TO PLAYER THAT A RANDOM MISSION HAS STARTED
+		showNotification = ["TaskAssigned", "A new mission has started! Check your map for the location."]; publicVariable "showNotification";
 	//VAR
 		ANIMEMARKER = 1;
 		_degree = 0;
@@ -25,7 +27,7 @@
 		//SECONDARY MARKER
 		_SecondaryMarker = createMarker ["SecondaryMarker", getMarkerPos "OnHold"];
 		"SecondaryMarker" setMarkerColor _colorDifficulty;
-		"SecondaryMarker" setMarkerType "hd_warning";
+		//"SecondaryMarker" setMarkerType "hd_warning";
 		"SecondaryMarker" setMarkerType "";
 		"SecondaryMarker" setMarkerSize [1.2,1.2];
 	//START MARKER ANIMATION
@@ -46,7 +48,7 @@
 				//NAME MARKER
 				"OnHold" setMarkerText "<<==== Loading mission...";
 				//RESUME MISSION
-				showNotification = ["TaskAssigned", "Player nearby Invaded Town! Starting in 15 seconds. Good Luck..."]; publicVariable "showNotification";
+				showNotification = ["TaskAssigned", "Player nearby mission zone! Starting mission in 15 seconds. Good Luck..."]; publicVariable "showNotification";
 				uiSleep 15;
 				ANIMEMARKER = 0;
 			};

@@ -6,7 +6,7 @@
 		waitUntil {scriptDone config_script};
 		diag_log "=======================================================================";
 		diag_log "-=T.I.M.S=-: config File Loaded!";
-	//CALL STUFF
+	//CALL LOOT LIST
 		call compile preprocessFileLineNumbers "TIMS\Loot\Loot_List\Loot_WEAPONS_List.sqf";
 		call compile preprocessFileLineNumbers "TIMS\Loot\Loot_List\Loot_MEDIC_List.sqf";
 		call compile preprocessFileLineNumbers "TIMS\Loot\Loot_List\Loot_CONSTRUCTION_List.sqf";
@@ -17,7 +17,7 @@
 		{
 			call compile preprocessFileLineNumbers "TIMS\Loot\Loot_List\Loot_DDR_List.sqf";
 		};
-		diag_log "-=T.I.M.S=-: Loot+Misc Loaded!";
+		diag_log "-=T.I.M.S=-: Loot List Loaded!";
 	//CALL LOOT RATE/QUALITY
 		call compile preprocessFileLineNumbers "TIMS\functions.sqf";
 		diag_log "-=T.I.M.S=-: Functions File Loaded!";

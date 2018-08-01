@@ -9,14 +9,12 @@
 		"CONSTRUCTION"
 		"TOOLS"
 		"TROPHY"
-		"DDR"
 	//EXEMPLE HOW TO USE:
 		[_crate1,"WEAPONS"] ExecVM LOW_Loot_Setup;
 		[_crate1,"MEDIC"] ExecVM NORMAL_Loot_Setup;
 		[_crate1,"CONSTRUCTION"] ExecVM HIGH_Loot_Setup;
 		[_crate1,"TOOLS"] ExecVM HIGH_Loot_Setup;
 		[_crate1,"TROPHY"] ExecVM NORMAL_Loot_Setup;
-		[_crate1,"DDR"] ExecVM NORMAL_Loot_Setup;
 */
 _crate = _this select 0;
 _type = _this select 1;
