@@ -8,54 +8,13 @@ _syncedUnit = param [3,nil];
 _dissapearDistance = param [4,nil];
 _clean = param [5,false];
 
-_veh = [];
 
-switch(_side)do{
-	case 1:{
-		_hq = createCenter west;
-		_grp = createGroup west;
-	};
-	case 2:{
-		_hq = createCenter east;
-		_grp = createGroup east;
-	};
-	case 3:{
-		_hq = createCenter resistance;
-		_grp = createGroup resistance;
-	};
-	case 0:{
-		_hq = createCenter civilian;
-		_grp = createGroup civilian;
-	};
-};
+_vehTANK = ["O_MBT_02_cannon_F", "O_APC_Tracked_02_cannon_F", "O_MBT_02_arty_F"];
 
-_veh = ([_classModuleFilters,[(_side), 1]] call LV_classnames) + ([_classModuleFilters,[(_side), 2]] call LV_classnames);
-
-_veh = [_veh] call LV_validateClassArrays;
-if((count _veh) == 0)then{
-	_veh = ([[],[(_side), 1]] call LV_classnames) + ([[],[(_side), 2]] call LV_classnames);
-};
-
-_veh = selectRandom _veh;
-if(typeName _veh == "ARRAY")then{_veh = selectRandom _veh;};
-
+_veh = selectRandom _vehTANK;
 _vehSpots = getNumber (configFile >> "CfgVehicles" >> _veh >> "transportSoldier");
-
-_radius = 40;
-_roads = [];
-while{(count _roads) == 0}do{
-	_roads = _pos nearRoads _radius;
-	_radius = _radius + 10;
-};
-if(((_roads select 0) distance _pos)<200)then{
-	_pos = getPos(_roads select 0);
-	_pos1 = [_pos,0,25,5,0,1,0] call BIS_fnc_findSafePos;
-}else{
-	_pos1 = [_pos,0,200,5,0,1,0] call BIS_fnc_findSafePos;
-};
-_pos = [_pos1 select 0, _pos1 select 1, 0];
-
-sleep 0.5;
+_pos = [(getMarkerPos "Missionmarker1"), 400, 900, 10, 0, 100, 0] call BIS_fnc_findSafePos;
+uiSleep 1;
 
 _vehicle = createVehicle [_veh, _pos, [], 0, "NONE"];
 if(_clean)then{
@@ -66,13 +25,17 @@ if(_clean)then{
 _vehicle setPos _pos;
 
 _vehicle allowDamage false;
-sleep 2;
+uiSleep 1;
 if(((vectorUp _vehicle) select 2) != 0)then{ _vehicle setvectorup [0,0,0]; };
-sleep 2;
+uiSleep 1;
 _vehicle allowDamage true;
 
-_vCrew = [_vehicle, _grp] call BIS_fnc_spawnCrew;
+
+_newGroupOPFOR = createGroup EAST;
+
+_vCrew = [_vehicle, _newGroupOPFOR] call BIS_fnc_spawnCrew;
 _crew = crew _vehicle;
+[_crew] joinSilent _newGroupOPFOR;
 if(_clean)then{
 	for "_i" from 0 to ((count _crew) - 1) do{
 		_cMember = _crew select _i;
@@ -81,21 +44,22 @@ if(_clean)then{
 		_cMember addEventHandler ["killed", {_this execVM "TIMS\LV\LV_functions\LV_fnc_ACAIkilled.sqf"}];
 	};
 };
-
+/*
 if(_vehSpots > 0)then{
 	_i = 1; 
 	for "_i" from 1 to _vehSpots do {
 		_man1 = getText (configFile >> "CfgVehicles" >> _veh >> "crew");
-		_man = _grp createUnit [_man1, _pos, [], 0, "NONE"];
+		_man = _newGroupOPFOR createUnit [_man1, _pos, [], 0, "NONE"];
 		_man moveInCargo _vehicle;
+		[_man] joinSilent _newGroupOPFOR;
 		if(_clean)then{
 			_man setVariable ["syncedUnit",_syncedUnit,false];
 			_man setVariable ["dissapearDistance",_dissapearDistance,false];
 			_man addEventHandler ["killed", {_this execVM "TIMS\LV\LV_functions\LV_fnc_ACAIkilled.sqf"}];
 		};
-		sleep 0.3;
+		uiSleep 0.5;
 	};
-};
+};*/
 
 _driver = driver _vehicle;
 _driver

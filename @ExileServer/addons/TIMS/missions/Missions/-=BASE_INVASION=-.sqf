@@ -5,7 +5,7 @@
 //          	1: KILL ALL AI. MILITARIZED GROUP WITH GROUND AND AIR SUPPORT
 //============================================////============================================//
 private ["_towns","_Missionmarker1","_Missionmarker2","_Missionmarker3","_AI_COUNTER",
-		 "_radioTower_pos","_Flag1_pos","_Flag2_pos","_Flag1","_Flag2","_FlagMarker1","_FlagMarker2","_radioTower","_radioTower_marker",
+		 "_radioTower_pos","_Flag1_pos","_Flag2_pos","_Flag1","_Flag2","_FlagMarker1","_FlagMarker2","_radioTower","_radioTower_marker","_MortarTeamPos","_AntiAirTeam","_AntiTankTeam",
 		 "_LVgroup1","_LVgroup2","_LVgroup03","_LVgroup3","_LVgroup4","_LVgroup5","_LVgroup6","_LVgroup7","_LVgroup8","_LVgroup9","_LVgroup10","_LVgroup11","_LVgroup12","_LVgroup13","_LVgroup14","_LVgroup15","_LVgroup16","_LVgroup17","_LVgroup18",
 		 "_AiCounter","_AiCounterRange","_AiCount","_AIleft","_AIParaDrop_Sent","_RadioTowerCheck","_wreck","_LootBox_1","_LootBox_2","_supplyBox1","_supplyBox2",
 		 "_Smoke_Color_Array","_Smoke_Color","_Flare_Color_Array","_Flare_Color","_smoke1","_smoke2","_flare1","_flare2","_flare3","_flare4","_flare5","_flare6","_flare7","_flare8","_flare9","_flare10",
@@ -19,10 +19,14 @@ private ["_towns","_Missionmarker1","_Missionmarker2","_Missionmarker3","_AI_COU
 		diag_log "=======================================================================";
 		diag_log "-=T.I.M.S=-: -=BASE_INVASION.sqf=- Started";
 		diag_log "=======================================================================";
+	//SELECT A LOCATION
+		_towns = nearestLocations [position player, ["NameVillage","NameCity","NameCityCapital"], 40000];
+		_RandomTownPosition = position (_towns select (floor (random (count _towns))));
 //============================================////============================================//
 	//CREATE MAIN MISSION MARKER
 		//"Missionmarker1" MAIN MARKER
-			_Missionmarker1 = createMarker ["Missionmarker1", getMarkerPos "BASEINVASION"];
+			//_Missionmarker1 = createMarker ["Missionmarker1", getMarkerPos "BASEINVASION"];
+			_Missionmarker1 = createMarker ["Missionmarker1", _RandomTownPosition];
 			"Missionmarker1" setMarkerColor "ColorRed";
 			"Missionmarker1" setMarkerShape "ELLIPSE";
 			"Missionmarker1" setMarkerBrush "SolidFull";
@@ -53,10 +57,14 @@ private ["_towns","_Missionmarker1","_Missionmarker2","_Missionmarker3","_AI_COU
 			waitUntil {uiSleep 3; ANIMEMARKER isEqualTo 0};
 			deleteMarker "Missionmarker3";
 //============================================////============================================//
-	//SELECT RANDOM LOCATION FOR SPAWNING OBJECTS
-		_radioTower_pos = [(getMarkerPos "Missionmarker1"), 650, 1150, 5, 0, 100, 0] call BIS_fnc_findSafePos;	//_radioTower
-		_Flag1_pos = [(getMarkerPos "Missionmarker1"), 600, 900, 25, 0, 20, 0] call BIS_fnc_findSafePos;			//_bunker1_pos
-		_Flag2_pos = [(getMarkerPos "Missionmarker1"), 300, 600, 25, 0, 20, 0] call BIS_fnc_findSafePos;			//_bunker2_pos
+	//SELECT RANDOM LOCATION FOR SPAWNING OBJECTS	
+		_radioTower_pos 	= [(getMarkerPos "Missionmarker1"), 500, 1200, 20, 0, 100, 0] call BIS_fnc_findSafePos;					//_radioTower
+		_Flag1_pos 			= [(getMarkerPos "Missionmarker1"), 200, 600, 20, 0, 20, 0] call BIS_fnc_findSafePos;					//_Flag1_pos
+		_Flag2_pos 			= [(getMarkerPos "Missionmarker1"), 100, 300, 20, 0, 20, 0] call BIS_fnc_findSafePos;					//_Flag2_pos
+		_MortarTeamPos  	= [(getMarkerPos "Missionmarker1"), 300, 900, 20, 0, 10, 0] call BIS_fnc_findSafePos;					//_MortarTeamPos
+		_AntiAirTeamPos  	= [(getMarkerPos "Missionmarker1"), 100, 800, 20, 0, 10, 0] call BIS_fnc_findSafePos;					//_AntiAirTeamPos
+		_LootBox_1  		= [(getMarkerPos "Flag1"), 5, 30, 3, 0, 20, 0] call BIS_fnc_findSafePos;								//_LootBox_1
+		_LootBox_2  		= [(getMarkerPos "Flag2"), 5, 30, 3, 0, 20, 0] call BIS_fnc_findSafePos;								//_LootBox_2
 //============================================////============================================//
 	//CREATE MISSION OBJECTS
 		//CREATE RADIOTOWER
@@ -96,13 +104,6 @@ private ["_towns","_Missionmarker1","_Missionmarker2","_Missionmarker3","_AI_COU
 			"Flag2" setMarkerType "loc_Power";
 			"Flag2" setMarkerText " #2 Owned by: AI's";
 //============================================////============================================//
-	//WAIT UNTIL PLAYER ARE NEAR OF THE MARKER
-		//waitUntil {uiSleep 3; ({isPlayer _x AND (_x distance getMarkerPos "Missionmarker1") < 1000} count playableUnits) != 0};
-//============================================////============================================//
-	//POSITION OF MISSION OBJECTS, AI, VEHICLES AND LOOTS
-		_LootBox_1 = [(getMarkerPos "Flag1"), 10, 25, 25, 0, 200, 0, ["o_art","ExileMissionEasyIcon","ExileMissionModerateIcon","ExileMissionDifficultIcon","ExileMissionHardcoreIcon"]] call BIS_fnc_findSafePos;	//_LootBox_1
-		_LootBox_2 = [(getMarkerPos "Flag2"), 10, 25, 25, 0, 200, 0, ["o_art","ExileMissionEasyIcon","ExileMissionModerateIcon","ExileMissionDifficultIcon","ExileMissionHardcoreIcon"]] call BIS_fnc_findSafePos;	//_LootBox_2
-//============================================////============================================//
 	//CREATE CRATE
 		//CRATE #1
 			_supplyBox1 = createVehicle [Crate_Type, _LootBox_1, [], 0, "CAN_COLLIDE"];
@@ -130,52 +131,90 @@ private ["_towns","_Missionmarker1","_Missionmarker2","_Missionmarker3","_AI_COU
 			clearMagazineCargoGlobal _supplyBox2;
 			clearItemCargoGlobal _supplyBox2;
 //============================================////============================================//
+	//SPAWN STATIC MORTAR+AA+AT+MG
+		//SPAWN MORTAR TEST
+		private _GrpSideMortar = createGroup EAST;
+		for "_x" from 0 to 2 do 
+		{
+			private _MortarTeam = "O_G_Mortar_01_F" createVehicle _MortarTeamPos;
+			private _unitMR = _GrpSideMortar createUnit ["O_G_Soldier_M_F", _MortarTeam, [], 1, "FORM"];
+			_MortarTeam setDir random 360;
+			_unitMR allowFleeing 0;
+			_unitMR moveInGunner _MortarTeam;
+			_unitMR setSkill 1;
+			_unitMR setBehaviour "AWARE";
+			_unitMR setCombatMode "RED";
+			_unitMR setVariable ["ExileMoney",round (random AI_MONEY_DROP), true];
+			_unitMR addEventHandler ["Killed",{_this execVM "TIMS\custom\AIKilled.sqf"}];
+			[_unitMR] joinSilent _GrpSideMortar;
+			uiSleep 2;
+		};
+		//SPAWN ANTIAIR TEST
+		private _GrpSideAntiAir = createGroup EAST;
+		for "_x" from 0 to 2 do 
+		{
+			private _AntiAirTeam = "O_static_AA_F" createVehicle _AntiAirTeamPos;
+			private _unitAA = _GrpSideAntiAir createUnit ["O_G_Soldier_M_F", _AntiAirTeam, [], 1, "FORM"];
+			_AntiAirTeam setDir random 360;
+			_unitAA allowFleeing 0;
+			_unitAA moveInGunner _AntiAirTeam;
+			_unitAA setSkill 1;
+			_unitAA setBehaviour "AWARE";
+			_unitAA setCombatMode "RED";
+			_unitAA setVariable ["ExileMoney",round (random AI_MONEY_DROP), true];
+			_unitAA addEventHandler ["Killed",{_this execVM "TIMS\custom\AIKilled.sqf"}];
+			[_unitAA] joinSilent _GrpSideAntiAir;
+			uiSleep 2;
+		};
 	//SPAWN ALL HELICOPTER TO PARADROP AT EACH LOCATION
-		_LVgroup1 = ["Missionmarker1",3,true,true,3200,0,true,110,150,6,0.55,75,true,true,false,true,["Flag1","Missionmarker1","Flag2"],true,AI_SKILLS_HELIPARADROP,nil,"this addEventHandler ['Killed',{_this execVM 'TIMS\custom\MPKilled.sqf'}];",1,false,false,["TOHL_PARADROP"]] execVM "TIMS\LV\heliParadrop_EXILE.sqf";
+		_LVgroup1 = ["Missionmarker1",3,true,true,3200,0,true,110,150,6,0.4,75,true,true,false,true,["Flag1","Missionmarker1"],true,AI_SKILLS_HELIPARADROP,nil,"this addEventHandler ['Killed',{_this execVM 'TIMS\custom\AIKilled.sqf'}];",1,false,false,["TOHL_PARADROP"]] execVM "TIMS\LV\heliParadrop_EXILE.sqf";
 		diag_log format ["-=T.I.M.S=-: _LVgroup1  PARTY SENT TO CYCLE PATROL Flag1"];
-		uiSleep 2;
-		_LVgroup2 = ["Missionmarker1",3,true,true,3250,45,true,100,140,6,0.55,75,true,true,false,true,["Flag2","Missionmarker1","Flag1"],true,AI_SKILLS_HELIPARADROP,nil,"this addEventHandler ['Killed',{_this execVM 'TIMS\custom\MPKilled.sqf'}];",2,false,false,["TOHL_PARADROP"]] execVM "TIMS\LV\heliParadrop_EXILE.sqf";
+		uiSleep 3;
+		_LVgroup2 = ["Missionmarker1",3,true,true,3150,45,true,100,140,6,0.4,75,true,true,false,true,["Flag2","Missionmarker1"],true,AI_SKILLS_HELIPARADROP,nil,"this addEventHandler ['Killed',{_this execVM 'TIMS\custom\AIKilled.sqf'}];",2,false,false,["TOHL_PARADROP"]] execVM "TIMS\LV\heliParadrop_EXILE.sqf";
 		diag_log format ["-=T.I.M.S=-: _LVgroup2 PARTY SENT TO CYCLE PATROL Flag2"];
-		uiSleep 2;
-		_LVgroup3 = ["Radio_Tower",3,true,true,3100,90,true,105,135,6,0.55,75,true,true,false,true,["Missionmarker1","Radio_Tower","Missionmarker1"],true,AI_SKILLS_HELIPARADROP,nil,"this addEventHandler ['Killed',{_this execVM 'TIMS\custom\MPKilled.sqf'}];",3,false,false,["TOHL_PARADROP"]] execVM "TIMS\LV\heliParadrop_EXILE.sqf";
+		uiSleep 3;
+		_LVgroup3 = ["Radio_Tower",3,true,true,3000,90,true,105,135,6,0.4,75,true,true,false,true,["Missionmarker1","Radio_Tower"],true,AI_SKILLS_HELIPARADROP,nil,"this addEventHandler ['Killed',{_this execVM 'TIMS\custom\AIKilled.sqf'}];",3,false,false,["TOHL_PARADROP"]] execVM "TIMS\LV\heliParadrop_EXILE.sqf";
 		diag_log format ["-=T.I.M.S=-: _LVgroup3 PARTY SENT TO CYCLE PATROL Radio_Tower"];
-/*
+		uiSleep 3;
 	//SPAWN VEHICLE GROUND
-		_LVgroup1 = ["Missionmarker1",3,300,[false,false],[true,false,false],false,[10,0],[1,0],AI_SKILLS_MIL_TANK,nil,"this addEventHandler ['Killed',{_this execVM 'TIMS\custom\MPKilled.sqf'}];",1,false,false,["TOHL"]] execVM "TIMS\LV\militarize.sqf";
-			uiSleep 1;
-		_LVgroup2 = ["Missionmarker1",3,600,[false,false],[true,false,false],false,[10,0],[1,0],AI_SKILLS_MIL_TANK,nil,"this addEventHandler ['Killed',{_this execVM 'TIMS\custom\MPKilled.sqf'}];",2,false,false,["TOHL"]] execVM "TIMS\LV\militarize.sqf";
-			uiSleep 1;
-	//SPAWN AI PATROLLING GROUND UNIT
-		/*_LVgroup3 = ["Missionmarker1",3,500,[true,false],[false,false,false],false,[25,0],[0,0],AI_SKILLS_MIL_UNIT,nil,"this addEventHandler ['Killed',{_this execVM 'TIMS\custom\MPKilled.sqf'}];",3,true,false,["TOHL"]] execVM "TIMS\LV\militarize.sqf";
+		_LVgroup4 = ["Missionmarker1",3,700,[false,false],[true,false,false],false,[10,0],[1,0],1,nil,"this addEventHandler ['Killed',{_this execVM 'TIMS\custom\AIKilled.sqf'}];",4,false,false,["TOHL"]] execVM "TIMS\LV\militarize.sqf";
+			uiSleep 4;
+		_LVgroup5 = ["Missionmarker1",3,800,[false,false],[true,false,false],false,[10,0],[1,0],1,nil,"this addEventHandler ['Killed',{_this execVM 'TIMS\custom\AIKilled.sqf'}];",5,false,false,["TOHL"]] execVM "TIMS\LV\militarize.sqf";
+			uiSleep 4;
+		_LVgroup6 = ["Missionmarker1",3,900,[false,false],[true,false,false],false,[10,0],[1,0],1,nil,"this addEventHandler ['Killed',{_this execVM 'TIMS\custom\AIKilled.sqf'}];",6,false,false,["TOHL"]] execVM "TIMS\LV\militarize.sqf";
+			uiSleep 4;
+/*	//SPAWN AI PATROLLING GROUND UNIT
+				nul = [player,3,0,[true,false],[false,false,false],true,[1,0],[3,0],1,nil,nil,nil,true,true,["TOHL"]] execVM "TIMS\LV\militarize.sqf";
+		/*_LVgroup3 = ["Missionmarker1",3,500,[true,false],[false,false,false],false,[25,0],[0,0],AI_SKILLS_MIL_UNIT,nil,"this addEventHandler ['Killed',{_this execVM 'TIMS\custom\AIKilled.sqf'}];",3,true,false,["TOHL"]] execVM "TIMS\LV\militarize.sqf";
 			uiSleep 2;
-		_LVgroup4 = ["Radio_Tower",3,100,[true,false],[false,false,false],false,[10,0],[0,0],AI_SKILLS_MIL_UNIT,nil,"this addEventHandler ['Killed',{_this execVM 'TIMS\custom\MPKilled.sqf'}];",4,true,false,["TOHL"]] execVM "TIMS\LV\militarize.sqf";
+		_LVgroup4 = ["Radio_Tower",3,100,[true,false],[false,false,false],false,[10,0],[0,0],AI_SKILLS_MIL_UNIT,nil,"this addEventHandler ['Killed',{_this execVM 'TIMS\custom\AIKilled.sqf'}];",4,true,false,["TOHL"]] execVM "TIMS\LV\militarize.sqf";
 			uiSleep 2;
-		_LVgroup5 = ["Flag1",3,100,[true,false],[false,false,false],false,[5,0],[0,0],AI_SKILLS_MIL_UNIT,nil,"this addEventHandler ['Killed',{_this execVM 'TIMS\custom\MPKilled.sqf'}];",5,true,false,["TOHL"]] execVM "TIMS\LV\militarize.sqf";
+		_LVgroup5 = ["Flag1",3,100,[true,false],[false,false,false],false,[5,0],[0,0],AI_SKILLS_MIL_UNIT,nil,"this addEventHandler ['Killed',{_this execVM 'TIMS\custom\AIKilled.sqf'}];",5,true,false,["TOHL"]] execVM "TIMS\LV\militarize.sqf";
 			uiSleep 2;
-		_LVgroup6 = ["Flag2",3,100,[true,false],[false,false,false],false,[5,0],[0,0],AI_SKILLS_MIL_UNIT,nil,"this addEventHandler ['Killed',{_this execVM 'TIMS\custom\MPKilled.sqf'}];",6,true,false,["TOHL"]] execVM "TIMS\LV\militarize.sqf";
+		_LVgroup6 = ["Flag2",3,100,[true,false],[false,false,false],false,[5,0],[0,0],AI_SKILLS_MIL_UNIT,nil,"this addEventHandler ['Killed',{_this execVM 'TIMS\custom\AIKilled.sqf'}];",6,true,false,["TOHL"]] execVM "TIMS\LV\militarize.sqf";
 			uiSleep 2;*//*
-		_LVgroup33 = ["Missionmarker1",3,800,[true,false],[false,false,false],false,[25,0],[0,0],AI_SKILLS_MIL_UNIT,nil,"this addEventHandler ['Killed',{_this execVM 'TIMS\custom\MPKilled.sqf'}];",33,true,false,["TOHL"]] execVM "TIMS\LV\militarize.sqf";
+		_LVgroup33 = ["Missionmarker1",3,800,[true,false],[false,false,false],false,[25,0],[0,0],AI_SKILLS_MIL_UNIT,nil,"this addEventHandler ['Killed',{_this execVM 'TIMS\custom\AIKilled.sqf'}];",33,true,false,["TOHL"]] execVM "TIMS\LV\militarize.sqf";
 			uiSleep 1;
-		_LVgroup3 = ["Missionmarker1",3,true,true,1200,0,true,100,140,5,0.6,70,true,false,false,true,["PATROL","Missionmarker1",300],false,AI_SKILLS_HELIPARADROP,nil,"this addEventHandler ['Killed',{_this execVM 'TIMS\custom\MPKilled.sqf'}];",3,false,false,["TOHL_PARADROP"]] execVM "TIMS\LV\heliParadrop_EXILE.sqf";
+		_LVgroup3 = ["Missionmarker1",3,true,true,1200,0,true,100,140,5,0.6,70,true,false,false,true,["PATROL","Missionmarker1",300],false,AI_SKILLS_HELIPARADROP,nil,"this addEventHandler ['Killed',{_this execVM 'TIMS\custom\AIKilled.sqf'}];",3,false,false,["TOHL_PARADROP"]] execVM "TIMS\LV\heliParadrop_EXILE.sqf";
 			uiSleep 1;
-		_LVgroup4 = ["Radio_Tower",3,true,true,1200,45,true,105,145,5,0.6,70,true,false,false,true,["PATROL","Radio_Tower",150],false,AI_SKILLS_HELIPARADROP,nil,"this addEventHandler ['Killed',{_this execVM 'TIMS\custom\MPKilled.sqf'}];",4,false,false,["TOHL_PARADROP"]] execVM "TIMS\LV\heliParadrop_EXILE.sqf";
+		_LVgroup4 = ["Radio_Tower",3,true,true,1200,45,true,105,145,5,0.6,70,true,false,false,true,["PATROL","Radio_Tower",150],false,AI_SKILLS_HELIPARADROP,nil,"this addEventHandler ['Killed',{_this execVM 'TIMS\custom\AIKilled.sqf'}];",4,false,false,["TOHL_PARADROP"]] execVM "TIMS\LV\heliParadrop_EXILE.sqf";
 			uiSleep 1;
-		_LVgroup5 = ["Flag1",3,true,true,1200,90,true,110,150,5,0.6,70,true,false,false,true,["PATROL","Flag1",150],false,AI_SKILLS_HELIPARADROP,nil,"this addEventHandler ['Killed',{_this execVM 'TIMS\custom\MPKilled.sqf'}];",5,false,false,["TOHL_PARADROP"]] execVM "TIMS\LV\heliParadrop_EXILE.sqf";
+		_LVgroup5 = ["Flag1",3,true,true,1200,90,true,110,150,5,0.6,70,true,false,false,true,["PATROL","Flag1",150],false,AI_SKILLS_HELIPARADROP,nil,"this addEventHandler ['Killed',{_this execVM 'TIMS\custom\AIKilled.sqf'}];",5,false,false,["TOHL_PARADROP"]] execVM "TIMS\LV\heliParadrop_EXILE.sqf";
 			uiSleep 1;
-		_LVgroup6 = ["Flag2",3,true,true,1200,135,true,115,155,5,0.6,70,true,false,false,true,["PATROL","Flag2",150],false,AI_SKILLS_HELIPARADROP,nil,"this addEventHandler ['Killed',{_this execVM 'TIMS\custom\MPKilled.sqf'}];",6,false,false,["TOHL_PARADROP"]] execVM "TIMS\LV\heliParadrop_EXILE.sqf";
+		_LVgroup6 = ["Flag2",3,true,true,1200,135,true,115,155,5,0.6,70,true,false,false,true,["PATROL","Flag2",150],false,AI_SKILLS_HELIPARADROP,nil,"this addEventHandler ['Killed',{_this execVM 'TIMS\custom\AIKilled.sqf'}];",6,false,false,["TOHL_PARADROP"]] execVM "TIMS\LV\heliParadrop_EXILE.sqf";
 			uiSleep 1;
 	//SPAWN AI PATROLLING IN AIR VEHICLES
-		_LVgroup7 = ["Missionmarker1",3,500,[false,false],[false,false,true],false,[0,0],[1,0],AI_SKILLS_MIL_AIR,nil,"this addEventHandler ['Killed',{_this execVM 'TIMS\custom\MPKilled.sqf'}];",7,true,false,["TOHL"]] execVM "TIMS\LV\militarize.sqf";
+		_LVgroup7 = ["Missionmarker1",3,500,[false,false],[false,false,true],false,[0,0],[1,0],AI_SKILLS_MIL_AIR,nil,"this addEventHandler ['Killed',{_this execVM 'TIMS\custom\AIKilled.sqf'}];",7,true,false,["TOHL"]] execVM "TIMS\LV\militarize.sqf";
 			uiSleep 1;
-		_LVgroup8 = ["Radio_Tower",3,700,[false,false],[false,false,true],false,[0,0],[1,0],AI_SKILLS_MIL_AIR,nil,"this addEventHandler ['Killed',{_this execVM 'TIMS\custom\MPKilled.sqf'}];",8,true,false,["TOHL"]] execVM "TIMS\LV\militarize.sqf";
+		_LVgroup8 = ["Radio_Tower",3,700,[false,false],[false,false,true],false,[0,0],[1,0],AI_SKILLS_MIL_AIR,nil,"this addEventHandler ['Killed',{_this execVM 'TIMS\custom\AIKilled.sqf'}];",8,true,false,["TOHL"]] execVM "TIMS\LV\militarize.sqf";
 			uiSleep 1;
-		_LVgroup9 = ["Missionmarker1",3,800,[false,false],[false,false,true],false,[0,0],[1,0],AI_SKILLS_MIL_AIR,nil,"this addEventHandler ['Killed',{_this execVM 'TIMS\custom\MPKilled.sqf'}];",9,true,false,["TOHL"]] execVM "TIMS\LV\militarize.sqf";
+		_LVgroup9 = ["Missionmarker1",3,800,[false,false],[false,false,true],false,[0,0],[1,0],AI_SKILLS_MIL_AIR,nil,"this addEventHandler ['Killed',{_this execVM 'TIMS\custom\AIKilled.sqf'}];",9,true,false,["TOHL"]] execVM "TIMS\LV\militarize.sqf";
 			uiSleep 1;
-		_LVgroup10 = ["Missionmarker1",3,600,[false,false],[false,false,true],false,[0,0],[1,0],AI_SKILLS_MIL_AIR,nil,"this addEventHandler ['Killed',{_this execVM 'TIMS\custom\MPKilled.sqf'}];",10,true,false,["TOHL"]] execVM "TIMS\LV\militarize.sqf";
+		_LVgroup10 = ["Missionmarker1",3,600,[false,false],[false,false,true],false,[0,0],[1,0],AI_SKILLS_MIL_AIR,nil,"this addEventHandler ['Killed',{_this execVM 'TIMS\custom\AIKilled.sqf'}];",10,true,false,["TOHL"]] execVM "TIMS\LV\militarize.sqf";
 */
 //============================================////============================================//
 	//WAIT 30 SECOND TO LET AI SPAWN SO MISSION DOESNT END ABRUTLY
-		uiSleep 60;
+		uiSleep 30;
 //============================================////============================================//
 	//SET MISSION VARS -=DO NOT MODIFY OR THE MISSION WILL BE BROKEN=-
 	//========================================//
@@ -210,8 +249,8 @@ private ["_towns","_Missionmarker1","_Missionmarker2","_Missionmarker3","_AI_COU
 			{
 				if (_RadioTowerCheck isEqualTo 1) then 
 				{
-					_LVgroup15 = ["Flag1",3,true,true,1500,0,true,110,150,5,0.6,70,true,false,false,true,["PATROL","Flag1",150],false,AI_SKILLS_HELIPARADROP,nil,"this addEventHandler ['Killed',{_this execVM 'TIMS\custom\MPKilled.sqf'}];",15,false,false,["TOHL_PARADROP"]] execVM "TIMS\LV\heliParadrop_EXILE.sqf";
-					_LVgroup16 = ["Flag1",3,true,true,1500,45,true,115,150,5,0.6,70,true,false,false,true,["PATROL","Flag1",150],false,AI_SKILLS_HELIPARADROP,nil,"this addEventHandler ['Killed',{_this execVM 'TIMS\custom\MPKilled.sqf'}];",16,false,false,["TOHL_PARADROP"]] execVM "TIMS\LV\heliParadrop_EXILE.sqf";
+					_LVgroup15 = ["Flag1",3,true,true,1500,0,true,110,150,5,0.6,70,true,false,false,true,["PATROL","Flag1",150],false,AI_SKILLS_HELIPARADROP,nil,"this addEventHandler ['Killed',{_this execVM 'TIMS\custom\AIKilled.sqf'}];",15,false,false,["TOHL_PARADROP"]] execVM "TIMS\LV\heliParadrop_EXILE.sqf";
+					_LVgroup16 = ["Flag1",3,true,true,1500,45,true,115,150,5,0.6,70,true,false,false,true,["PATROL","Flag1",150],false,AI_SKILLS_HELIPARADROP,nil,"this addEventHandler ['Killed',{_this execVM 'TIMS\custom\AIKilled.sqf'}];",16,false,false,["TOHL_PARADROP"]] execVM "TIMS\LV\heliParadrop_EXILE.sqf";
 					_LVGROUP15_16_SENT = 1;
 				};
 				showNotification = ["TaskUpdated", "Player: Capture attempt at location #1"]; publicVariable "showNotification";
@@ -226,8 +265,8 @@ private ["_towns","_Missionmarker1","_Missionmarker2","_Missionmarker3","_AI_COU
 			{
 				if (_RadioTowerCheck isEqualTo 1) then 
 				{
-					_LVgroup17 = ["Flag2",3,true,true,1500,90,true,110,155,5,0.6,70,true,false,false,true,["PATROL","Flag2",150],false,AI_SKILLS_HELIPARADROP,nil,"this addEventHandler ['Killed',{_this execVM 'TIMS\custom\MPKilled.sqf'}];",17,false,false,["TOHL_PARADROP"]] execVM "TIMS\LV\heliParadrop_EXILE.sqf";
-					_LVgroup18 = ["Flag2",3,true,true,1500,180,true,115,155,5,0.6,70,true,false,false,true,["PATROL","Flag2",150],false,AI_SKILLS_HELIPARADROP,nil,"this addEventHandler ['Killed',{_this execVM 'TIMS\custom\MPKilled.sqf'}];",18,false,false,["TOHL_PARADROP"]] execVM "TIMS\LV\heliParadrop_EXILE.sqf";
+					_LVgroup17 = ["Flag2",3,true,true,1500,90,true,110,155,5,0.6,70,true,false,false,true,["PATROL","Flag2",150],false,AI_SKILLS_HELIPARADROP,nil,"this addEventHandler ['Killed',{_this execVM 'TIMS\custom\AIKilled.sqf'}];",17,false,false,["TOHL_PARADROP"]] execVM "TIMS\LV\heliParadrop_EXILE.sqf";
+					_LVgroup18 = ["Flag2",3,true,true,1500,180,true,115,155,5,0.6,70,true,false,false,true,["PATROL","Flag2",150],false,AI_SKILLS_HELIPARADROP,nil,"this addEventHandler ['Killed',{_this execVM 'TIMS\custom\AIKilled.sqf'}];",18,false,false,["TOHL_PARADROP"]] execVM "TIMS\LV\heliParadrop_EXILE.sqf";
 					_LVGROUP17_18_SENT = 1;
 				};
 				showNotification = ["TaskUpdated", "Player: Capture attempt at location #2"]; publicVariable "showNotification";
@@ -241,10 +280,10 @@ private ["_towns","_Missionmarker1","_Missionmarker2","_Missionmarker3","_AI_COU
 		/*	if ((_AiCount <= 40) && (_AIParaDrop_Sent isEqualTo 0) && (_RadioTowerCheck isEqualTo 1)) then 
 			{
 				//SEND PARADROP TROOP ONLY ONCE
-				_LVgroup11 = ["Missionmarker1",3,true,true,1500,0,true,100,140,5,0.6,70,true,false,false,true,["PATROL","Missionmarker1",200],false,AI_SKILLS_HELIPARADROP,nil,"this addEventHandler ['Killed',{_this execVM 'TIMS\custom\MPKilled.sqf'}];",11,false,false,["TOHL_PARADROP"]] execVM "TIMS\LV\heliParadrop_EXILE.sqf";
-				_LVgroup12 = ["Radio_Tower",3,true,true,1400,45,true,105,145,5,0.6,70,true,false,false,true,["PATROL","Radio_Tower",150],false,AI_SKILLS_HELIPARADROP,nil,"this addEventHandler ['Killed',{_this execVM 'TIMS\custom\MPKilled.sqf'}];",12,false,false,["TOHL_PARADROP"]] execVM "TIMS\LV\heliParadrop_EXILE.sqf";
-				_LVgroup13 = ["Flag1",3,true,true,1300,90,true,110,150,5,0.6,70,true,false,false,true,["PATROL","Flag1",150],false,AI_SKILLS_HELIPARADROP,nil,"this addEventHandler ['Killed',{_this execVM 'TIMS\custom\MPKilled.sqf'}];",13,false,false,["TOHL_PARADROP"]] execVM "TIMS\LV\heliParadrop_EXILE.sqf";
-				_LVgroup14 = ["Flag2",3,true,true,1200,135,true,115,155,5,0.6,70,true,false,false,true,["PATROL","Flag2",150],false,AI_SKILLS_HELIPARADROP,nil,"this addEventHandler ['Killed',{_this execVM 'TIMS\custom\MPKilled.sqf'}];",14,false,false,["TOHL_PARADROP"]] execVM "TIMS\LV\heliParadrop_EXILE.sqf";
+				_LVgroup11 = ["Missionmarker1",3,true,true,1500,0,true,100,140,5,0.6,70,true,false,false,true,["PATROL","Missionmarker1",200],false,AI_SKILLS_HELIPARADROP,nil,"this addEventHandler ['Killed',{_this execVM 'TIMS\custom\AIKilled.sqf'}];",11,false,false,["TOHL_PARADROP"]] execVM "TIMS\LV\heliParadrop_EXILE.sqf";
+				_LVgroup12 = ["Radio_Tower",3,true,true,1400,45,true,105,145,5,0.6,70,true,false,false,true,["PATROL","Radio_Tower",150],false,AI_SKILLS_HELIPARADROP,nil,"this addEventHandler ['Killed',{_this execVM 'TIMS\custom\AIKilled.sqf'}];",12,false,false,["TOHL_PARADROP"]] execVM "TIMS\LV\heliParadrop_EXILE.sqf";
+				_LVgroup13 = ["Flag1",3,true,true,1300,90,true,110,150,5,0.6,70,true,false,false,true,["PATROL","Flag1",150],false,AI_SKILLS_HELIPARADROP,nil,"this addEventHandler ['Killed',{_this execVM 'TIMS\custom\AIKilled.sqf'}];",13,false,false,["TOHL_PARADROP"]] execVM "TIMS\LV\heliParadrop_EXILE.sqf";
+				_LVgroup14 = ["Flag2",3,true,true,1200,135,true,115,155,5,0.6,70,true,false,false,true,["PATROL","Flag2",150],false,AI_SKILLS_HELIPARADROP,nil,"this addEventHandler ['Killed',{_this execVM 'TIMS\custom\AIKilled.sqf'}];",14,false,false,["TOHL_PARADROP"]] execVM "TIMS\LV\heliParadrop_EXILE.sqf";
 				_AIParaDrop_Sent = 1;
 			};*/
 			//RADIOTOWER IS DESTROYED
@@ -286,6 +325,8 @@ private ["_towns","_Missionmarker1","_Missionmarker2","_Missionmarker3","_AI_COU
 			uiSleep 0.50;
 		[_supplyBox1,"TROPHY"] ExecVM NORMAL_Loot_Setup;
 			uiSleep 0.50;
+		[_supplyBox1,"DDR"] ExecVM NORMAL_Loot_Setup;
+			uiSleep 0.50;
 		_supplyBox1 setVariable ["ExileMoney",round (random CRATE_MONEY), true];
 		//_Crate_2
 		[_supplyBox2,"WEAPONS"] ExecVM NORMAL_Loot_Setup;
@@ -299,6 +340,8 @@ private ["_towns","_Missionmarker1","_Missionmarker2","_Missionmarker3","_AI_COU
 		[_supplyBox2,"BACKPACKS"] ExecVM NORMAL_Loot_Setup;
 			uiSleep 0.50;
 		[_supplyBox2,"TROPHY"] ExecVM NORMAL_Loot_Setup;
+			uiSleep 0.50;
+		[_supplyBox2,"DDR"] ExecVM NORMAL_Loot_Setup;
 			uiSleep 0.50;
 		_supplyBox2 setVariable ["ExileMoney",round (random CRATE_MONEY), true];
 //============================================////============================================//
@@ -350,12 +393,12 @@ private ["_towns","_Missionmarker1","_Missionmarker2","_Missionmarker3","_AI_COU
 		nul1 = [LVgroup1] execVM "TIMS\LV\LV_functions\LV_fnc_removeGroupV2.sqf";
 		nul2 = [LVgroup2] execVM "TIMS\LV\LV_functions\LV_fnc_removeGroupV2.sqf";
 		nul3 = [LVgroup3] execVM "TIMS\LV\LV_functions\LV_fnc_removeGroupV2.sqf";
-	/*	nul33 = [LVgroup33] execVM "TIMS\LV\LV_functions\LV_fnc_removeGroupV2.sqf";
-		nul3 = [LVgroup3] execVM "TIMS\LV\LV_functions\LV_fnc_removeGroupV2.sqf";
+		//nul33 = [LVgroup33] execVM "TIMS\LV\LV_functions\LV_fnc_removeGroupV2.sqf";
+		//nul3 = [LVgroup3] execVM "TIMS\LV\LV_functions\LV_fnc_removeGroupV2.sqf";
 		nul4 = [LVgroup4] execVM "TIMS\LV\LV_functions\LV_fnc_removeGroupV2.sqf";
 		nul5 = [LVgroup5] execVM "TIMS\LV\LV_functions\LV_fnc_removeGroupV2.sqf";
 		nul6 = [LVgroup6] execVM "TIMS\LV\LV_functions\LV_fnc_removeGroupV2.sqf";
-		nul7 = [LVgroup7] execVM "TIMS\LV\LV_functions\LV_fnc_removeGroupV2.sqf";
+	/*	nul7 = [LVgroup7] execVM "TIMS\LV\LV_functions\LV_fnc_removeGroupV2.sqf";
 		nul8 = [LVgroup8] execVM "TIMS\LV\LV_functions\LV_fnc_removeGroupV2.sqf";
 		nul9 = [LVgroup9] execVM "TIMS\LV\LV_functions\LV_fnc_removeGroupV2.sqf";
 		nul10 = [LVgroup10] execVM "TIMS\LV\LV_functions\LV_fnc_removeGroupV2.sqf";*/
@@ -398,7 +441,7 @@ private ["_towns","_Missionmarker1","_Missionmarker2","_Missionmarker3","_AI_COU
 			deleteVehicle _Flag2;
 			//WAIT OR WONT DELETE
 			uiSleep 1;
-		//REMOVE DEAD AI GROUP WHEN 2000 METERS OF PLAYER
+		//REMOVE DEAD AI GROUP WHEN 1500 METERS OF PLAYER
 			nul = [1500] execVM "TIMS\LV\LV_functions\LV_fnc_removeDead.sqf";
 		//DELETE LOOTBOX ONLY IF IT EXIST.
 		if (alive _supplyBox1) then 

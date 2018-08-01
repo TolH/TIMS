@@ -21,7 +21,7 @@ _type = _this select 1;
 //============================================////============================================//
 //"WEAPONS" TYPE CRATE Loots...
 //============================================////============================================//
-	if (_type == "WEAPONS") then 
+	if (_type isEqualTo "WEAPONS") then 
 	{
 		//============================================////============================================//
 		//LOOT_SNIPER
@@ -118,7 +118,7 @@ _type = _this select 1;
 //============================================////============================================//
 //"MEDIC" TYPE CRATE Loots...
 //============================================////============================================//
-	if (_type == "MEDIC") then 
+	if (_type isEqualTo "MEDIC") then 
 	{
 		//============================================////============================================//
 		//LOOT_FOOD
@@ -148,19 +148,11 @@ _type = _this select 1;
 			_crate addItemCargoGlobal [_item,(round(random 3))];
 		};
 		//============================================////============================================//
-		//LOOT_DDR
-		_scount = count LOOT_DDR;
-		for "_x" from 0 to 8 do 
-		{
-			_sSelect = floor(random _sCount);
-			_item = LOOT_DDR select _sSelect;
-			_crate addItemCargoGlobal [_item,(round(random 2))];
-		};
 	};
 //============================================////============================================//
 //"CONSTRUCTION" TYPE CRATE Loots...
 //============================================////============================================//
-	if (_type == "CONSTRUCTION") then 
+	if (_type isEqualTo "CONSTRUCTION") then 
 	{
 		//============================================////============================================//
 		//LOOT_CONSTRUCTION
@@ -175,7 +167,7 @@ _type = _this select 1;
 //============================================////============================================//
 //"BACKPACKS" TYPE CRATE Loots...
 //============================================////============================================//
-	if (_type == "BACKPACKS") then 
+	if (_type isEqualTo "BACKPACKS") then 
 	{
 		//============================================////============================================//
 		//LOOT_BACKPACKS
@@ -188,16 +180,34 @@ _type = _this select 1;
 		};
 	};
 //============================================////============================================//
+//"DDR" TYPE CRATE Loots...
+//============================================////============================================//
+	if (_type isEqualTo "DDR") then 
+	{
+		//CHECK IF DDR LOOT IS ENABLED
+		if (USE_DDR_LOOT isEqualTo 1) then 
+		{
+			//LOOT_DDR
+			_scount = count LOOT_DDR;
+			for "_x" from 0 to 9 do 
+			{
+				_sSelect = floor(random _sCount);
+				_item = LOOT_DDR select _sSelect;
+				_crate addItemCargoGlobal [_item,(round(random 2))];
+			};
+		};
+	};
+//============================================////============================================//
 //"TROPHY" TYPE CRATE Loots...
 //============================================////============================================//
-	if (_type == "TROPHY") then 
+	if (_type isEqualTo "TROPHY") then 
 	{
 		//CHECK CHANCE TO DROP TROPHY FIRST
 		_RandomTrophyChance = round (random 100);
 		if (_RandomTrophyChance <= CRATE_TROPHY_CHANCE) then 
 		{
 			//============================================////============================================//
-			//LOOT_CONSTRUCTION
+			//LOOT_TROPHY
 			_scount = count LOOT_TROPHY;
 			for "_x" from 0 to 3 do 
 			{

@@ -19,6 +19,8 @@ if(isNil("_center"))then{_center = (getPos _unit);}else{_center = _center;};
 _newPos = getPos _unit;
 _crew = crew _unit;
 _run = true;
+_unit setBehaviour "AWARE";		// "CARELESS", "SAFE", "AWARE", "COMBAT" and "STEALTH". 
+_unit setCombatMode "RED";
 
 while{_run}do{
 	if(typeName _center == "ARRAY")then{
@@ -50,8 +52,8 @@ while{_run}do{
 		
     {
         _x doMove _newPos;
-        _x setBehaviour "COMBAT";
-		_x setCombatMode "RED";
+        //_x setBehaviour "AWARE";
+		//_x setCombatMode "RED";
         _x limitSpeed 1;
     } foreach _crew;
 	

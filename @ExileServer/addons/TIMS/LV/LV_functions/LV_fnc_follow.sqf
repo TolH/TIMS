@@ -9,7 +9,7 @@ _target = _unit getVariable "target0";
 _maxDistance = _unit getVariable "mDis0";
 
 if(isNil("_cycle"))then{_cycle = false;}else{_cycle = _cycle;};
-if(isNil("_maxDistance"))then{_maxDistance = 400;}else{_maxDistance = _maxDistance;};
+if(isNil("_maxDistance"))then{_maxDistance = 2000;}else{_maxDistance = _maxDistance;};
 
 [_unit] spawn {
 	private ["_unit"];
@@ -20,7 +20,7 @@ if(isNil("_maxDistance"))then{_maxDistance = 400;}else{_maxDistance = _maxDistan
 _groupArr = [];
 
 //TEST COMBAT MODE
-	_unit setBehaviour "AWARE";		// "CARELESS", "SAFE", "AWARE", "COMBAT" and "STEALTH". 
+	_unit setBehaviour "STEALTH";		// "CARELESS", "SAFE", "AWARE", "COMBAT" and "STEALTH". 
 	_unit setCombatMode "RED";
 
 if(((typeName _target) == "ARRAY"))then{

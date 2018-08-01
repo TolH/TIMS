@@ -11,5 +11,5 @@
 	//MISSION ON HOLD
 		PAUSE_MISSION = "TIMS\custom\OnHold.sqf";
 	//SAYKILLED BY IT07
-		TIMS_AI_MPKilled = compileFinal preprocessFileLineNumbers "TIMS\custom\MPKilled.sqf";
+		TIMS_AI_MPKilled = compileFinal preprocessFileLineNumbers "TIMS\custom\AIKilled.sqf";
 //============================================////============================================//

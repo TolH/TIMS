@@ -1,2 +1,0 @@
-A3XAI_client_radioMessage = compileFinal preprocessFileLineNumbers "A3XAI_Client\A3XAI_client_code\A3XAI_client_radioMessage.sqf";
-//A3XAI_client_killMessage = compileFinal preprocessFileLineNumbers "A3XAI_Client\A3XAI_client_code\A3XAI_client_killMessage.sqf";

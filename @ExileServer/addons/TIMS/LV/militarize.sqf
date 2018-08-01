@@ -181,6 +181,7 @@ if((_men select 0)||(_men select 1))then{
 		//_unit setVariable ["ExileMoney",round (random AI_MONEY_DROP), true];
 		_unit addMagazine ["SmokeShell",2];
 		_unit addMagazine [(selectRandom ["Chemlight_green","Chemlight_red","Chemlight_yellow","Chemlight_blue"]),2];
+		[_unit] joinSilent _newGroupOPFOR;
 	};
 };
 
@@ -243,7 +244,7 @@ if((_vehicles select 0)||(_vehicles select 1)||(_vehicles select 2))then{
 		_vehicle = vehicle _driver;
         _vehicle allowDamage false;
         _allUnitsArray set [(count _allUnitsArray), _vehicle];
-
+		[_driver] joinSilent _newGroupOPFOR;
 		(units(group _driver)) joinSilent _newGroupOPFOR; 
     };
 };
@@ -259,6 +260,7 @@ if((_vehicles select 0)||(_vehicles select 1)||(_vehicles select 2))then{
 sleep 3;
 {
     _x allowDamage true;
+	[_x] joinSilent _newGroupOPFOR;
 }forEach _allUnitsArray;
 
 if(!isNil("_grpId"))then{
