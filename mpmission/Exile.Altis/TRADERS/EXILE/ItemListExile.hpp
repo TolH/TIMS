@@ -428,12 +428,13 @@
 	class Exile_Item_MetalPole						{ quality = 3; price = 800; };
 	class Exile_Item_MetalScrews					{ quality = 3; price = 100; };
 	class Exile_Item_Rope							{ quality = 2; price = 20; };
-	class Exile_Item_SafeKit						{ quality = 4; price = 25000; };																								class Exile_Item_BaseCameraKit				{ quality = 3; price = 5000; };
+	class Exile_Item_SafeKit						{ quality = 4; price = 25000; };							
+	class Exile_Item_BaseCameraKit				    { quality = 3; price = 5000; };
 	class Exile_Item_CarWheel						{ quality = 1; price = 1000; };
-	class Exile_Item_Cement						{ quality = 2; price = 200; };
-	class Exile_Item_Laptop						{ quality = 2; price = 9000; };
+	class Exile_Item_Cement						    { quality = 2; price = 200; };
+	class Exile_Item_Laptop						    { quality = 2; price = 9000; };
 	//class Exile_Item_MetalHedgehogKit				{ quality = 1; price = 1200; };
-	class Exile_Item_MetalWire					{ quality = 2; price = 100; };
+	class Exile_Item_MetalWire					    { quality = 2; price = 100; };
 	class Exile_Item_Sand							{ quality = 2; price = 200; };
 
 	// Added in 1.0.3, but not used
@@ -542,6 +543,7 @@
 	class Exile_Item_ToiletPaper					{ quality = 1; price = 5; };
 	class Exile_Item_Wrench						{ quality = 1; price = 2500; };
 	class Exile_Item_ZipTie						{ quality = 1; price = 250; };
+	class Exile_Item_Knife                      { quality = 2; price = 250; };
 
 	///////////////////////////////////////////////////////////////////////////////
 	// Navigation

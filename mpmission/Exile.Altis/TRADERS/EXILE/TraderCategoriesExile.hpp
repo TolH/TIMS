@@ -660,6 +660,7 @@
 			"Exile_Item_Handsaw",
 			"Exile_Item_Matches",
 			"Exile_Item_Pliers",
+			"Exile_Melee_Axe",
 			"Exile_Item_XM8",
 			"ItemCompass",
 			"ItemGPS",
@@ -681,6 +682,7 @@
 			//"Exile_Item_WeaponParts",
 			"Exile_Item_Wrench",
 			"Exile_Item_ZipTie",
+			"Exile_Item_Knife",
 			"Laserdesignator",
 			"Laserdesignator_02",
 			"Laserdesignator_03"
