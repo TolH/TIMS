@@ -53,9 +53,7 @@
 			waitUntil {uiSleep 3; ANIMEMARKER isEqualTo 0};
 			deleteMarker "Missionmarker3";
 //============================================////============================================//
-	//SELECT RANDOM LOCATION FOR SPAWNING OBJECTS	
-		private _MortarTeamPos  	= [(getMarkerPos "Missionmarker1"), 400, 900, 20, 0, 0, 0] call BIS_fnc_findSafePos;		//_MortarTeamPos
-		private _AntiAirTeamPos  	= [(getMarkerPos "Missionmarker1"), 100, 600, 20, 0, 0, 0] call BIS_fnc_findSafePos;		//_AntiAirTeamPos
+	//SELECT RANDOM LOCATION FOR LOOT CRATES	
 		private _LootBox_1  		= [(getMarkerPos "Missionmarker1"), 200, 400, 20, 0, 20, 0] call BIS_fnc_findSafePos;		//_LootBox_1
 		private _LootBox_2  		= [(getMarkerPos "Missionmarker1"), 300, 600, 20, 0, 20, 0] call BIS_fnc_findSafePos;		//_LootBox_2
 //============================================////============================================//
@@ -87,44 +85,22 @@
 //============================================////============================================//
 	//SPAWN AI
 		//SPAWN MORTAR TEAM OF 4
-		private _GrpSideMortar = createGroup EAST;
-		for "_x" from 0 to 3 do 
-		{
-			private _MortarTeam = "O_G_Mortar_01_F" createVehicle _MortarTeamPos;
-			private _unitMR = _GrpSideMortar createUnit ["O_G_Soldier_M_F", _MortarTeam, [], 1, "FORM"];
-			_MortarTeam setDir random 360;
-			_unitMR allowFleeing 0;
-			_unitMR moveInGunner _MortarTeam;
-			_unitMR setSkill AI_SKILLS_MORTAR_UNIT;
-			_unitMR setBehaviour "AWARE";
-			_unitMR setCombatMode "RED";
-			_unitMR setVariable ["ExileMoney",round (random AI_MONEY_DROP), true];
-			_unitMR addEventHandler ["Killed",{_this execVM "TIMS\custom\AIKilled.sqf"}];
-			[_unitMR] joinSilent _GrpSideMortar;
-			uiSleep 1;
-		};
-		//SPAWN ANTIAIR TEST
-		private _GrpSideAntiAir = createGroup EAST;
-		for "_x" from 0 to 3 do 
-		{
-			private _AntiAirTeam = "O_static_AA_F" createVehicle _AntiAirTeamPos;
-			private _unitAA = _GrpSideAntiAir createUnit ["O_G_Soldier_M_F", _AntiAirTeam, [], 1, "FORM"];
-			_AntiAirTeam setDir random 360;
-			_unitAA allowFleeing 0;
-			_unitAA moveInGunner _AntiAirTeam;
-			_unitAA setSkill AI_SKILLS_AA_UNIT;
-			_unitAA setBehaviour "AWARE";
-			_unitAA setCombatMode "RED";
-			_unitAA setVariable ["ExileMoney",round (random AI_MONEY_DROP), true];
-			_unitAA addEventHandler ["Killed",{_this execVM "TIMS\custom\AIKilled.sqf"}];
-			[_unitAA] joinSilent _GrpSideAntiAir;
-			uiSleep 1;
-		};
-	//SPAWN TANK
-		private _TankTeam1 = ["Missionmarker1", 4] execVM "TIMS\AI_script\TIMS_SPAWN_TANK.sqf";
+			private _GrpSideMortar = createGroup EAST;
+			private _MortarTeam1 = ["MORTAR", "Missionmarker1", 100, 400, 1, _GrpSideMortar] ExecVM AI_SPAWNER;
+			uiSleep 4;
+		//SPAWN AA TEAM OF 4
+			private _GrpSideAntiAir = createGroup EAST;
+			private _MortarTeam1 = ["AA", "Missionmarker1", 200, 500, 1, _GrpSideAntiAir] ExecVM AI_SPAWNER;
+			uiSleep 4;
+		//SPAWN TANK TEAM OF 2
+			private _GrpSideTank1 = createGroup EAST;
+			private _TankTeam1 = ["TANK", "Missionmarker1", 350, 900, 1, _GrpSideTank1] ExecVM AI_SPAWNER;
+			uiSleep 3;
+			private _GrpSideTank2 = createGroup EAST;
+			private _TankTeam2 = ["TANK", "Missionmarker1", 500, 1000, 1, _GrpSideTank2] ExecVM AI_SPAWNER;
 //============================================////============================================//
-	//WAIT 30 SECOND TO LET AI SPAWN SO MISSION DOESNT END ABRUTLY
-		uiSleep 30;
+	//WAIT 15 SECOND TO LET AI SPAWN SO MISSION DOESNT END ABRUTLY
+		uiSleep 15;
 //============================================////============================================//
 	//SET MISSION VARS -=DO NOT MODIFY OR THE MISSION WILL BE BROKEN=-
 	//========================================//
@@ -139,7 +115,7 @@
 		{
 		  //AICOUNTER
 		  private _AiCount = ({alive _x AND (side _x) isEqualTo EAST AND (_x distance getMarkerPos "Missionmarker1" < _AiCounterRange)} count allunits);
-		  uiSleep 3;
+		  uiSleep 2;
 		  //CREATE AI_COUNTER MARKER
 		  "AI_COUNTER" setMarkerText format ["(Invaders left: (%1)", _AiCount];
 			//ALL REQUIREMENTS TO END MISSION LOOP
@@ -189,6 +165,19 @@
 		[_supplyBox2,"DDR"] ExecVM NORMAL_Loot_Setup;
 			uiSleep 1;
 		_supplyBox2 setVariable ["ExileMoney",round (random CRATE_MONEY), true];
+	//CREATE ALL CRATES MARKERS
+		//(Crate_1)
+			private _Crate_1 = createMarker ["Crate_1", getPos _supplyBox1];
+			"Crate_1" setMarkerSize [1,1];
+			"Crate_1" setMarkerColor "ColorGreen";
+			"Crate_1" setMarkerType "respawn_para";
+			"Crate_1" setMarkerText "";
+		//(Crate_2)
+			private _Crate_2 = createMarker ["Crate_2", getPos _supplyBox2];
+			"Crate_2" setMarkerSize [1,1];
+			"Crate_2" setMarkerColor "ColorGreen";
+			"Crate_2" setMarkerType "respawn_para";
+			"Crate_2" setMarkerText "";
 //============================================////============================================//
 	//MESSAGE
 		showNotification = ["TaskSucceeded", "Town Invasion Completed!"]; publicVariable "showNotification";
@@ -201,9 +190,9 @@
 			private _Smoke_Color2 = selectRandom _Smoke_Color2_Array;
 		//START SMOKE
 			private _smoke1 = _Smoke_Color1 createVehicle getPos _supplyBox1;
-			_smoke1 attachto [_supplyBox1,[0,0,+0.87]];
+					_smoke1 attachto [_supplyBox1,[0,0,+0.87]];
 			private _smoke2 = _Smoke_Color2 createVehicle getPos _supplyBox2;
-			_smoke2 attachto [_supplyBox2,[0,0,+0.87]];
+					_smoke2 attachto [_supplyBox2,[0,0,+0.87]];
 		//START FLARE EVERY 12SECONDS 5 TIMES = 60SECS OF FLARES
 		for "_x" from 0 to 4 do 
 		{
@@ -214,9 +203,9 @@
 				private _Flare2_Color = selectRandom _Flare2_Color_Array;
 			//START FLARE EVERY 12SECONDS 5 TIMES = 60SECS OF FLARES
 				private _flare1 = _Flare1_Color createVehicle getPos _supplyBox1;
-				_flare1 attachto [_supplyBox1,[0,0,+50]];
+						_flare1 attachto [_supplyBox1,[0,0,+50]];
 				private _flare2 = _Flare2_Color createVehicle getPos _supplyBox2;
-				_flare2 attachto [_supplyBox2,[0,0,+50]];
+						_flare2 attachto [_supplyBox2,[0,0,+50]];
 				uiSleep 12;
 		};
 //============================================////============================================//
@@ -225,6 +214,8 @@
 		//DELETE MARKER
 			deleteMarker "Missionmarker1";
 			deleteMarker "Missionmarker2";
+			deleteMarker "Crate_1";
+			deleteMarker "Crate_2";
 			deleteMarker "AI_COUNTER";
 		//DELETE LOOTBOX ONLY IF IT EXIST.
 			if (alive _supplyBox1) then 
@@ -235,6 +226,8 @@
 			{
 				deletevehicle _supplyBox2;
 			};
+		//DELETE SPAWNED AI DEAD BODY
+		//nul = [1] execVM "TIMS\AI_script\AI_DELETE.sqf";
 //============================================////============================================//
 	//MISSION ENDED
 		diag_log "=======================================================================";
