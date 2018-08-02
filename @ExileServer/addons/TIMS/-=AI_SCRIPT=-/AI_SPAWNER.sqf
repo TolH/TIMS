@@ -25,7 +25,7 @@ private ["_SpawnType","_MarkerPOS","_MinPos","_MaxPos","_amount","_Grp",						//
 if (_SpawnType isEqualTo "TANK") then 
 {
 	_TankRandomPos = [(getMarkerPos _MarkerPos), _MinPos, _MaxPos, 20, 0, 20, 0] call BIS_fnc_findSafePos;
-	for "_x" from 0 to _amount do 
+	for "_x" from 0 to _amount-1 do 
 	{
 		_randomTank = selectRandom TANK_AI_LIST;
 		_TankVehicle = createVehicle [_randomTank, _TankRandomPos, [], 0, "NONE"];

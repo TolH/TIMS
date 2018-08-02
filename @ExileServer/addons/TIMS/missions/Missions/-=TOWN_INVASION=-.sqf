@@ -4,9 +4,6 @@
 //============================================////============================================//
 //									  -MISSION OBJECTIVES-:
 //          	  1: KILL ALL AI. MILITARIZED GROUP WITH GROUND AND AIR SUPPORT
-//          	  2: KILL ALL AI. MILITARIZED GROUP WITH GROUND AND AIR SUPPORT
-//          	  3: KILL ALL AI. MILITARIZED GROUP WITH GROUND AND AIR SUPPORT
-//          	  4: KILL ALL AI. MILITARIZED GROUP WITH GROUND AND AIR SUPPORT
 //============================================////============================================//
 	//MISSION RUNNING CHECK
 		TOWN_INVASION_STARTED = 1;
@@ -84,20 +81,20 @@
 			clearItemCargoGlobal _supplyBox2;
 //============================================////============================================//
 	//SPAWN AI
-		//SPAWN MORTAR TEAM OF 4
+		//SPAWN 1 MORTAR TEAM OF 4
 			private _GrpSideMortar = createGroup EAST;
 			private _MortarTeam1 = ["MORTAR", "Missionmarker1", 100, 400, 1, _GrpSideMortar] ExecVM AI_SPAWNER;
 			uiSleep 4;
-		//SPAWN AA TEAM OF 4
+		//SPAWN 1 AA TEAM OF 4
 			private _GrpSideAntiAir = createGroup EAST;
 			private _MortarTeam1 = ["AA", "Missionmarker1", 200, 500, 1, _GrpSideAntiAir] ExecVM AI_SPAWNER;
 			uiSleep 4;
-		//SPAWN TANK TEAM OF 2
+		//SPAWN 2 TANK TEAM OF 3
 			private _GrpSideTank1 = createGroup EAST;
-			private _TankTeam1 = ["TANK", "Missionmarker1", 350, 900, 1, _GrpSideTank1] ExecVM AI_SPAWNER;
+			private _TankTeam1 = ["TANK", "Missionmarker1", 350, 900, 3, _GrpSideTank1] ExecVM AI_SPAWNER;
 			uiSleep 3;
 			private _GrpSideTank2 = createGroup EAST;
-			private _TankTeam2 = ["TANK", "Missionmarker1", 500, 1000, 1, _GrpSideTank2] ExecVM AI_SPAWNER;
+			private _TankTeam2 = ["TANK", "Missionmarker1", 500, 1000, 3, _GrpSideTank2] ExecVM AI_SPAWNER;
 //============================================////============================================//
 	//WAIT 15 SECOND TO LET AI SPAWN SO MISSION DOESNT END ABRUTLY
 		uiSleep 15;
