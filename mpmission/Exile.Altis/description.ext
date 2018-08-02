@@ -157,11 +157,6 @@ class notificationSystem
 {
 	#include "notificationSystem\config\config_master.hpp"
 };
-//TIMS STUFF
-class aissp_configs
-{
-	#include "Custom\TIMS\LV\config_aissp.hpp"
-};
 class CfgSounds
 {
 	sounds[] = {};
@@ -176,14 +171,14 @@ class CfgSounds
 	class KNIGHTRIDER1
 	{
 		name = "KNIGHTRIDER_MUSIC1";
-		sound[] = {"Custom\TIMS\Sounds\KR.ogg", 0.5, 1, 5};
+		sound[] = {"Custom\TIMS\Sounds\KR.ogg", 1, 1, 5};
 		titles[] = {0,""};
 	};
 	//KNIGHTRIDER2
 	class KNIGHTRIDER2
 	{
 		name = "KNIGHTRIDER_MUSIC2";
-		sound[] = {"Custom\TIMS\Sounds\KR_F.ogg", 0.5, 1, 5};
+		sound[] = {"Custom\TIMS\Sounds\KR_F.ogg", 1, 1, 5};
 		titles[] = {0,""};
 	};
 	//RANDOM CRATE ALERT
