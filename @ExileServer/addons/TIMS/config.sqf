@@ -23,11 +23,10 @@
 //==================================//
 	/*AI SKILLS CONFIGS*/
 		//SET BETWEEN (0.0 TO 1.0 BEING MAX VALUE)
-		AI_SKILLS_HELIPARADROP 		= [ 1/*aimingAccuracy*/, 1/*aimingShake*/, 1/*aimingSpeed*/, 1/*spotDistance*/, 1/*spotTime*/, 1/*courage*/, 1/*commanding*/, 1/*general*/, 1/*endurance*/, 1/*reloadspeed*/];
-		AI_SKILLS_AA_UNIT 			= [ 1/*aimingAccuracy*/, 1/*aimingShake*/, 1/*aimingSpeed*/, 1/*spotDistance*/, 1/*spotTime*/, 1/*courage*/, 1/*commanding*/, 1/*general*/, 1/*endurance*/, 1/*reloadspeed*/];
-		AI_SKILLS_MORTAR_UNIT 		= [ 1/*aimingAccuracy*/, 1/*aimingShake*/, 1/*aimingSpeed*/, 1/*spotDistance*/, 1/*spotTime*/, 1/*courage*/, 1/*commanding*/, 1/*general*/, 1/*endurance*/, 1/*reloadspeed*/];
-		AI_SKILLS_TANK 				= [ 1/*aimingAccuracy*/, 1/*aimingShake*/, 1/*aimingSpeed*/, 1/*spotDistance*/, 1/*spotTime*/, 1/*courage*/, 1/*commanding*/, 1/*general*/, 1/*endurance*/, 1/*reloadspeed*/];
-	
+		AI_SKILLS_HELIPARADROP 		= 1;//[ 1/*aimingAccuracy*/, 1/*aimingShake*/, 1/*aimingSpeed*/, 1/*spotDistance*/, 1/*spotTime*/, 1/*courage*/, 1/*commanding*/, 1/*general*/, 1/*endurance*/, 1/*reloadspeed*/];
+		AI_SKILLS_AA_UNIT 			= 1;//[ 1/*aimingAccuracy*/, 1/*aimingShake*/, 1/*aimingSpeed*/, 1/*spotDistance*/, 1/*spotTime*/, 1/*courage*/, 1/*commanding*/, 1/*general*/, 1/*endurance*/, 1/*reloadspeed*/];
+		AI_SKILLS_MORTAR_UNIT 		= 1;//[ 1/*aimingAccuracy*/, 1/*aimingShake*/, 1/*aimingSpeed*/, 1/*spotDistance*/, 1/*spotTime*/, 1/*courage*/, 1/*commanding*/, 1/*general*/, 1/*endurance*/, 1/*reloadspeed*/];
+		AI_SKILLS_TANK 				= 1;
 //==================================//
 //============================================////============================================//
 //======================================/*-CONFIG END-*/======================================//
