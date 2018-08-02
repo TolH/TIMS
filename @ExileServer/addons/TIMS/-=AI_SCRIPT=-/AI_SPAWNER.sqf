@@ -45,6 +45,7 @@ if (_SpawnType isEqualTo "TANK") then
 			_TankDriver setCombatMode "RED";
 			_TankDriver addEventHandler ["Killed",{_this execVM "TIMS\-=AI_SCRIPT=-\EH_AI_CREW_KILLED.sqf"}];
 			[_TankDriver] joinSilent _Grp;
+			nul=[_TankDriver, "Missionmarker1"] execVM "TIMS\-=AI_SCRIPT=-\UPS.sqf";
 			uiSleep 0.2;
 			//GUNNER
 			_TankGunner = _Grp createUnit ["O_G_Soldier_M_F", _TankVehicle, [], 1, "FORM"];
@@ -54,6 +55,7 @@ if (_SpawnType isEqualTo "TANK") then
 			_TankGunner setCombatMode "RED";
 			_TankGunner addEventHandler ["Killed",{_this execVM "TIMS\-=AI_SCRIPT=-\EH_AI_CREW_KILLED.sqf"}];
 			[_TankGunner] joinSilent _Grp;
+			nul=[_TankGunner, "Missionmarker1"] execVM "TIMS\-=AI_SCRIPT=-\UPS.sqf";
 			uiSleep 0.2;
 			//COMMANDER
 			_TankCmd = _Grp createUnit ["O_G_Soldier_M_F", _TankVehicle, [], 1, "FORM"];
@@ -63,6 +65,7 @@ if (_SpawnType isEqualTo "TANK") then
 			_TankCmd setCombatMode "RED";
 			_TankCmd addEventHandler ["Killed",{_this execVM "TIMS\-=AI_SCRIPT=-\EH_AI_CREW_KILLED.sqf"}];
 			[_TankCmd] joinSilent _Grp;
+			nul=[_TankCmd, "Missionmarker1"] execVM "TIMS\-=AI_SCRIPT=-\UPS.sqf";
 		uiSleep 0.5;
 	};
 };
