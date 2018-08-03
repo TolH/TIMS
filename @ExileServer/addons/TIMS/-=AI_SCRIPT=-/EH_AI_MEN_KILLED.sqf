@@ -84,5 +84,5 @@ if ((!isNull _playerObj) && {((getPlayerUID _playerObj) != "") && {_playerObj is
 };
 //============================================////============================================//
 //test delete vehicle
-uiSleep 300;
+uiSleep 900;
 deleteVehicle _AI_MEN;

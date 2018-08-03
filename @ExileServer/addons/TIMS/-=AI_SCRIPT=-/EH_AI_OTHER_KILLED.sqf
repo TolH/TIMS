@@ -8,5 +8,5 @@ _junk           		= _this select 0;
 _killer         		= _this select 1;
 //============================================////============================================//
 //test delete AA+MORTAR
-uiSleep 30;
+uiSleep 300;
 deleteVehicle _junk;

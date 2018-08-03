@@ -8,5 +8,5 @@ _crew           		= _this select 0;
 _killer         		= _this select 1;
 //============================================////============================================//
 //test delete crew
-uiSleep 5;
+uiSleep 600;
 deleteVehicle _crew;

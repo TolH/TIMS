@@ -32,16 +32,16 @@ if (!isServer) exitWith {};
 	
 // how far opfors should move away if they're under attack
 // set this to 200-300, when using the script in open areas (rural surroundings)
-#define SAFEDIST 75
+#define SAFEDIST 150
 
 // how close unit has to be to target to generate a new one 
-#define CLOSEENOUGH 10
+#define CLOSEENOUGH 15
 
 // how close units have to be to each other to share information
-#define SHAREDIST 100
+#define SHAREDIST 150
 
 // how long AI units should be in alert mode after initially spotting an enemy
-#define ALERTTIME 180
+#define ALERTTIME 120
 
 // ---------------------------------------------------------------------------------------------------------
 //echo format["[K] %1",_this];

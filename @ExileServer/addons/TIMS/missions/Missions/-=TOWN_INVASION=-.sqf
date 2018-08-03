@@ -24,7 +24,7 @@
 			"Missionmarker1" setMarkerShape "ELLIPSE";
 			"Missionmarker1" setMarkerBrush "SolidFull";
 			"Missionmarker1" setMarkerSize [1200,1200];
-			"Missionmarker1" setMarkerAlpha 0.06;
+			"Missionmarker1" setMarkerAlpha 0.1;
 		//"Missionmarker2" SECONDARY OUTLINE MARKER
 			private _Missionmarker2 = createMarker ["Missionmarker2", getMarkerPos "Missionmarker1"];
 			"Missionmarker2" setMarkerColor "ColorRed";
@@ -32,6 +32,13 @@
 			"Missionmarker2" setMarkerBrush "Border";
 			"Missionmarker2" setMarkerSize [1200,1200];
 			"Missionmarker2" setMarkerAlpha 1.0;
+		//"PatrolMarker" SECONDARY OUTLINE MARKER
+			private _PatrolMarker = createMarker ["PatrolMarker", getMarkerPos "Missionmarker1"];
+			"PatrolMarker" setMarkerColor "ColorRed";
+			"PatrolMarker" setMarkerShape "ELLIPSE";
+			"PatrolMarker" setMarkerBrush "Border";
+			"PatrolMarker" setMarkerSize [1200,1200];
+			"PatrolMarker" setMarkerAlpha 0;
 		//CREATE AI_COUNTER MARKER
 			private _AI_COUNTER = createMarker ["AI_COUNTER", getMarkerPos "Missionmarker1"];
 			"AI_COUNTER" setMarkerColor "ColorGrey";
@@ -84,20 +91,28 @@
 		//SPAWN 1 MORTAR TEAM OF 4
 			private _GrpSideMortar = createGroup EAST;
 			private _MortarTeam1 = ["MORTAR", "Missionmarker1", 100, 400, 1, _GrpSideMortar] ExecVM AI_SPAWNER;
-			uiSleep 4;
+			uiSleep 5;
 		//SPAWN 1 AA TEAM OF 4
 			private _GrpSideAntiAir = createGroup EAST;
 			private _MortarTeam1 = ["AA", "Missionmarker1", 200, 500, 1, _GrpSideAntiAir] ExecVM AI_SPAWNER;
-			uiSleep 4;
-		//SPAWN 2 TANK TEAM OF 3
+			uiSleep 5;
+		//SPAWN 3 TANK TEAM OF 2
 			private _GrpSideTank1 = createGroup EAST;
-			private _TankTeam1 = ["TANK", "Missionmarker1", 350, 900, 3, _GrpSideTank1] ExecVM AI_SPAWNER;
-			uiSleep 3;
+			private _TankTeam1 = ["TANK", "Missionmarker1", 350, 900, 2, _GrpSideTank1] ExecVM AI_SPAWNER;
+			uiSleep 5;
 			private _GrpSideTank2 = createGroup EAST;
-			private _TankTeam2 = ["TANK", "Missionmarker1", 500, 1000, 3, _GrpSideTank2] ExecVM AI_SPAWNER;
+			private _TankTeam2 = ["TANK", "Missionmarker1", 500, 1000, 2, _GrpSideTank2] ExecVM AI_SPAWNER;
+			uiSleep 5;
+			private _GrpSideTank3 = createGroup EAST;
+			private _TankTeam3 = ["TANK", "Missionmarker1", 300, 1200, 2, _GrpSideTank3] ExecVM AI_SPAWNER;
+			uiSleep 5;
+		//SPAWN 1 PLANE TEAM OF 2
+			private _GrpSidePlane1 = createGroup EAST;
+			private _PlaneTeam1 = ["PLANE", "Missionmarker1", 2000, 3500, 2, _GrpSidePlane1] ExecVM AI_SPAWNER;
+			uiSleep 5;
 //============================================////============================================//
-	//WAIT 15 SECOND TO LET AI SPAWN SO MISSION DOESNT END ABRUTLY
-		uiSleep 15;
+	//WAIT 30 SECOND TO LET AI SPAWN SO MISSION DOESNT END ABRUTLY
+		uiSleep 30;
 //============================================////============================================//
 	//SET MISSION VARS -=DO NOT MODIFY OR THE MISSION WILL BE BROKEN=-
 	//========================================//
@@ -127,7 +142,7 @@
 			};
 		};
 	//WAIT UNTIL AI ELEMINATED
-	waitUntil {uiSleep 3; _AiCounter isEqualTo 0};
+	waitUntil {uiSleep 2; _AiCounter isEqualTo 0};
 //============================================////============================================//
 	//SETUP LOOT
 		//_Crate_1
@@ -165,13 +180,13 @@
 	//CREATE ALL CRATES MARKERS
 		//(Crate_1)
 			private _Crate_1 = createMarker ["Crate_1", getPos _supplyBox1];
-			"Crate_1" setMarkerSize [1,1];
+			"Crate_1" setMarkerSize [0.75,0.75];
 			"Crate_1" setMarkerColor "ColorGreen";
 			"Crate_1" setMarkerType "respawn_para";
 			"Crate_1" setMarkerText "";
 		//(Crate_2)
 			private _Crate_2 = createMarker ["Crate_2", getPos _supplyBox2];
-			"Crate_2" setMarkerSize [1,1];
+			"Crate_2" setMarkerSize [0.75,0.75];
 			"Crate_2" setMarkerColor "ColorGreen";
 			"Crate_2" setMarkerType "respawn_para";
 			"Crate_2" setMarkerText "";
@@ -211,6 +226,7 @@
 		//DELETE MARKER
 			deleteMarker "Missionmarker1";
 			deleteMarker "Missionmarker2";
+			deleteMarker "PatrolMarker";
 			deleteMarker "Crate_1";
 			deleteMarker "Crate_2";
 			deleteMarker "AI_COUNTER";
