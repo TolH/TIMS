@@ -1815,6 +1815,7 @@ class CfgExileCustomCode
 	ExileServer_system_database_connect						= "Exile_Call\StatusBar\ExileServer_system_database_connect.sqf";
 	//UAV
 	ExileServer_object_player_database_load					= "Exile_Call\UAV\ExileServer_object_player_database_load.sqf";
+	ExileServer_system_simulationMonitor_thread_toggleSimulation = "Exile_Call\UAV\ExileServer_system_simulationMonitor_thread_toggleSimulation.sqf";
 	//PainShop
 	ExileServer_object_construction_database_load 			= "addons\paintshop\ExileServer_object_construction_database_load.sqf";
 	//Base Respawn
