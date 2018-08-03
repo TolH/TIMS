@@ -73,6 +73,19 @@ class CfgRemoteExec
 		//class vcm_serverask { allowedTargets=2; };
 		//SCAVENGE
 		class ExileExpansionServer_system_scavenge_spawnLoot	{ allowedTargets=0; };
+		//ADVANCED SLING LOADING
+		class ASL_Pickup_Ropes { allowedTargets=0; };
+		class ASL_Deploy_Ropes_Index { allowedTargets=0; };
+		class ASL_Rope_Set_Mass { allowedTargets=0; };
+		class ASL_Extend_Ropes { allowedTargets=0; };
+		class ASL_Shorten_Ropes { allowedTargets=0; };
+		class ASL_Release_Cargo { allowedTargets=0; };
+		class ASL_Retract_Ropes { allowedTargets=0; };
+		class ASL_Deploy_Ropes { allowedTargets=0; };
+		class ASL_Attach_Ropes { allowedTargets=0; };
+		class ASL_Drop_Ropes { allowedTargets=0; };
+		class ASL_Hint { allowedTargets=1; };
+		class ASL_Hide_Object_Global { allowedTargets=2; };
 	};
 	class Commands
 	{
