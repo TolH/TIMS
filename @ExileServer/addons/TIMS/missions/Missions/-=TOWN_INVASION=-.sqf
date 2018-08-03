@@ -99,17 +99,21 @@
 		//SPAWN 3 TANK TEAM OF 2
 			private _GrpSideTank1 = createGroup EAST;
 			private _TankTeam1 = ["TANK", "Missionmarker1", 350, 900, 2, _GrpSideTank1] ExecVM AI_SPAWNER;
-			uiSleep 5;
+			uiSleep 6;
 			private _GrpSideTank2 = createGroup EAST;
 			private _TankTeam2 = ["TANK", "Missionmarker1", 500, 1000, 2, _GrpSideTank2] ExecVM AI_SPAWNER;
-			uiSleep 5;
+			uiSleep 6;
 			private _GrpSideTank3 = createGroup EAST;
 			private _TankTeam3 = ["TANK", "Missionmarker1", 300, 1200, 2, _GrpSideTank3] ExecVM AI_SPAWNER;
-			uiSleep 5;
+			uiSleep 6;
 		//SPAWN 1 PLANE TEAM OF 2
 			private _GrpSidePlane1 = createGroup EAST;
 			private _PlaneTeam1 = ["PLANE", "Missionmarker1", 2000, 3500, 2, _GrpSidePlane1] ExecVM AI_SPAWNER;
-			uiSleep 5;
+			uiSleep 6;
+		//SPAWN 1 HELI TEAM OF 2
+			private _GrpSideHeli1 = createGroup EAST;
+			private _HeliTeam1 = ["HELI", "Missionmarker1", 3000, 5000, 2, _GrpSideHeli1] ExecVM AI_SPAWNER;
+			uiSleep 6;
 //============================================////============================================//
 	//WAIT 30 SECOND TO LET AI SPAWN SO MISSION DOESNT END ABRUTLY
 		uiSleep 30;

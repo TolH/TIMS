@@ -9,7 +9,9 @@
 private ["_SpawnType","_MarkerPOS","_MinPos","_MaxPos","_amount","_Grp",						//MAIN SELECTION
 		 "_TankRandomPos","_randomTank","_TankVehicle","_TankDriver","_TankGunner","_TankCmd",	//TANK SPAWNER
 		 "_MortarRandomPos","_MortarVehicle","_unitMR","_Mortar_Dir",							//MORTAR SPAWNER
-		 "_AARandomPos","_AAVehicle","_unitAA","_AA_Dir"];										//AA SPAWNER
+		 "_AARandomPos","_AAVehicle","_unitAA","_AA_Dir",										//AA SPAWNER
+		 "_PlaneRandomPos","_randomPlane","_PlaneVehicle","_PlaneDriver",						//PLANE SPAWNER
+		 "_HeliRandomPos","_randomHeli","_HeliVehicle","_HeliDriver"];							//HELI SPAWNER
 //============================================//
 	_SpawnType =		_this select 0;
 	_MarkerPos = 		_this select 1;
@@ -78,7 +80,6 @@ if (_SpawnType isEqualTo "TANK") then
 if (_SpawnType isEqualTo "PLANE") then 
 {
 	_PlaneRandomPos = [(getMarkerPos _MarkerPos), _MinPos, _MaxPos, 20, 0, 1, 0] call BIS_fnc_findSafePos;
-	//_PlaneRandomPos2 = [(_PlaneRandomPos1 select 0), (_PlaneRandomPos1 select 1), (_PlaneRandomPos1 select 2)+200];
 	for "_x" from 0 to _amount-1 do 
 	{
 		_randomPlane = selectRandom PLANE_AI_LIST;
@@ -94,8 +95,34 @@ if (_SpawnType isEqualTo "PLANE") then
 			_PlaneDriver addEventHandler ["Killed",{_this execVM "TIMS\-=AI_SCRIPT=-\EH_AI_CREW_KILLED.sqf"}];
 			[_PlaneDriver] joinSilent _Grp;
 			uiSleep 0.5;
-			nul1=[_PlaneDriver, "PatrolMarker"] execVM "TIMS\-=AI_SCRIPT=-\UPS.sqf";
+			nul4=[_PlaneDriver, "PatrolMarker"] execVM "TIMS\-=AI_SCRIPT=-\UPS.sqf";
 			_PlaneVehicle allowDamage true;
+		uiSleep 0.5;
+	};
+};
+//============================================//
+//HELI TEAM SPAWNER
+//============================================//
+if (_SpawnType isEqualTo "HELI") then 
+{
+	_HeliRandomPos = [(getMarkerPos _MarkerPos), _MinPos, _MaxPos, 20, 0, 1, 0] call BIS_fnc_findSafePos;
+	for "_x" from 0 to _amount-1 do 
+	{
+		_randomHeli = selectRandom HELI_AI_LIST;
+		_HeliVehicle = createVehicle [_randomHeli, _HeliRandomPos, [], 0, "FLY"];
+		_HeliVehicle allowDamage false;
+		_HeliVehicle addEventHandler ["Killed",{_this execVM "TIMS\-=AI_SCRIPT=-\EH_AI_TANK_KILLED.sqf"}];
+			//DRIVER
+			_HeliDriver = _Grp createUnit ["O_G_Soldier_M_F", _HeliVehicle, [], 1, "FORM"];
+			_HeliDriver moveInDriver _HeliVehicle;
+			_HeliDriver setSkill AI_SKILLS_HELI;
+			_HeliDriver setBehaviour "AWARE";
+			_HeliDriver setCombatMode "RED";
+			_HeliDriver addEventHandler ["Killed",{_this execVM "TIMS\-=AI_SCRIPT=-\EH_AI_CREW_KILLED.sqf"}];
+			[_HeliDriver] joinSilent _Grp;
+			uiSleep 0.5;
+			nul4=[_HeliDriver, "PatrolMarker"] execVM "TIMS\-=AI_SCRIPT=-\UPS.sqf";
+			_HeliVehicle allowDamage true;
 		uiSleep 0.5;
 	};
 };
