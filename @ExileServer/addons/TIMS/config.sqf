@@ -4,7 +4,7 @@
 
 //==================================//
 	/*MAIN_SYSTEM_CONFIG*/
-		INVASION_RESET_TIMER		= 120;							// INVASION RESET TIMER. (Default 1800=30MINUTES).
+		INVASION_RESET_TIMER		= 600;							// INVASION RESET TIMER. (Default 1800=30MINUTES).
 //==================================// 
 	/*LOOTS_CONFIG*/
 		USE_DDR_LOOT				= 1;							// USE DDR MOD LOOT TABLE

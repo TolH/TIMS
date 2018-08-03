@@ -99,17 +99,17 @@
 		//SPAWN 3 TANK TEAM OF 2
 			private _GrpSideTank1 = createGroup EAST;
 			private _TankTeam1 = ["TANK", "Missionmarker1", 350, 900, 2, _GrpSideTank1] ExecVM AI_SPAWNER;
-			uiSleep 6;
+			uiSleep 5;
 			private _GrpSideTank2 = createGroup EAST;
 			private _TankTeam2 = ["TANK", "Missionmarker1", 500, 1000, 2, _GrpSideTank2] ExecVM AI_SPAWNER;
-			uiSleep 6;
+			uiSleep 5;
 			private _GrpSideTank3 = createGroup EAST;
 			private _TankTeam3 = ["TANK", "Missionmarker1", 300, 1200, 2, _GrpSideTank3] ExecVM AI_SPAWNER;
-			uiSleep 6;
+			uiSleep 5;
 		//SPAWN 1 PLANE TEAM OF 2
 			private _GrpSidePlane1 = createGroup EAST;
 			private _PlaneTeam1 = ["PLANE", "Missionmarker1", 2000, 3500, 2, _GrpSidePlane1] ExecVM AI_SPAWNER;
-			uiSleep 6;
+			uiSleep 5;
 		//SPAWN 1 HELI TEAM OF 2
 			private _GrpSideHeli1 = createGroup EAST;
 			private _HeliTeam1 = ["HELI", "Missionmarker1", 3000, 5000, 2, _GrpSideHeli1] ExecVM AI_SPAWNER;
@@ -151,35 +151,35 @@
 	//SETUP LOOT
 		//_Crate_1
 		[_supplyBox1,"WEAPONS"] ExecVM NORMAL_Loot_Setup;
-			uiSleep 1;
+			uiSleep 2;
 		[_supplyBox1,"MEDIC"] ExecVM NORMAL_Loot_Setup;
-			uiSleep 1;
+			uiSleep 2;
 		[_supplyBox1,"CONSTRUCTION"] ExecVM NORMAL_Loot_Setup;
-			uiSleep 1;
+			uiSleep 2;
 		[_supplyBox1,"TOOLS"] ExecVM NORMAL_Loot_Setup;
-			uiSleep 1;
+			uiSleep 2;
 		[_supplyBox1,"BACKPACKS"] ExecVM NORMAL_Loot_Setup;
-			uiSleep 1;
+			uiSleep 2;
 		[_supplyBox1,"TROPHY"] ExecVM NORMAL_Loot_Setup;
-			uiSleep 1;
+			uiSleep 2;
 		[_supplyBox1,"DDR"] ExecVM NORMAL_Loot_Setup;
-			uiSleep 1;
+			uiSleep 2;
 		_supplyBox1 setVariable ["ExileMoney",round (random CRATE_MONEY), true];
 		//_Crate_2
 		[_supplyBox2,"WEAPONS"] ExecVM NORMAL_Loot_Setup;
-			uiSleep 1;
+			uiSleep 2;
 		[_supplyBox2,"MEDIC"] ExecVM NORMAL_Loot_Setup;
-			uiSleep 1;
+			uiSleep 2;
 		[_supplyBox2,"CONSTRUCTION"] ExecVM NORMAL_Loot_Setup;
-			uiSleep 1;
+			uiSleep 2;
 		[_supplyBox2,"TOOLS"] ExecVM NORMAL_Loot_Setup;
-			uiSleep 1;
+			uiSleep 2;
 		[_supplyBox2,"BACKPACKS"] ExecVM NORMAL_Loot_Setup;
-			uiSleep 1;
+			uiSleep 2;
 		[_supplyBox2,"TROPHY"] ExecVM NORMAL_Loot_Setup;
-			uiSleep 1;
+			uiSleep 2;
 		[_supplyBox2,"DDR"] ExecVM NORMAL_Loot_Setup;
-			uiSleep 1;
+			uiSleep 2;
 		_supplyBox2 setVariable ["ExileMoney",round (random CRATE_MONEY), true];
 	//CREATE ALL CRATES MARKERS
 		//(Crate_1)
@@ -234,6 +234,8 @@
 			deleteMarker "Crate_1";
 			deleteMarker "Crate_2";
 			deleteMarker "AI_COUNTER";
+			deleteMarker "Mortar_Mrk";
+			deleteMarker "AA_Mrk";
 		//DELETE LOOTBOX ONLY IF IT EXIST.
 			if (alive _supplyBox1) then 
 			{

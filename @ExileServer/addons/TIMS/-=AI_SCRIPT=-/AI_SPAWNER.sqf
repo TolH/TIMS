@@ -8,8 +8,8 @@
 //============================================////============================================//
 private ["_SpawnType","_MarkerPOS","_MinPos","_MaxPos","_amount","_Grp",						//MAIN SELECTION
 		 "_TankRandomPos","_randomTank","_TankVehicle","_TankDriver","_TankGunner","_TankCmd",	//TANK SPAWNER
-		 "_MortarRandomPos","_MortarVehicle","_unitMR","_Mortar_Dir",							//MORTAR SPAWNER
-		 "_AARandomPos","_AAVehicle","_unitAA","_AA_Dir",										//AA SPAWNER
+		 "_MortarRandomPos","_MortarVehicle","_unitMR","_Mortar_Dir","_Mortar_Mrk",				//MORTAR SPAWNER
+		 "_AARandomPos","_AAVehicle","_unitAA","_AA_Dir","_AA_Mrk",								//AA SPAWNER
 		 "_PlaneRandomPos","_randomPlane","_PlaneVehicle","_PlaneDriver",						//PLANE SPAWNER
 		 "_HeliRandomPos","_randomHeli","_HeliVehicle","_HeliDriver"];							//HELI SPAWNER
 //============================================//
@@ -26,7 +26,7 @@ private ["_SpawnType","_MarkerPOS","_MinPos","_MaxPos","_amount","_Grp",						//
 //============================================//
 if (_SpawnType isEqualTo "TANK") then 
 {
-	_TankRandomPos = [(getMarkerPos _MarkerPos), _MinPos, _MaxPos, 20, 0, 0.4, 0] call BIS_fnc_findSafePos;
+	_TankRandomPos = [(getMarkerPos _MarkerPos), _MinPos, _MaxPos, 20, 0, 0.3, 0] call BIS_fnc_findSafePos;
 	for "_x" from 0 to _amount-1 do 
 	{
 		_randomTank = selectRandom TANK_AI_LIST;
@@ -70,8 +70,8 @@ if (_SpawnType isEqualTo "TANK") then
 			[_TankCmd] joinSilent _Grp;
 			uiSleep 0.5;
 			nul3=[_TankCmd, "PatrolMarker"] execVM "TIMS\-=AI_SCRIPT=-\UPS.sqf";
+		uiSleep 3;
 			_TankVehicle allowDamage true;
-		uiSleep 0.5;
 	};
 };
 //============================================//
@@ -96,8 +96,8 @@ if (_SpawnType isEqualTo "PLANE") then
 			[_PlaneDriver] joinSilent _Grp;
 			uiSleep 0.5;
 			nul4=[_PlaneDriver, "PatrolMarker"] execVM "TIMS\-=AI_SCRIPT=-\UPS.sqf";
+		uiSleep 3;
 			_PlaneVehicle allowDamage true;
-		uiSleep 0.5;
 	};
 };
 //============================================//
@@ -122,8 +122,8 @@ if (_SpawnType isEqualTo "HELI") then
 			[_HeliDriver] joinSilent _Grp;
 			uiSleep 0.5;
 			nul4=[_HeliDriver, "PatrolMarker"] execVM "TIMS\-=AI_SCRIPT=-\UPS.sqf";
+		uiSleep 6;
 			_HeliVehicle allowDamage true;
-		uiSleep 0.5;
 	};
 };
 //============================================//
@@ -162,6 +162,14 @@ if (_SpawnType isEqualTo "MORTAR") then
 		_unitMR addEventHandler ["Killed",{_this execVM "TIMS\-=AI_SCRIPT=-\EH_AI_MEN_KILLED.sqf"}];
 		[_unitMR] joinSilent _Grp;
 		_Mortar_Dir = _Mortar_Dir +90;
+		if (_Mortar_Dir isEqualTo 360) then 
+		{
+			_Mortar_Mrk = createMarker ["Mortar_Mrk", _MortarRandomPos];
+			"Mortar_Mrk" setMarkerSize [0.75,0.75];
+			"Mortar_Mrk" setMarkerColor "ColorRed";
+			"Mortar_Mrk" setMarkerType "o_mortar";
+			"Mortar_Mrk" setMarkerText "AT";
+		};
 		uiSleep 1;
 	};
 };
@@ -193,6 +201,14 @@ if (_SpawnType isEqualTo "AA") then
 		_unitAA addEventHandler ["Killed",{_this execVM "TIMS\-=AI_SCRIPT=-\EH_AI_MEN_KILLED.sqf"}];
 		[_unitAA] joinSilent _Grp;
 		_AA_Dir = _AA_Dir +90;
+		if (_AA_Dir isEqualTo 360) then 
+		{
+			_AA_Mrk = createMarker ["AA_Mrk", _AARandomPos];
+			"AA_Mrk" setMarkerSize [0.75,0.75];
+			"AA_Mrk" setMarkerColor "ColorRed";
+			"AA_Mrk" setMarkerType "o_mortar";
+			"AA_Mrk" setMarkerText "AA";
+		};
 		uiSleep 1;
 	};
 };
