@@ -4403,7 +4403,7 @@ class CfgXM8
     {
         title = "Deploy Quad Bike";
         config = "ExAdClient\XM8\Apps\DeployVehicle\config.sqf";
-        logo = "Custom\TIMS\misc\uav.paa";
+        logo = "scarCODE\ServerInfoMenu\img\Quad.paa";
         bambiState = 0;
         vehicleClass = "Exile_Bike_QuadBike_Fia";
         recipe[] = {{"Exile_Item_ExtensionCord",1}};
@@ -4414,7 +4414,7 @@ class CfgXM8
 	class UAV_SPAWN
     {
         title = "Deploy UAV";
-        logo = "scarCODE\ServerInfoMenu\img\Quad.paa";
+        logo = "Custom\TIMS\misc\uav.paa";
         onLoad = "ExAdClient\XM8\Apps\Info\onLoad.sqf";
         onOpen = "ExAdClient\XM8\Apps\Info\onOpen.sqf";
         onClose = "ExAdClient\XM8\Apps\Info\onClose.sqf";
