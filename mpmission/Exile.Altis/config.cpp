@@ -4313,7 +4313,7 @@ class CfgVirtualGarage
 };
 class CfgXM8 
 {
-	extraApps[] = {"ExAd_JX","ExAd_Info","ExAd_CHVD","BRAmaRecipes","BaseMarker","ExAd_Quad","ExAd_Unit","scarCode"};
+	extraApps[] = {"ExAd_JX","ExAd_Info","ExAd_CHVD","BRAmaRecipes","BaseMarker","ExAd_Quad","ExAd_Unit","scarCode","UAV_SPAWN"};
 	
 	class settings
 	{
@@ -4342,7 +4342,7 @@ class CfgXM8
 	*/
 	class ExAd_Info
     {
-        title = "Server Rules";				//IDC:50100 -> 50102 || These need to be unique and out of range from each other
+        title = "Server Rules";				//IDC:50100
         controlID = 50100;                  
         logo = "scarCODE\ServerInfoMenu\img\Icon_SI.paa";
         onLoad = "ExAdClient\XM8\Apps\Info\onLoad.sqf";
@@ -4403,13 +4403,21 @@ class CfgXM8
     {
         title = "Deploy Quad Bike";
         config = "ExAdClient\XM8\Apps\DeployVehicle\config.sqf";
-        logo = "scarCODE\ServerInfoMenu\img\Quad.paa";
+        logo = "Custom\TIMS\misc\uav.paa";
         bambiState = 0;
         vehicleClass = "Exile_Bike_QuadBike_Fia";
         recipe[] = {{"Exile_Item_ExtensionCord",1}};
         packable = 1;
         autoCleanUp = 1;
         quickFunction = "['ExAd_Quad'] call ExAd_XM8_DV_fnc_spawnVehicle";
+    };
+	class UAV_SPAWN
+    {
+        title = "Deploy UAV";
+        logo = "scarCODE\ServerInfoMenu\img\Quad.paa";
+        onLoad = "ExAdClient\XM8\Apps\Info\onLoad.sqf";
+        onOpen = "ExAdClient\XM8\Apps\Info\onOpen.sqf";
+        onClose = "ExAdClient\XM8\Apps\Info\onClose.sqf";
     };
 	class ExAd_Unit
     {
@@ -4534,9 +4542,9 @@ class XM8_App12_Button: RscExileXM8AppButton1x1
 
 class XM8_App13_Button: RscExileXM8AppButton1x1
 {
-    textureNoShortcut = "";
-    text = "";
-    onButtonClick = "";
+    textureNoShortcut = "Custom\TIMS\misc\uav.paa";
+    text = "Deploy UAV";
+    onButtonClick = "ExileClientXM8CurrentSlide = 'apps';closeDialog 0;[] execVM 'Custom\TIMS\misc\UAV_Spawn.sqf'";
     resource = "";
 };
 
