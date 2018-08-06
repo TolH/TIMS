@@ -1,6 +1,6 @@
 # TIMS
 (Town Invasion Mission System)
-(Annexe & Invade mission) type redone.
+(Annexe & Invade) type redone.
 
 
 (WIP)
