@@ -5,4 +5,4 @@
 
 (WIP)
 
-- test mission: town_invasion = [] execVM "TIMS\missions\Missions\-=TOWN_INVASION=-.sqf";
+- test mission: town_invasion = [] execVM "TIMS\missions\Missions\ -=TOWN_INVASION=-.sqf";
