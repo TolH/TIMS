@@ -1770,7 +1770,7 @@ class CfgExileArsenal
 	//#include "TRADERS\HWP\ItemListHWP.hpp"
 	//#include "TRADERS\Jonzie\ItemListJonzie.hpp"
 	#include "TRADERS\JETS\ItemListJETS.hpp"
-	//#include "TRADERS\KA\ItemListKA.hpp"
+	#include "TRADERS\KA\ItemListKA.hpp"
 	//#include "TRADERS\MASV\ItemListMASV.hpp"
 	//#include "TRADERS\MASW\ItemListMASW.hpp"
 	//#include "TRADERS\MASWW2\ItemListWW2.hpp"
@@ -3316,7 +3316,7 @@ class CfgTerritories
 		{85000,					105,		210					}, // Level 7
 		{90000,					120,		240					}, // Level 8
 		{150000,				135,		270					}, // Level 9
-		{200000,				170,		300					}  // Level 10
+		{200000,				170,		400					}  // Level 10
 	};
 
 	// A shortcut of the above maximum radius
@@ -3370,7 +3370,7 @@ class CfgTraderCategories
 	//#include "TRADERS\HWP\TraderCategoriesHWP.hpp"
 	//#include "TRADERS\Jonzie\TraderCategoriesJonzie.hpp"
 	#include "TRADERS\JETS\TraderCategoriesJETS.hpp"
-	//#include "TRADERS\KA\TraderCategoriesKA.hpp"
+	#include "TRADERS\KA\TraderCategoriesKA.hpp"
 	//#include "TRADERS\MASV\TraderCategoriesMASV.hpp"
 	//#include "TRADERS\MASW\TraderCategoriesMASW.hpp"
 	//#include "TRADERS\MASWW2\TraderCategoriesWW2.hpp"
