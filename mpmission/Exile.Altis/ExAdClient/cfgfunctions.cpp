@@ -21,7 +21,7 @@ class ExAd
 {
     tag = "ExAd";
     #include "Core\CfgFunctions.cpp"
-    //#include "VirtualGarage\CfgFunctions.cpp"
+    #include "VirtualGarage\CfgFunctions.cpp"
     //#include "StatsBar\CfgFunctions.cpp"
 	#include "JxUnitScanner\CfgFunctions.cpp"
     //#include "AdminEvents\CfgFunctions.cpp"

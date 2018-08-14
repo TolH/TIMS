@@ -1770,7 +1770,7 @@ class CfgExileArsenal
 	//#include "TRADERS\HWP\ItemListHWP.hpp"
 	//#include "TRADERS\Jonzie\ItemListJonzie.hpp"
 	#include "TRADERS\JETS\ItemListJETS.hpp"
-	#include "TRADERS\KA\ItemListKA.hpp"
+	//#include "TRADERS\KA\ItemListKA.hpp"
 	//#include "TRADERS\MASV\ItemListMASV.hpp"
 	//#include "TRADERS\MASW\ItemListMASW.hpp"
 	//#include "TRADERS\MASWW2\ItemListWW2.hpp"
@@ -1796,6 +1796,8 @@ class CfgExileCustomCode
 	//ExAdXM8
     ExileClient_gui_xm8_slide                   			= "Exile_Call\ExAdClient\ExileClient_gui_xm8_slide.sqf";
     ExileClient_gui_xm8_show                    			= "Exile_Call\ExAdClient\ExileClient_gui_xm8_show.sqf";
+	//EXAD VIRTUAL GARAGE
+	ExileServer_system_territory_database_load      		= "Exile_Call\ExAdClient\ExileServer_system_territory_database_load.sqf";
 	//VECTOR
 	ExileClient_object_construction_move 					= "Exile_Call\Vector\ExileClient_object_construction_move.sqf";
 	ExileClient_gui_hud_event_onKeyDown 					= "Exile_Call\Vector\ExileClient_gui_hud_event_onKeyDown.sqf";
@@ -3370,7 +3372,7 @@ class CfgTraderCategories
 	//#include "TRADERS\HWP\TraderCategoriesHWP.hpp"
 	//#include "TRADERS\Jonzie\TraderCategoriesJonzie.hpp"
 	#include "TRADERS\JETS\TraderCategoriesJETS.hpp"
-	#include "TRADERS\KA\TraderCategoriesKA.hpp"
+	//#include "TRADERS\KA\TraderCategoriesKA.hpp"
 	//#include "TRADERS\MASV\TraderCategoriesMASV.hpp"
 	//#include "TRADERS\MASW\TraderCategoriesMASW.hpp"
 	//#include "TRADERS\MASWW2\TraderCategoriesWW2.hpp"
@@ -4268,7 +4270,7 @@ class CfgVirtualGarage
 			0: Disable virtual garage
 			1: Enable virtual garage
 	*/
-	enableVirtualGarage = 1;	
+	enableVirtualGarage = 0;	
 	
 	/*
 		Enables or disables the ability to access virtual garage while in combat
@@ -4313,7 +4315,7 @@ class CfgVirtualGarage
 };
 class CfgXM8 
 {
-	extraApps[] = {"ExAd_JX","ExAd_Info","ExAd_CHVD","BRAmaRecipes","BaseMarker","ExAd_Quad","ExAd_Unit","scarCode","UAV_SPAWN"};
+	extraApps[] = {"ExAd_JX","ExAd_Info","ExAd_CHVD","BRAmaRecipes","BaseMarker","ExAd_Quad","ExAd_Unit","scarCode","ExAd_VG","UAV_SPAWN"};
 	
 	class settings
 	{
@@ -4374,6 +4376,15 @@ class CfgXM8
         onLoad = "ExAdClient\XM8\Apps\JX\onLoad.sqf";
         onOpen = "ExAdClient\XM8\Apps\JX\onOpen.sqf";
         onClose = "ExAdClient\XM8\Apps\JX\onClose.sqf";
+    };
+	class ExAd_VG
+    {
+        title = "Virtual Garage";
+        controlID = 50000;
+        logo = "ExadClient\XM8\Apps\VG\Icon_VG.paa";
+        onLoad = "ExAdClient\XM8\Apps\VG\onLoad.sqf";
+        onOpen = "ExAdClient\XM8\Apps\VG\onOpen.sqf";
+        onClose = "ExAdClient\XM8\Apps\VG\onClose.sqf";
     };
 	class BRAmaRecipes
     {
@@ -4542,13 +4553,21 @@ class XM8_App12_Button: RscExileXM8AppButton1x1
 
 class XM8_App13_Button: RscExileXM8AppButton1x1
 {
+    textureNoShortcut = "ExadClient\XM8\Apps\VG\Icon_VG.paa";
+    text = "ExAD Virtual Garage";
+    onButtonClick = "['ExAd_VG', 0] call ExileClient_gui_xm8_slide";
+    resource = "";
+};
+
+class XM8_App14_Button: RscExileXM8AppButton1x1
+{
     textureNoShortcut = "Custom\TIMS\misc\uav.paa";
     text = "Deploy UAV";
     onButtonClick = "ExileClientXM8CurrentSlide = 'apps';closeDialog 0;[] execVM 'Custom\TIMS\misc\UAV_Spawn.sqf'";
     resource = "";
 };
 
-class XM8_App14_Button: RscExileXM8AppButton1x1
+class XM8_App15_Button: RscExileXM8AppButton1x1
 {
     textureNoShortcut = "";
     text = "";

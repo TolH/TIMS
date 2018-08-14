@@ -62,14 +62,12 @@ class CfgServerInfoMenu
 			title = "Recent Changes";
 			content[] = 
 			{
-				"<t size='1.35' color='#1750e0'>(RECENT CHANGES DATE):</t><br />",
-				"     + ADDED STUFF PLACEHOLDER.<br />",
-				"     - REMOVED STUFF PLACEHOLDER.<br />",
-				"     + ADDED STUFF PLACEHOLDER.<br />",
-				"<t size='1.35' color='#1750e0'>(RECENT CHANGES DATE):</t><br />",
-				"     - REMOVED STUFF PLACEHOLDER.<br />",
-				"     + ADDED STUFF PLACEHOLDER.<br />",
-				"     - REMOVED STUFF PLACEHOLDER.<br />"
+				"<t size='1.35' color='#1750e0'>(08/14/2018):</t><br />",
+				"     Removed exileVG.<br />",
+				"     Added ExAdVirtualGarage.<br />",
+				"<t size='1.35' color='#1750e0'>(08/12/2018):</t><br />",
+				" 	  Removed Ka Mod.<br />",
+				" 	  Updated RHS MODS.<br />"
 			};
 		};
 //===========================================================//

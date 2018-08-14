@@ -153,6 +153,10 @@ class RscTitles
 	// Scavenge system
 		#include "dialogs\ExileScavengeUI.hpp"
 };
+class CfgHints
+{
+    #include "ExAdClient\CfgHints.cpp"
+};
 class notificationSystem
 {
 	#include "notificationSystem\config\config_master.hpp"
