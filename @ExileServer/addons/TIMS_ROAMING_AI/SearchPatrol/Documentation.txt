@@ -1,0 +1,45 @@
+--------------------------------------------
+ - ENGIMA'S SEARCH PATROL (VERSION 1.21) -
+--------------------------------------------
+
+Script that adds search patrol behavior to a group of AI soldiers. The group will patrol an area (marker), 
+and when it encounters enemies it will engage.
+
+
+--- VERSION HISTORY ---
+
+1.21:    Fixed: Script can now be executed on a headless client.
+         Fixed: Script now exits by itself if the group is suddenly removed.
+1.20:    Fixed: Groups getting destination positions in water.
+         Fixed: Groups engaging flying enemy units.
+1.11:    Fixed: Script error when units die or are being removed.
+1.10.01: Fixed: Hardcoded unit bug.
+1.10:    Units are more active in looking around when moving.
+1.0.10:  Group will now always walk between patrol positions, no matter how far it is between them, which will give them a more natural behavior in large areas (markers).
+1.0:     First version.
+
+
+--- SETTING IT UP ---
+
+1. Add the AI patrol group on the map.
+2. Add a marker on the map, covering the patrol area, and name it (e.g. "marker"). The marker may be of any shape (but not an icon).
+3. Add the following line to the initializtion of the leader:
+
+  _nil = [group this, "marker", [0,0,0], true] execVM "Engima\SearchPatrol\SearchPatrol.sqf";
+  
+  Note that the name of the marker (in the example "marker") must be the correct name of the marker.
+
+
+--- EXAMPLES ---
+
+A search patrol patrolling the marker named "patrol_marker" randomly and from a random starting position:
+
+  _nil = [group this, "patrol_marker"]
+
+A search patrol patrolling the marker, starting on a specific position:
+
+  _nil = [group this, "patrol_marker", getMarkerPos "start_marker"]
+  
+A search patrol patrolling the marker, starting on a random position, and in debug mode:
+
+  _nil = [group this, "patrol_marker", [0,0,0], true]

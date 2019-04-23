@@ -1,0 +1,118 @@
+----------------------------------------------
+ - ENGIMA'S PATROLLED AREAS (VERSION 1.1) -
+----------------------------------------------
+
+Script that provides a simple way to dynamically populate areas with patrolling units. Units spawn into 
+presence when players are near, and is deleted when they go away. Script is customizable.
+
+
+--- VERSION HISTORY ---
+
+1.1:     Added callbacks ON_GROUP_CREATED and ON_GROUP_REMOVING.
+         Added start parameter HIDE_MARKERS with default value true.
+         Added support for headless client.
+1.0.02:  Created better default config.
+1.0.01:  Fixed: Debug flag accidently set to true.
+1.0:     Fixed: Groups sometimes spawn in water.
+0.91.10: Fixed: "Area per group" was calculated incorrectly.
+0.91.01: Added debug asserts for unit class names that do not exist.
+0.91:    Fixed package that contains too many files.
+0.90:    First version.
+
+
+--- CUSTOMIZATION ---
+
+1. Place markers on the map where you want units to be patrolling. Markers may be of any shape and 
+   direction, but not icons.
+2. Customize parameters in file "Engima\PatrolledAreas\ConfigAndStart.sqf, for desired behaviour."
+3. Play.
+
+Script gets executed automatically since an initialization line is added to mission's init.sqf file.
+You may also execute several instances of the script if you want areas patrolled with different setup. 
+E.g. some areas patrolled by west and some patrolled by east. Simply copy the function call from file 
+ConfigAndStart.sqf and call the function with different parameters.
+
+Cusomization Parameters
+The start parameter list is an array of named parameters. The list is be customizable for desired 
+behavior of the spawned units.
+
+---------------------------------------------------------------------------------------------------------
+// Set custom parameters here
+_parameters = [
+	["PATROL_AREAS", ["airbaseMarker", "airStationMikeMarker", "militaryBaseMarker"]],
+	["HIDE_MARKERS", true],
+	["UNIT_CLASSES", ["O_G_Soldier_F", "O_G_Soldier_lite_F", "O_G_Soldier_SL_F", "O_G_Soldier_TL_F", "O_G_Soldier_AR_F", "O_G_medic_F", "O_G_engineer_F", "O_G_Soldier_exp_F", "O_G_Soldier_GL_F", "O_G_Soldier_M_F", "O_G_Soldier_LAT_F", "O_G_Soldier_A_F", "O_G_officer_F"]],
+	["SIDE", east],
+	["MIN_UNITS_PER_GROUP", 2],
+	["MAX_UNITS_PER_GROUP", 3],
+	["SPAWN_DISTANCE", 1000],
+	["AREA_PER_GROUP", 10000],
+	["GROUP_PROBABILITY_OF_PRESENCE", 1],
+	["MIN_SKILL", 0.4],
+	["MAX_SKILL", 0.6],
+	["ON_GROUP_CREATED", {}],
+	["ON_GROUP_REMOVING", {}],
+	["DEBUG", false]
+];
+
+// Start script
+_parameters call PATAREAS_PatrolledAreas;
+---------------------------------------------------------------------------------------------------------
+
+PATROL_AREAS (Array):
+Array of areas (marker names) that will be patrolled. Default value is ["PatrolledAreas_Marker1", "PatrolledAreas_Marker2"].
+Change and complete this array with your own markers.
+
+HIDE_MARKERS (Boolean):
+Whether the patrol area markers will be hidden by the script or not. If true the markers will be hidden
+(setMarkerAlpha 0), if false they will not be affected by the script at all.
+
+UNIT_CLASSES (Array):
+Array of possible units (class names) that will be spawned. If you want one unit class to be more probable 
+than another, it some extra times in the array.
+Default value are some Arma 3 Opfor units.
+
+SIDE (Side):
+Side of spawned units.
+
+MIN_UNITS_PER_GROUP (Scalar):
+Minimum numbers of units in a group. Must be less than or equal to MAX_UNITS_PER_GROUP. Units per group 
+will be a random number between MIN_UNITS_PER_GROUP and MAX_UNITS_PER_GROUP.
+
+MAX_UNITS_PER_GROUP (Scalar):
+Maximum numbers of units in a group. Must be greater than or equal to MIN_UNITS_PER_GROUP. Units per group 
+will be a random number between MIN_UNITS_PER_GROUP and MAX_UNITS_PER_GROUP.
+
+SPAWN_DISTANCE (Scalar):
+If a player gets closer than this distance to an area marker, search patrol units will spawn.
+
+AREA_PER_GROUP (Scalar):
+Density of patrolling groups in an area (in unit "square meters per group").
+If area is less than this area then 1 group will be spawned.
+If area is greater than this area but less than double this area, then 1 group will spawn.
+If area is greater than double this area but less than triple this area, then 2 groups will spawn, and
+so on.
+
+GROUP_PROBABILITY_OF_PRESENCE (Scalar):
+Each group's probability of presence. Must be a value between 0 and 1. 0 = group will never be present, 
+1 = group will always be present, 0.5 = each group has a 50% chance to be present.
+
+MIN_SKILL (Scalar):
+Minimum skill of each spawned unit. Must be greater or equal to 0 and less than or equal to MAX_SKILL. 
+Skill will be a random number between MIN_SKILL and MAX_SKILL.
+
+ON_GROUP_CREATED (Code):
+A callback that is executed right after a group has spawned. Parameter _this is an array and contains 
+the following sent in parameters: 0 (Group): The group that was spawned. 1 (String): The marker in which
+the group was spawned. 2 (Scalar): The total number of groups spawned in the current marker.
+Example: { hint "Group spawned in marker " + (_this select 1) + "!"; }
+
+ON_GROUP_REMOVING (Code):
+A callback that is executed right before an ambient infantry group is removed. Parameter _this is an array 
+and contains the following sent in parameters: 0 (Group): The group that will be removed. 1 (String): The 
+marker in which the group was spawned. 2 (Scalar): The total number of groups spawned in the current marker.
+Example: { hint "Group was removed."; }
+
+DEBUG (Boolean):
+Whether debug info will be printed or not. true if you want debug information for groups (dots on the 
+map), otherwise false.
