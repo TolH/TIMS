@@ -48,11 +48,13 @@ if (player == vehicle player) then
 	else
 	{
 		//SECOND VEHICLE CHECK
-		titleText ["<t color='#ff0000' size='3'>Leave your vehicle first if you want to start this event!</t>", "PLAIN", -1, true, true];
+		["ErrorTitleAndText", ["CANNOT JOIN IF ALREADY INSIDE A VEHICLE"]] call ExileClient_gui_toaster_addTemplateToast;
+		//titleText ["<t color='#ff0000' size='3'>Leave your vehicle first if you want to start this event!</t>", "PLAIN", -1, true, true];
 	};
 }
 else
 {
 	//FIRST VEHICLE CHECK
-	titleText ["<t color='#ff0000' size='3'>Leave your vehicle first if you want to start this event!</t>", "PLAIN", -1, true, true];
+	["ErrorTitleAndText", ["CANNOT JOIN IF ALREADY INSIDE A VEHICLE"]] call ExileClient_gui_toaster_addTemplateToast;
+	//titleText ["<t color='#ff0000' size='3'>Leave your vehicle first if you want to start this event!</t>", "PLAIN", -1, true, true];
 };
