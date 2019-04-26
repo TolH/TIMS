@@ -42,7 +42,7 @@ this addEventHandler ["Killed", {
 	{
 		_skipPlayerRewards = 1;
 		if (isNull _instigator) then {_instigator = _instigatorAI; _distance = 1; _distanceBonus = 1; }; // player driven vehicle road kill 
-		diag_log format ["=======================================================================#ON_FOOT KILLED BY: [%1] AIBodyguard:%2] [$$$:%3] [RANGE:%4M]", name (_instigatorAI), name _instigator, _moneyPerKillMULTI/2, (round _distance)];
+		diag_log format ["=======================================================================#ON_FOOT KILLED BY: [%1] AIBodyguard:%2] [$$$:%3] [RANGE:%4M] [KillMsg:%5]", name (_instigatorAI), name _instigator, _moneyPerKillMULTI/2, (round _distance), _killMsgBodyguard];
 		_killerMoneyPoints pushBack [(format ["%1",_killMsgBodyguard]), _moneyPerKillMULTI/3];
 		{_moneyChange = (_moneyChange + (_x select 1));}forEach _killerMoneyPoints;
 		_currentAccountBalance = _instigatorAI getVariable ["ExileMoney", 0];

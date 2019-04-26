@@ -4,6 +4,7 @@
 //									  -MISSION OBJECTIVES-:
 //    1: CAPTURE ALL 3 TOWERS AND ALL PLAYER WILL GAIN MONEY EVERY 2minutes UNLESS AI CAPTURE A TOWER BACK. 
 //============================================////============================================//
+//============================================//
 //MISSION RUNNING CHECK
 	TIMS_CAPTURE_TOWERS_STARTED = 1;
 //============================================//
@@ -23,7 +24,7 @@
 
 
 
-
+//============================================//
 //============================================////============================================//
 //MISSION RUNNING CHECK
 	TIMS_CAPTURE_TOWERS_STARTED = 0;

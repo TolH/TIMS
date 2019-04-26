@@ -3,9 +3,13 @@
 //============================================////============================================//
 //MISSION ACCEPTED BY PLAYER FROM THE GUI CONFIRM MISSION
 //FIRST VEHICLE CHECK
-RACETIMER = 40;
+RACETIMER = 30;
 if (player == vehicle player) then 
 {
+	//RANDOMIZE SLEEP IN CASE I WANT TO FIRE THE SCRIPT TO EVERYONE ON THE SERVER BY HANDS SO THEY ALL SPAWN AROUND WITHOUT EXPLODING...
+	private _RandomSleep1 selectRandom [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9];
+	private _RandomSleep2 selectRandom [0.9, 0.8, 0.7, 0.6, 0.5, 0.4, 0.3, 0.2, 0.1];
+	uiSleep round (_RandomSleep1 + _RandomSleep2);
 	//TEMP SAVE CURRENT PLAYER POSITION TO TELEPORT HIM BACK WHERE HE WAS
 	profileNamespace setVariable ["TP_BACK_POS", getPos player];
 	//START
@@ -17,6 +21,7 @@ if (player == vehicle player) then
 	//SECOND VEHICLE CHECK
 	if (player == vehicle player) then 
 	{
+		//SPAWN STUFF AND START THE ACTUAL RACE
 		player allowdamage false;
 		private _GrpResistance = createGroup resistance;
 		private _RandomRacingCar = selectRandom ["Exile_Car_Golf_Black","Exile_Car_Golf_Red"];
@@ -32,29 +37,27 @@ if (player == vehicle player) then
 		player moveInDriver _RacingVehicle;
 		titleText ["RACE IS STARTING SHORTLY! GET READY...", "BLACK IN", 7];
 		uiSleep 7;
-		titleText ["<t color='#0cd620' size='8'>3...</t><br/>", "PLAIN", -1, true, true];
-		uiSleep 2;
-		titleText ["<t color='#fffa00' size='8'>2..</t><br/>", "PLAIN", -1, true, true];
-		uiSleep 2;
-		titleText ["<t color='#ffb200' size='8'>1.</t><br/>", "PLAIN", -1, true, true];
-		uiSleep 2;
+		//START COUNTDOWN (NEED SOUNDS AND MAYBE AI AROUND DOING AI STUFF)
+		titleText ["<t color='#0cd620' size='10'>3...</t><br/>", "PLAIN", -1, true, true];
+		uiSleep 1.5;
+		titleText ["<t color='#fffa00' size='10'>2..</t><br/>", "PLAIN", -1, true, true];
+		uiSleep 1.5;
+		titleText ["<t color='#ffb200' size='10'>1.</t><br/>", "PLAIN", -1, true, true];
+		uiSleep 1.5;
 		_RacingVehicle setFuel 1;
 		titleText ["<t color='#ff0000' size='6'>GOGOGO!!!</t><br/>", "PLAIN", -1, true, true];
 		uiSleep 1;
-		_RacingVehicle allowdamage true;
 		//LAUNCH MAIN TIMER AND CHECKPOINTS
 		[_AI_Checkpoint, _RacingVehicle] execVM "Custom\TIMS\-=Events=-\RacingScript.sqf";
 	}
 	else
 	{
-		//SECOND VEHICLE CHECK
+		//ADDING SECOND VEHICLE CHECK IN CASE PLAYER ENTER A VEHICLE RIGHT AFTER ACCEPTING THE RACE GUI REQUEST. 
 		["ErrorTitleAndText", ["CANNOT JOIN IF ALREADY INSIDE A VEHICLE"]] call ExileClient_gui_toaster_addTemplateToast;
-		//titleText ["<t color='#ff0000' size='3'>Leave your vehicle first if you want to start this event!</t>", "PLAIN", -1, true, true];
 	};
 }
 else
 {
 	//FIRST VEHICLE CHECK
 	["ErrorTitleAndText", ["CANNOT JOIN IF ALREADY INSIDE A VEHICLE"]] call ExileClient_gui_toaster_addTemplateToast;
-	//titleText ["<t color='#ff0000' size='3'>Leave your vehicle first if you want to start this event!</t>", "PLAIN", -1, true, true];
 };
