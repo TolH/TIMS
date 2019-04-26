@@ -227,6 +227,7 @@ R3F_LOG_CFG_string_condition_allow_creation_factory_on_this_client = "false";
 #include "addons_config\Arma3.sqf"
 #include "addons_config\RHS.sqf"
 #include "addons_config\Exile.sqf"
+//#include "addons_config\CUP.sqf" // REMOVE THIS LINE IF YOU DONT USE CUP VEHICLES
 //#include "addons_config\MAS.sqf"
 #include "addons_config\FFAAV.sqf"
 #include "addons_config\APEX.sqf"
@@ -314,7 +315,8 @@ R3F_LOG_CFG_can_be_lifted = R3F_LOG_CFG_can_be_lifted +
 	"Land_Pod_Heli_Transport_04_medevac_black_F",
 	"Land_Pod_Heli_Transport_04_bench_black_F",
 	"I_UAV_02_F",
-	"I_UAV_02_CAS_F"
+	"I_UAV_02_CAS_F",
+	"C_IDAP_CargoNet_01_supplies_F"	
 ];
 
 
@@ -390,8 +392,14 @@ R3F_LOG_CFG_can_be_transported_cargo = R3F_LOG_CFG_can_be_transported_cargo +
 	["B_Slingload_01_Cargo_F", 30],
 	["B_Slingload_01_Fuel_F", 30],
 	["B_Slingload_01_Ammo_F", 30],
-	["B_Slingload_01_Medevac_F", 30],
-	["B_Slingload_01_Repair_F", 30]
+	//["B_Slingload_01_Medevac_F", 30],
+	["B_Slingload_01_Repair_F", 30],
+	["Box_IND_Ammo_F", 30],
+	//=====================addon=====================
+	["rhsusf_mrzr4_d", 30],
+	["rhsusf_mrzr4_d_mud", 30],
+	["rhsusf_mrzr4_w_mud", 30]
+	
 ];
 
 /****** MOVABLE-BY-PLAYER OBJECTS / OBJETS DEPLACABLES PAR LE JOUEUR ******/
@@ -443,6 +451,8 @@ R3F_LOG_CFG_can_be_moved_by_player = R3F_LOG_CFG_can_be_moved_by_player +
 	"B_AAA_System_01_F",
 	"B_SAM_System_01_F",
 	"B_SAM_System_02_F",
-	"I_UAV_02_CAS_F"
+	"I_UAV_02_CAS_F",
+	"Box_IND_Ammo_F",
+	"C_IDAP_CargoNet_01_supplies_F"
 
 ];

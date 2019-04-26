@@ -313,7 +313,8 @@
 			"ffaa_et_vamtac_m2",
 			"ffaa_et_vamtac_mistral",
 			"ffaa_et_vamtac_tow",
-			"ffaa_et_vamtac_ume"
+			"ffaa_et_vamtac_ume",
+			"ffaa_et_lince_lag40"
 		};
 	};
 

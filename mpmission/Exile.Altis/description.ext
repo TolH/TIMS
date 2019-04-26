@@ -50,7 +50,6 @@ briefing = 0;
 debriefing = 0;
 allowFunctionsLog = 1;
 enableDebugConsole = 0;
-//enableDebugConsole[] = {"76561198027741420"};
 allowFunctionsRecompile = 0;
 showSquadRadar = 0;
 showUAVFeed = 0;
@@ -91,10 +90,15 @@ showHUD[] =
 //PaintShop
  	#include "addons\paintshop\Halv_defines.hpp"
  	#include "addons\paintshop\paintshop.hpp"
-//SCAVENGE
-	#include "CfgScavengeRecipes.cpp"
-	#include "CfgExileScavenge.cpp"
-	#include "CfgExileHoldActions.cpp"
+//Trader_ui
+    #include "SM\TraderPlus\SM_TraderPlus.hpp"
+//GOM
+	#include "scripts\GOM\dialogs\GOM_dialog_parents.hpp"
+	#include "scripts\GOM\dialogs\GOM_dialog_controls.hpp"
+//BODYGUARD UI USING IDD #77777
+	#include "Custom\TIMS\Frames\BODYGUARD_SELECTION.hpp"
+//TIMS_EVENT USING IDD #77877
+	#include "Custom\TIMS\Frames\TIMS_EVENTS.hpp"
 ///////////////////////////////////////////////////////////////////////////////
 
 class CfgFunctions
@@ -103,28 +107,8 @@ class CfgFunctions
 		#include "ExAdClient\CfgFunctions.cpp"
 	//ScarCode
 		#include "scarCODE\cfgFunctions.hpp"
-	//NOTIFICATION
-	class Haz
-	{
-		tag = "Haz";
-		class notificationSystem
-		{
-			file = "notificationSystem\functions";
-			class createNotification {};
-		};
-	};
-	//SCAVENGE
-	class ExileExpansionClient
-	{
-		class Bootstrap
-		{
-			file="bootstrap";
-			class preInit
-			{
-				preInit=1;
-			};
-		};
-	};
+	//GOM
+		#include "scripts\GOM\functions\GOM_fnc_functions.hpp"
 };
 class CfgNetworkMessages
 {
@@ -135,31 +119,19 @@ class RscTitles
 {
 	//ExAd
 		#include "ExAdClient\RscTitles.cpp"
-	//TIMS NOTIFICATION FRAME  #88666,88667
-		#include "Custom\TIMS\Frames\RANDOM_LOOT_CRATE_NOTIFICATION.hpp" 	//#88666
-		#include "Custom\TIMS\Frames\INVASION_MISSION_NOTIFICATION.hpp" 	//#88667
-	//NOTIFICATION
-		#include "notificationSystem\rsc\rsc_notifications.hpp"
+	//TIMS NOTIFICATION FRAME  #88666,#88667,#88668,#88669
+	/* RANDOM_LOOT_CRATE_NOTIFICATION, INVASION_MISSION_NOTIFICATION, RANDOM_PATROL_NOTIFICATION, VR_HUNT_NOTIFICATION */
+		#include "Custom\TIMS\Frames\TIMS_FRAMES.hpp"
 	// Status Bar
 		#include "Custom\StatusBar\statusBar.hpp"
-	//Scavenge
-	class Default
-	{
-		idd = -1;
-		fadein = 0;
-		fadeout = 0;
-		duration = 0;
-	};
-	// Scavenge system
-		#include "dialogs\ExileScavengeUI.hpp"
 };
 class CfgHints
 {
     #include "ExAdClient\CfgHints.cpp"
 };
-class notificationSystem
+class CfgCommunicationMenu
 {
-	#include "notificationSystem\config\config_master.hpp"
+	#include "scripts\GOM\functions\GOM_fnc_aircraftLoadoutMenu.hpp"
 };
 class CfgSounds
 {
@@ -171,26 +143,37 @@ class CfgSounds
 		sound[] = {"intro.ogg", 1, 1, 5};
 		titles[] = {0,""};
 	};
-	//KNIGHTRIDER1
-	class KNIGHTRIDER1
-	{
-		name = "KNIGHTRIDER_MUSIC1";
-		sound[] = {"Custom\TIMS\Sounds\KR.ogg", 1, 1, 5};
-		titles[] = {0,""};
-	};
-	//KNIGHTRIDER2
-	class KNIGHTRIDER2
-	{
-		name = "KNIGHTRIDER_MUSIC2";
-		sound[] = {"Custom\TIMS\Sounds\KR_F.ogg", 1, 1, 5};
-		titles[] = {0,""};
-	};
 	//RANDOM CRATE ALERT
 	class CRATEALERTSFX
 	{
 		name = "CRATE_ALERT_SFX";
 		sound[] = {"Custom\TIMS\Sounds\hint-5.wss", 1, 1, 5};
 		titles[] = {0,""};
+	};
+	//COASTAL PATROL ALERT
+	class COASTPATROLALERTSFX
+	{
+		name = "COAST_PATROL_ALERT_SFX";
+		sound[] = {"Custom\TIMS\Sounds\Tactical_Ping.wss", 1, 1, 5};
+		titles[] = {0,""};
+	};
+	class zomb1
+	{
+		name = "zomb1";
+		sound[] = {"\zombie\sounds\zomb1.ogg", 1, 1};
+		titles[] = {};
+	};
+	class zomb2
+	{
+		name = "zomb2";
+		sound[] = {"\zombie\sounds\zomb2.ogg", 1, 1};
+		titles[] = {};
+	};
+	class zomb3
+	{
+		name = "zomb3";
+		sound[] = {"\zombie\sounds\zomb3.ogg", 1, 1};
+		titles[] = {};
 	};
 };
 class CfgNotifications

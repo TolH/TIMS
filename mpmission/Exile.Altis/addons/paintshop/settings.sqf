@@ -128,7 +128,34 @@ _textures = [
 	["Fuchsia","#(argb,8,8,3)color(1,0,1,1)"],
 	["Purple","#(argb,8,8,3)color(0.5,0,0.5,1)"],
 	["Pink","#(argb,8,8,3)color(1,0.75,0.84,0.2)"],
-	["Tan","#(argb,8,8,3)color(0.8,0.7,0.5,0.2)"]
+	["Tan","#(argb,8,8,3)color(0.8,0.7,0.5,0.2)"],
+	
+	//new colors
+	
+	//Halv's Paintshop eXpanded 4 Exile by DirtySanchez
+	["Armor","addons\paintshop\skins\armor.jpg"],
+	["Devil's Camo","addons\paintshop\skins\blackredwhite.paa"],
+	["Blue Camo","addons\paintshop\skins\bluecamo.jpg"],
+	["Camo Camo","addons\paintshop\skins\camo.jpg"],
+	["DirtySanchez Camo","addons\paintshop\skins\camo1.jpg"],
+	["Aqua Camo","addons\paintshop\skins\camoaqua.jpg"],
+	["Desert Camo","addons\paintshop\skins\camodesert.jpg"],
+	["Silver Camo","addons\paintshop\skins\camogrey.jpg"],
+	["Pink Camo","addons\paintshop\skins\camopink.jpg"],
+	["Red Camo","addons\paintshop\skins\camored.jpg"],
+	["Smooth Camo","addons\paintshop\skins\camosmooth.jpg"],
+	["Tie Die Camo","addons\paintshop\skins\camotiedie.jpg"],
+	["Digital Camo","addons\paintshop\skins\digital.jpg"],
+	["Fire Camo","addons\paintshop\skins\fire.jpg"],
+	["Flat Green Camo","addons\paintshop\skins\flatgreen.jpg"],
+	["Pink Hair Camo","addons\paintshop\skins\pink-hair.jpg"],
+	["Safari Camo","addons\paintshop\skins\safari.jpg"],
+	["Shield Camo","addons\paintshop\skins\shield.jpg"],
+	["Skull Camo","addons\paintshop\skins\skullcamo.jpg"],
+	["Neon Camo","addons\paintshop\skins\spilled_neon.jpg"],
+	["Urban Camo","addons\paintshop\skins\urbancamo.jpg"],
+	["Zebra Camo","addons\paintshop\skins\zebracamo.paa"],
+	["Eagle","\a3\data_f_curator\Eagle\Data\eagle_co.paa"]
 	
 
 	

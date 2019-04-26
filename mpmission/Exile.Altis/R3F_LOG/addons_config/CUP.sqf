@@ -607,7 +607,7 @@ R3F_LOG_CFG_can_lift = R3F_LOG_CFG_can_lift +
 [
 	// e.g. : "MyLifterVehicleClassName1", "MyLifterVehicleClassName2"
 
-  /*"CUP_B_AH1Z",
+  "CUP_B_AH1Z",
   "CUP_B_AH1Z_14RndHydrax",
   "CUP_B_AH1Z_7RndHydra",
   "CUP_B_AH1Z_AT",
@@ -689,7 +689,10 @@ R3F_LOG_CFG_can_lift = R3F_LOG_CFG_can_lift +
   "CUP_B_MI6A_CDF",
   "CUP_B_AH6J_ESCORT_USA",
   "CUP_B_MH6J_USA",
-  "CUP_B_AH1Z_NoWeapons"*/
+  "CUP_B_AH1Z_NoWeapons",
+  "CUP_O_UH1H_SLA",
+  "CUP_O_UH1H_TKA"
+  
 ];
 
 /**
@@ -1372,7 +1375,9 @@ R3F_LOG_CFG_can_transport_cargo = R3F_LOG_CFG_can_transport_cargo +
   ["CUP_I_SUV_Armored_ION", 60],
   ["CUP_O_GAZ_Vodnik_PK_RU", 90],
   ["CUP_B_BAF_Coyote_L2A1_W", 90],
-  ["CUP_B_BAF_Coyote_L2A1_D", 90]
+  ["CUP_B_BAF_Coyote_L2A1_D", 90],
+  ["CUP_O_UH1H_SLA", 60],
+  ["CUP_O_UH1H_TKA", 60]
 
 ];
 

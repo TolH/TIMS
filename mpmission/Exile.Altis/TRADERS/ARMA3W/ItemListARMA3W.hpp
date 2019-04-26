@@ -5,10 +5,10 @@
 	///////////////////////////////////////////////////////////////////////////////
 	// Dropped by AI or default things not in traders - to be sold only
 	///////////////////////////////////////////////////////////////////////////////
-	class FirstAidKit				{ quality = 2; price = 100; };
-	class Medikit 					{ quality = 2; price = 100; };
-	class MineDetector				{ quality = 2; price = 100; };
-	class ToolKit					{ quality = 2; price = 100; };
+	//class FirstAidKit				{ quality = 2; price = 100; };
+	//class Medikit 					{ quality = 2; price = 100; };
+	//class MineDetector				{ quality = 2; price = 100; };
+	//class ToolKit					{ quality = 2; price = 100; };
 
 	///////////////////////////////////////////////////////////////////////////////
 	// Launchers

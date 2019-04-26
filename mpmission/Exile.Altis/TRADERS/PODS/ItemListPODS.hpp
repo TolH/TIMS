@@ -21,7 +21,7 @@
     ///////////////////////////////////////////////////////////////////////////////
     // Huron Pods
     ///////////////////////////////////////////////////////////////////////////////
-    class B_Slingload_01_Cargo_F							{ quality = 1; price = 12000; };
-    class B_Slingload_01_Fuel_F								{ quality = 1; price = 15500; };
-    class B_Slingload_01_Medevac_F							{ quality = 1; price = 16500; };
-    class B_Slingload_01_Repair_F							{ quality = 1; price = 16500; };
+    //class B_Slingload_01_Cargo_F							{ quality = 1; price = 12000; };
+    //class B_Slingload_01_Fuel_F								{ quality = 1; price = 15500; };
+    class B_Slingload_01_Medevac_F							{ quality = 1; price = 6500; };
+    class B_Slingload_01_Repair_F							{ quality = 1; price = 6500; };

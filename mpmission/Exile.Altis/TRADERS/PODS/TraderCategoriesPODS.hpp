@@ -17,8 +17,8 @@
 			"Land_Pod_Heli_Transport_04_bench_F",
 			"Land_Pod_Heli_Transport_04_bench_black_F",
 			"Land_Pod_Heli_Transport_04_ammo_F",
-			"B_Slingload_01_Cargo_F",
-			"B_Slingload_01_Fuel_F",
+			//"B_Slingload_01_Cargo_F",
+			//"B_Slingload_01_Fuel_F",
 			"B_Slingload_01_Medevac_F",
 			"B_Slingload_01_Repair_F"
 		};

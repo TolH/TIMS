@@ -220,6 +220,7 @@
      class ffaa_et_vamtac_cardom								{ quality = 4; price = 160000;  sellPrice = 20000; };
      class ffaa_et_vamtac_tow									{ quality = 4; price = 60000; sellPrice = 9000; };
      class ffaa_et_vamtac_m2									{ quality = 4; price = 60000; sellPrice = 9000; };
+	 class ffaa_et_lince_lag40                                  { quality = 3; price = 35000; sellPrice = 15000; };
 	//////////////////////////////////////////////////////////////////////////////
 	//	FFAA Unarmed
 	//////////////////////////////////////////////////////////////////////////////

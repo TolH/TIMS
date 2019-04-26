@@ -281,7 +281,6 @@
 	class rhsusf_acc_nt4_tan								{ quality = 3; price = 180; };
 	class rhsusf_acc_rotex5_grey							{ quality = 3; price = 180; };
 	class rhsusf_acc_rotex5_tan								{ quality = 3; price = 180; };
-	class rhsusf_acc_SR25S									{ quality = 2; price = 190; };
 	class rhsusf_acc_M2010S									{ quality = 2; price = 200; };
 	class rhsusf_acc_omega9k								{ quality = 3; price = 200; };
 	//MP7A2 Rotex Silencer Variations
@@ -353,8 +352,7 @@
 	class rhsusf_100Rnd_762x51_m993							{ quality = 1; price = 95; };
 	class rhsusf_100Rnd_762x51_m80a1epr						{ quality = 1; price = 95; };
 	class rhsusf_20Rnd_762x51_m993_Mag						{ quality = 1; price = 45; };
-	class rhsusf_5Rnd_300winmag_xm2010						{ quality = 1; price = 55; };
-
+	class rhsusf_5Rnd_300winmag_xm2010						{ quality = 1; price = 55; }; 
 	//50 Cal
 	class rhsusf_mag_10Rnd_STD_50BMG_M33					{ quality = 3; price = 100; };
 	class rhsusf_mag_10Rnd_STD_50BMG_mk211					{ quality = 3; price = 500; };
@@ -413,7 +411,7 @@
 	///////////////////////////////////////////////////////////////////////////////
 	// Assault Rifles
 	///////////////////////////////////////////////////////////////////////////////
-	/*	// Exile Dupe issue items un comment at your own risk
+		// Exile Dupe issue items un comment at your own risk
 	class rhs_weap_ak103							{ quality = 1; price = 450; };
 	class rhs_weap_ak103_1							{ quality = 1; price = 450; };
 	class rhs_weap_ak103_npz						{ quality = 1; price = 450; };
@@ -464,7 +462,6 @@
 	class rhs_weap_aks74n							{ quality = 1; price = 500; };
 	class rhs_weap_aks74n_gp25						{ quality = 1; price = 600; };
 	class rhs_weap_m4_grip							{ quality = 2; price = 400; };
-	*/
 	class rhs_weap_hk416d10 						{ quality = 3; price = 550; };
 	class rhs_weap_hk416d10_LMT 					{ quality = 3; price = 550; };
 	class rhs_weap_hk416d10_m320 					{ quality = 4; price = 650; };

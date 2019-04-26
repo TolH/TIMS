@@ -82,3 +82,8 @@ fn_Spawn_STATIC_slums = 					{ _stringcode = "[""slums""] call DMS_fnc_SpawnStat
 fn_Spawn_STATIC_bomos = 					{ _stringcode = "[""bomos""] call DMS_fnc_SpawnStaticMission;"; [_stringcode] call admin_d0_server; };
 fn_Spawn_STATIC_thelosracetrack = 			{ _stringcode = "[""thelosracetrack""] call DMS_fnc_SpawnStaticMission;"; [_stringcode] call admin_d0_server; };
 fn_Spawn_STATIC_ai_island = 				{ _stringcode = "[""ai_island""] call DMS_fnc_SpawnStaticMission;"; [_stringcode] call admin_d0_server; };
+//4 NEW MISSIONS
+fn_Spawn_STATIC_kavala_hospital = 			{ _stringcode = "[""kavala_hospital""] call DMS_fnc_SpawnStaticMission;"; [_stringcode] call admin_d0_server; };
+fn_Spawn_STATIC_powerplant = 				{ _stringcode = "[""powerplant""] call DMS_fnc_SpawnStaticMission;"; [_stringcode] call admin_d0_server; };
+fn_Spawn_STATIC_radiation = 				{ _stringcode = "[""radiation""] call DMS_fnc_SpawnStaticMission;"; [_stringcode] call admin_d0_server; };
+fn_Spawn_STATIC_proteus = 					{ _stringcode = "[""proteus""] call DMS_fnc_SpawnStaticMission;"; [_stringcode] call admin_d0_server; };

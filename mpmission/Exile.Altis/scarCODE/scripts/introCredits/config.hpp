@@ -6,12 +6,12 @@ class sc_cfgIntroCredits
     // The line below is used for configuring what will be shown as credits. Be careful with the brackets!
     credits[] =
     {
-        {"WELCOME TO",{"Bazlin! Exile Server"}},
+        {"WELCOME TO",{"Blazin! Exile Server"}},
         {"SERVER HOSTED BY",{"GTXGaming"}},
-        {"ADMINS",{"BadAss","DeepDemon211","0908","Softhands","Capdan"}},
+        {"ADMINS",{"BadAss","DeepDemon211","0908"}},
         {"SERVER MOD",{"EXILE","And Many More Mods"}},
         {"ANTIHACK",{"by infiSTAR"}},
-        {"SCRIPTS",{"Rearm","Advanced Sling Loading","Advanced Towing","VEMFr","and MORE!"}},
+        {"SCRIPTS",{"Rearm","Roaming AI","Advanced Sling Loading","Advanced Towing","and MORE!"}},
         {"DISCORD",{"https://discord.gg/XhJzAem","Check your XM8 for more Info!"}},
 		{"DONATIONS",{"https://www.paypal.me/BlazinPVEExileServer"}},
         {"SPECIAL THANKS",{"infiSTAR and many script makers out there and All of YOU for playing on this server"}}

@@ -70,8 +70,7 @@ class Exile_AbstractCraftingRecipe
 
 class CfgCraftingRecipes
 {
-	#include "EBM\recipes.hpp"
-	
+	#include "TRADERS\EBM\recipes.hpp"
 	
 class BreachingChargeBigMomma: Exile_AbstractCraftingRecipe
 {
@@ -1753,32 +1752,14 @@ class CfgExileArsenal
 	#include "TRADERS\APEX\ItemListAPEX.hpp"
 	#include "TRADERS\ARMA3V\ItemListARMA3V.hpp"
 	#include "TRADERS\ARMA3W\ItemListARMA3W.hpp"
-	//#include "TRADERS\BPOINT\ItemListBPOINT.hpp"
-	//#include "TRADERS\CUNITS\ItemListCUNITS.hpp"
-	//#include "TRADERS\CUPV\ItemListCUPV.hpp"
-	//#include "TRADERS\CUPW\ItemListCUPW.hpp"
 	#include "TRADERS\CUSTOM\ItemListCUSTOM.hpp"
 	#include "TRADERS\EBM\ItemListEBM.hpp"
 	#include "TRADERS\Exile\ItemListExile.hpp"
 	#include "TRADERS\FFAA\ItemListFFAA.hpp"
-	//#include "TRADERS\FHQ\ItemListFHQ.hpp"
-	//#include "TRADERS\FMP\ItemListFMP.hpp"
-	//#include "TRADERS\FOX\ItemListFOX.hpp"
-	//#include "TRADERS\HAP\ItemListHAP.hpp"
-	//#include "TRADERS\HAFM\ItemListHAFM.hpp"
-	//#include "TRADERS\HVP\ItemListHVP.hpp"
-	//#include "TRADERS\HWP\ItemListHWP.hpp"
-	//#include "TRADERS\Jonzie\ItemListJonzie.hpp"
 	#include "TRADERS\JETS\ItemListJETS.hpp"
-	//#include "TRADERS\KA\ItemListKA.hpp"
-	//#include "TRADERS\MASV\ItemListMASV.hpp"
-	//#include "TRADERS\MASW\ItemListMASW.hpp"
-	//#include "TRADERS\MASWW2\ItemListWW2.hpp"
+	#include "TRADERS\LAWSOFWARDLC\ItemListLAWSOFWARDLC.hpp"
 	#include "TRADERS\NIA\ItemListNIA.hpp"
-	//#include "TRADERS\NLD\ItemListNLD.hpp"
 	#include "TRADERS\PODS\ItemListPODS.hpp"
-	//#include "TRADERS\POOK\ItemListPOOK.hpp"
-	//#include "TRADERS\R3FW\ItemListR3FW.hpp"
 	#include "TRADERS\RHSGREF\ItemListGREF.hpp"
 	#include "TRADERS\RHSSAF\ItemListRHSSAF.hpp"
 	#include "TRADERS\RHSV\ItemListRHSV.hpp"
@@ -1786,7 +1767,6 @@ class CfgExileArsenal
 	#include "TRADERS\TANKDLC\ItemListTANKDLC.hpp"
 	#include "TRADERS\TRYK\ItemListTRYK.hpp"
 	#include "TRADERS\SMA\ItemListSMAW.hpp"
-	//#include "TRADERS\HLC\ItemListHLC.hpp"		//should use NIArms
 };
 
 class CfgExileCustomCode 
@@ -1798,6 +1778,9 @@ class CfgExileCustomCode
     ExileClient_gui_xm8_show                    			= "Exile_Call\ExAdClient\ExileClient_gui_xm8_show.sqf";
 	//EXAD VIRTUAL GARAGE
 	ExileServer_system_territory_database_load      		= "Exile_Call\ExAdClient\ExileServer_system_territory_database_load.sqf";
+	//REVIVE
+	ExileClient_object_player_death_startBleedingOut 		= "Custom\EnigmaRevive\ExileClient_object_player_death_startBleedingOut.sqf"; //Happys Revive
+	//ExileClient_object_player_event_onInventoryOpened 		= "custom\EnigmaRevive\ExileClient_object_player_event_onInventoryOpened.sqf"; //Happys Revive AntiDupe ---NEW with v0.65
 	//VECTOR
 	ExileClient_object_construction_move 					= "Exile_Call\Vector\ExileClient_object_construction_move.sqf";
 	ExileClient_gui_hud_event_onKeyDown 					= "Exile_Call\Vector\ExileClient_gui_hud_event_onKeyDown.sqf";
@@ -1811,6 +1794,8 @@ class CfgExileCustomCode
 		ExileClient_gui_hud_event_onKeyUp					= "Exile_Call\-=Shared=-\ExileClient_gui_hud_event_onKeyUp.sqf";
 		//LOADOUT+UAV
 		ExileServer_object_player_createBambi 				= "Exile_Call\-=Shared=-\-LOADOUT-UAV-ExileServer_object_player_createBambi.sqf";
+		//Misc+TRADERPLUS
+		ExileClient_gui_traderDialog_updateInventoryListBox 	= "Exile_Call\-=Shared=-\-MISC-TRADERPLUS-ExileClient_gui_traderDialog_updateInventoryListBox.sqf";
 	//CustomLoadout
 	ExileServer_object_player_network_createPlayerRequest 	= "Exile_Call\CustomLoadout\ExileServer_object_player_network_createPlayerRequest.sqf";
 	//StatBar
@@ -1822,13 +1807,29 @@ class CfgExileCustomCode
 	ExileServer_object_construction_database_load 			= "addons\paintshop\ExileServer_object_construction_database_load.sqf";
 	//Base Respawn
     ExileClient_gui_selectSpawnLocation_show                = "Exile_Call\BaseRespawn\ExileClient_gui_selectSpawnLocation_show.sqf";
-	//SCAVENGE
-	ExileClient_object_player_initialize 					= "Exile_Call\Scavenge\ExileClient_object_player_initialize.sqf";
-	//REVIVE
-	ExileClient_object_player_death_startBleedingOut 		= "custom\EnigmaRevive\ExileClient_object_player_death_startBleedingOut.sqf"; //Happys Revive
-	ExileClient_object_player_event_onInventoryOpened 		= "custom\EnigmaRevive\ExileClient_object_player_event_onInventoryOpened.sqf"; //Happys Revive AntiDupe ---NEW with v0.65
 	//Trader Buy range
 	ExileServer_system_trading_network_purchaseVehicleRequest = "Exile_Call\Trader\ExileServer_system_trading_network_purchaseVehicleRequest.sqf";
+	//EJECT
+	ExileClient_object_player_event_onKilled 				= "Exile_Call\Eject\ExileClient_object_player_event_onKilled.sqf";
+	//TRADERPLUS
+	ExileClient_gui_traderDialog_show 						= "SM\TraderPlus\overrides\ExileClient_gui_traderDialog_show.sqf";
+	ExileClient_gui_traderDialog_updateItemStats 			= "SM\TraderPlus\overrides\ExileClient_gui_traderDialog_updateItemStats.sqf";
+	ExileClient_gui_vehicleTraderDialog_show 				= "SM\TraderPlus\overrides\ExileClient_gui_vehicleTraderDialog_show.sqf";
+	ExileClient_gui_traderDialog_event_onStoreDropDownSelectionChanged = "SM\TraderPlus\overrides\ExileClient_gui_traderDialog_event_onStoreDropDownSelectionChanged.sqf";
+	ExileClient_gui_vehicleTraderDialog_updateVehicleListBox = "SM\TraderPlus\overrides\ExileClient_gui_vehicleTraderDialog_updateVehicleListBox.sqf";
+	ExileClient_gui_traderDialog_updateStoreListBox 		= "SM\TraderPlus\overrides\ExileClient_gui_traderDialog_updateStoreListBox.sqf";
+	ExileClient_gui_traderDialog_event_onStoreListBoxSelectionChanged = "SM\TraderPlus\overrides\ExileClient_gui_traderDialog_event_onStoreListBoxSelectionChanged.sqf";
+	ExileClient_gui_traderDialog_event_onPurchaseButtonClick = "SM\TraderPlus\overrides\ExileClient_gui_traderDialog_event_onPurchaseButtonClick.sqf";
+	ExileClient_gui_traderDialog_event_onUnload 			= "SM\TraderPlus\overrides\ExileClient_gui_traderDialog_event_onUnload.sqf";
+	ExileClient_gui_traderDialog_event_onFilterCheckboxStateChanged = "SM\TraderPlus\overrides\ExileClient_gui_traderDialog_event_onFilterCheckboxStateChanged.sqf";
+	ExileClient_system_trading_network_purchaseItemResponse = "SM\TraderPlus\overrides\ExileClient_system_trading_network_purchaseItemResponse.sqf";
+	//LOGS
+	ExileServer_object_lock_network_hotwireLockRequest 		= "Exile_Call\Logs\ExileServer_object_lock_network_hotwireLockRequest.sqf";
+	ExileServer_object_lock_network_lockToggle 				= "Exile_Call\Logs\ExileServer_object_lock_network_lockToggle.sqf";
+	ExileServer_object_lock_network_scanCodeLockRequest 	= "Exile_Call\Logs\ExileServer_object_lock_network_scanCodeLockRequest.sqf";
+	ExileServer_object_vehicle_event_onMPKilled 			= "Exile_Call\Logs\ExileServer_object_vehicle_event_onMPKilled.sqf";
+	//EBM LOOTS
+	ExileClient_system_lootManager_thread_spawn				= "Exile_Call\EBM\ExileClient_system_lootManager_thread_spawn.sqf";
 };
 
 class CfgExileEnvironment
@@ -1878,6 +1879,11 @@ class CfgExileEnvironment
 		{
 			// 1 = enabled, 0 = disabled
 			enable = 1;
+			contaminatedZones[] = 
+			{
+				//{{11766.6, 13333.7, 0}, 10, 25},    // Just the device is radioactive to ease things, or:    
+				{{11766.6, 13333.7, 30}, 350, 400}    // Whole mission area is radioactive
+			};
 		};
 
 		class Temperature
@@ -2251,69 +2257,7 @@ class ExileAbstractAction
  */
 class CfgInteractionMenus
 {
-	#include "EBM\menus.hpp"
-	
-    class Weed
-    {
-        targetType = 2;
-        target = "DDR_Weed_Plant";
-
-        class Actions 
-        {
-            class HarvestWeed: ExileAbstractAction
-            {
-                title = "Harvest the Weed";
-                condition = "('Exile_Item_Knife' in (magazines player) && !ExilePlayerInSafezone)";
-                action = "_this call DDR_fnc_Weed";
-            };
-        };
-    };
-    class Mushrooms
-    {
-        targetType = 2;
-        target = "DDR_Mushrooms";
-
-        class Actions 
-        {
-            class HarvestMushrooms: ExileAbstractAction
-            {
-                title = "Harvest the Mushrooms";
-                condition = "('Exile_Item_Knife' in (magazines player) && !ExilePlayerInSafezone)";
-                action = "_this call DDR_fnc_Mushrooms";
-            };
-        };
-    };
-    class Ore_Mining
-    {
-        targetType = 2;
-        target = "DDR_Ore_Rock";
-
-        class Actions 
-        {
-            class materials1: ExileAbstractAction
-            {
-                title = "Reduce raw materials";
-                condition = "('DDR_Item_Pickaxe' in (magazines player) && !ExilePlayerInSafezone)";
-                action = "_this call DDR_fnc_Ore_Mining";
-            };
-        };
-    };
-    class Crystal_Mining
-    {
-        targetType = 2;
-        target = "DDR_Crystal_Rock";
-
-        class Actions 
-        {
-            class materials2: ExileAbstractAction
-            {
-                title = "Reduce raw materials";
-                condition = "('DDR_Item_Pickaxe' in (magazines player) && !ExilePlayerInSafezone)";
-                action = "_this call DDR_fnc_Crystal_Mining";
-            };
-        };
-    };
-	
+	#include "TRADERS\EBM\menus.hpp"
 	class Car 
 	{
 		targetType = 2;
@@ -2422,13 +2366,21 @@ class CfgInteractionMenus
 				condition="((locked ExileClientInteractionObject) isEqualTo 2) && ((locked ExileClientInteractionObject) != 1)";
 				action="false spawn ExileClient_object_lock_toggle";
 			};
-
-			class Repair: ExileAbstractAction
+			
+	        //Bones Custom Vehicle Repairs
+	        class Repair: ExileAbstractAction
+	        {
+				title = "Repair/Salvage";
+				condition = "true";
+				action = "_this call Bones_fnc_salvageAndRepairMenu";
+	        };
+			
+			/*class Repair: ExileAbstractAction
 			{
 				title="Repair";
 				condition="call ExileClient_object_vehicle_interaction_show";
 				action="_this call ExileClient_object_vehicle_Repair";
-			};
+			};*/
 
 			class Flip: ExileAbstractAction
 			{
@@ -2811,6 +2763,12 @@ class CfgInteractionMenus
 				condition = "true";
 				action = "_this call ExileClient_gui_payTerritoryProtectionMoneyDialog_show";
 			};
+			class BaseCamView : ExileAbstractAction
+			{
+				title = "30 Seconds Free BaseCam Test";
+				condition = "true";
+				action = "execVM 'Custom\BaseCamView.sqf';";
+			};
 			/*
 			class Manage : ExileAbstractAction
 			{
@@ -2950,12 +2908,19 @@ class CfgInteractionMenus
 				condition = "(alive ExileClientInteractionObject) && (ExileClientInteractionObject getVariable ['ExileIsHandcuffed', false]) && !ExileClientIsHandcuffed";
 				action = "_this call ExileClient_object_handcuffs_searchGear";
 			};
-
+			
 			class Identify: ExileAbstractAction
 			{
 				title = "Identify Body";
 				condition = "!(alive ExileClientInteractionObject)";
 				action = "_this call ExileClient_object_player_identifyBody";
+			};
+			
+			class Revive: ExileAbstractAction
+			{
+				title = "Perform CPR";
+				condition = "(!(alive ExileClientInteractionObject) && (ExileClientInteractionObject getVariable ['EnigmaRevivePermitted', true]) && (magazines player find 'Exile_Item_Defibrillator' >= 0))";
+				action = "_this spawn Enigma_RevivePlyr";
 			};
 			
 			class HideCorpse: ExileAbstractAction
@@ -2964,19 +2929,6 @@ class CfgInteractionMenus
 				condition = "!(alive ExileClientInteractionObject) && ('Exile_Melee_Shovel' isEqualTo (currentWeapon player))";
 				action = "['HideBody', (_this select 0)] call ExileClient_action_execute";
 			};
-			//REVIVE SCRIPT
-			/*class Revive: ExileAbstractAction
-			{
-				title = "Perform CPR";
-				condition = "(!(alive ExileClientInteractionObject) && (ExileClientInteractionObject getVariable ['EnigmaRevivePermitted', true]) && (magazines player find 'Exile_Item_Defibrillator' >= 0))";
-				action = "_this spawn Enigma_RevivePlyr";
-			};*/
-			class Revive: ExileAbstractAction
-			{
-				title = "Perform CPR";
-				condition = "(!(alive ExileClientInteractionObject) && (ExileClientInteractionObject getVariable ['EnigmaRevivePermitted', true]) && (magazines player find 'Exile_Item_Defibrillator' >= 0))";
-				action = "_this spawn Enigma_RevivePlyr";
-			};	
 		};
 	};
 	
@@ -3164,14 +3116,14 @@ class CfgLocker
 {
 	numbersOnly = "0123456789";
 	
-	maxDeposit = 3000000;
+	maxDeposit = 5000000;
 };
 
 class CfgPlayer 
 {
 	// In minutes ammount of time it takes to go from 100 - 0 if stationary
-	hungerDecay = 70;
-	thirstDecay = 40;
+	hungerDecay = 90;
+	thirstDecay = 80;
 
 	// Damage taken from 0 (health||thirst)/sec
 	healthDecay = 5.0;
@@ -3208,8 +3160,8 @@ class CfgPlayer
 */
 class CfgPoptabStorage
 {
-	class Exile_Container_Safe_Small 	{ max = 250000; };	
-	class Exile_Container_Safe				{ max = 500000; };	
+	class Exile_Container_Safe_Small 	{ max = 5000000; };	
+	class Exile_Container_Safe				{ max = 5000000; };	
 };
 class CfgSimulation
 {
@@ -3355,32 +3307,14 @@ class CfgTraderCategories
 	#include "TRADERS\APEX\TraderCategoriesAPEX.hpp"
 	#include "TRADERS\ARMA3V\TraderCategoriesARMA3V.hpp"
 	#include "TRADERS\ARMA3W\TraderCategoriesARMA3W.hpp"
-	//#include "TRADERS\BPOINT\TraderCategoriesBPOINT.hpp"
-	//#include "TRADERS\CUNITS\TraderCategoriesCUNITS.hpp"
-	//#include "TRADERS\CUPV\TraderCategoriesCUPV.hpp"
-	//#include "TRADERS\CUPW\TraderCategoriesCUPW.hpp"
 	#include "TRADERS\CUSTOM\TraderCategoriesCUSTOM.hpp"
 	#include "TRADERS\EBM\TraderCategoriesEBM.hpp"
 	#include "TRADERS\Exile\TraderCategoriesExile.hpp"
 	#include "TRADERS\FFAA\TraderCategoriesFFAA.hpp"
-	//#include "TRADERS\FHQ\TraderCategoriesFHQ.hpp"
-	//#include "TRADERS\FMP\TraderCategoriesFMP.hpp"
-	//#include "TRADERS\FOX\TraderCategoriesFOX.hpp"
-	//#include "TRADERS\HAP\TraderCategoriesHAP.hpp"
-	//#include "TRADERS\HAFM\TraderCategoriesHAFM.hpp"
-	//#include "TRADERS\HVP\TraderCategoriesHVP.hpp"
-	//#include "TRADERS\HWP\TraderCategoriesHWP.hpp"
-	//#include "TRADERS\Jonzie\TraderCategoriesJonzie.hpp"
 	#include "TRADERS\JETS\TraderCategoriesJETS.hpp"
-	//#include "TRADERS\KA\TraderCategoriesKA.hpp"
-	//#include "TRADERS\MASV\TraderCategoriesMASV.hpp"
-	//#include "TRADERS\MASW\TraderCategoriesMASW.hpp"
-	//#include "TRADERS\MASWW2\TraderCategoriesWW2.hpp"
+	#include "TRADERS\LAWSOFWARDLC\TraderCategoriesLAWSOFWARDLC.hpp"
 	#include "TRADERS\NIA\TraderCategoriesNIA.hpp"
-	//#include "TRADERS\NLD\TraderCategoriesNLD.hpp"
 	#include "TRADERS\PODS\TraderCategoriesPODS.hpp"
-	//#include "TRADERS\POOK\TraderCategoriesPOOK.hpp"
-	//#include "TRADERS\R3FW\TraderCategoriesR3FW.hpp"
 	#include "TRADERS\RHSGREF\TraderCategoriesGREF.hpp"
 	#include "TRADERS\RHSSAF\TraderCategoriesRHSSAF.hpp"
 	#include "TRADERS\RHSV\TraderCategoriesRHSV.hpp"
@@ -3388,7 +3322,6 @@ class CfgTraderCategories
 	#include "TRADERS\SMA\TraderCategoriesSMAW.hpp"
 	#include "TRADERS\TANKDLC\TraderCategoriesTANKDLC.hpp"
 	#include "TRADERS\TRYK\TraderCategoriesTRYK.hpp"
-	//#include "TRADERS\HLC\TraderCategoriesHLC.hpp"		//should use NIArms
 };
 
 class CfgTraders
@@ -4315,7 +4248,7 @@ class CfgVirtualGarage
 };
 class CfgXM8 
 {
-	extraApps[] = {"ExAd_JX","ExAd_Info","ExAd_CHVD","BRAmaRecipes","BaseMarker","ExAd_Quad","ExAd_Unit","scarCode","ExAd_VG","UAV_SPAWN"};
+	extraApps[] = {"ExAd_JX","ExAd_Info","ExAd_CHVD","BRAmaRecipes","BaseMarker","ExAd_Quad","ExAd_Unit","scarCode","ExAd_VG"/*,"UAV_SPAWN","GPS_ADV"*/};
 	
 	class settings
 	{
@@ -4422,21 +4355,26 @@ class CfgXM8
         autoCleanUp = 1;
         quickFunction = "['ExAd_Quad'] call ExAd_XM8_DV_fnc_spawnVehicle";
     };
-	class UAV_SPAWN
+	/*class UAV_SPAWN
     {
         title = "Deploy UAV";
         logo = "Custom\TIMS\misc\uav.paa";
         onLoad = "ExAdClient\XM8\Apps\Info\onLoad.sqf";
         onOpen = "ExAdClient\XM8\Apps\Info\onOpen.sqf";
         onClose = "ExAdClient\XM8\Apps\Info\onClose.sqf";
-    };
+    };*/
+	/*class GPS_ADV
+    {
+        title = "Open GPS";
+        logo = "Custom\TIMS\misc\gps.paa";
+        onLoad = "ExAdClient\XM8\Apps\Info\onLoad.sqf";
+        onOpen = "ExAdClient\XM8\Apps\Info\onOpen.sqf";
+        onClose = "ExAdClient\XM8\Apps\Info\onClose.sqf";
+    };*/
 	class ExAd_Unit
     {
-        title = "Recruit Soldier: x2 Beef Parts needed";
+        title = "Recruit Soldier/UAV";
         logo = "scarCODE\ServerInfoMenu\img\dog.paa";
-        bambiState = 0;
-        vehicleClass = "Land_AncientStatue_01_F";
-        recipe[] = {{"Exile_Item_BeefParts",1}};
         packable = 0;
         autoCleanUp = 0;
         quickFunction = "['ExAd_Unit'] call ExAd_XM8_DV_fnc_spawnVehicle";
@@ -4471,12 +4409,20 @@ class XM8_App02_Button: RscExileXM8AppButton1x1
     resource = "XM8SlideHealthScanner";
 };
 
-class XM8_App03_Button: RscExileXM8AppButton1x1
+/*class XM8_App03_Button: RscExileXM8AppButton1x1
 {
     textureNoShortcut = "\exile_assets\texture\ui\xm8_app_slothMachine_ca.paa";
     text = "Sloth Machine";
     onButtonClick = "['slothMachine', 0] call ExileClient_gui_xm8_slide";
     resource = "XM8SlideSlothMachine";
+};*/
+
+class XM8_App03_Button: RscExileXM8AppButton1x1
+{
+    textureNoShortcut = "ExAdClient\XM8\Apps\BaseMarker\BaseMarker.paa";
+    text = "Base Marker";
+    onButtonClick = "['Basemarker', 0] call ExileClient_gui_xm8_slide";
+    resource = "";
 };
 
 class XM8_App04_Button: RscExileXM8AppButton1x1
@@ -4514,8 +4460,9 @@ class XM8_App07_Button: RscExileXM8AppButton1x1
 class XM8_App08_Button: RscExileXM8AppButton1x1
 {
     textureNoShortcut = "scarCODE\ServerInfoMenu\img\dog.paa";
-    text = "Recruit Soldier: 1x Beef Parts needed";
-    onButtonClick = "ExileClientXM8CurrentSlide = 'apps';closeDialog 0;[] execVM 'ExAdClient\XM8\Apps\DeployVehicle\bodyguard.sqf'";
+    text = "Recruit Soldier/UAV";
+	onButtonClick = " ExileClientXM8CurrentSlide = 'apps';closeDialog 0; createDialog 'TIMS_BODYGUARD_SELECTION'; ";
+    //onButtonClick = "ExileClientXM8CurrentSlide = 'apps';closeDialog 0;[] execVM 'ExAdClient\XM8\Apps\DeployVehicle\bodyguard.sqf'";
     resource = "";
 };
 
@@ -4527,6 +4474,13 @@ class XM8_App09_Button: RscExileXM8AppButton1x1
     resource = "";
 };
 
+/*class XM8_App10_Button: RscExileXM8AppButton1x1
+{
+    textureNoShortcut = "Custom\TIMS\misc\gps.paa";
+    text = "Open GPS";
+    onButtonClick = "ExileClientXM8CurrentSlide = 'apps';closeDialog 0;[] execVM 'A3GPS\menu\gps\fn_loadGPSMenu.sqf'";
+    resource = "";
+};*/
 class XM8_App10_Button: RscExileXM8AppButton1x1
 {
     textureNoShortcut = "ExAdClient\XM8\Apps\BaseMarker\BaseMarker.paa";
@@ -4559,21 +4513,13 @@ class XM8_App13_Button: RscExileXM8AppButton1x1
     resource = "";
 };
 
-class XM8_App14_Button: RscExileXM8AppButton1x1
+/*class XM8_App14_Button: RscExileXM8AppButton1x1
 {
     textureNoShortcut = "Custom\TIMS\misc\uav.paa";
     text = "Deploy UAV";
     onButtonClick = "ExileClientXM8CurrentSlide = 'apps';closeDialog 0;[] execVM 'Custom\TIMS\misc\UAV_Spawn.sqf'";
     resource = "";
-};
-
-class XM8_App15_Button: RscExileXM8AppButton1x1
-{
-    textureNoShortcut = "";
-    text = "";
-    onButtonClick = "";
-    resource = "";
-};
+};*/
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

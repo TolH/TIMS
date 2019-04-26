@@ -8,3 +8,6 @@ if (!isDedicated and hasInterface) then
 	uisleep 1;
 	player switchCamera "EXTERNAL";
 };
+//[] execVM "zombie\config.sqf";
+player switchCamera "EXTERNAL";
+GUARD_AImax = 0;

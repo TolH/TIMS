@@ -1,3 +1,28 @@
+/**
+ * Created with Exile Mod 3DEN Plugin
+ * www.exilemod.com
+ */
+["Initialize", [true]] call BIS_fnc_dynamicGroups;
+// 0 Simple Objects
+private _invisibleSelections = ["zasleh", "zasleh2", "box_nato_grenades_sign_f", "box_nato_ammoord_sign_f", "box_nato_support_sign_f"];
+private _simpleObjects = [
+
+];
+
+{
+    private _simpleObject = createSimpleObject [_x select 0, _x select 1];
+    _simpleObject setVectorDirAndUp [_x select 2, _x select 3];
+    
+    {
+        if ((toLower _x) in _invisibleSelections) then 
+        {
+            _simpleObject hideSelection [_x, true];
+        };
+    }
+    forEach (selectionNames _simpleObject);
+}
+forEach _simpleObjects;
+
 private _objects = 
 [
 	["Land_CarService_F", [14618.7,16877.4,18.7724], [[0.750538,-0.660827,0],[0,0,1]], [true, false]],
@@ -88,7 +113,6 @@ private _objects =
 	["Land_Wreck_Car3_F", [14626.6,16904.6,18.0411], [[0,1,0],[0,0,1]], [false, false]],
 	["Land_Wreck_Offroad_F", [14632.2,16918.2,18.0913], [[-0.866025,0.5,0],[0,0,1]], [false, false]],
 	["Land_Wreck_Hunter_F", [14625,16923.2,18.2756], [[0,1,0],[0,0,1]], [false, false]],
-	["Land_Cargo_HQ_V2_F", [14531.5,16758.9,18.5278], [[0.6958,-0.718235,0],[0,0,1]], [true, false]],
 	["Land_Cargo_Patrol_V2_F", [14602.6,16702.8,18.07], [[0.707107,-0.707107,0],[0,0,1]], [false, false]],
 	["Exile_Sign_WasteDump", [14609.2,16898.9,18.0966], [[0.690079,0.723734,0],[0,0,1]], [false, false]],
 	["Exile_Sign_Office_Small", [14588.1,16772.5,17.3235], [[0.707107,0.707107,0],[0,0,1]], [false, false]],
@@ -444,6 +468,5 @@ forEach _concreteMixers;
 //Starts the Initialization of Server code For TIMS.
 	if (isServer) then 
 	{
-		[] ExecVM "\TIMS\fn_init.sqf";
-		[] ExecVM "\VCOMAI\init.sqf";
+		[] ExecVM "\TIMS_ROAMING_AI\fn_init.sqf";
 	};

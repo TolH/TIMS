@@ -392,6 +392,8 @@
 	class rhsusf_acc_rotex5_grey							{ quality = 3; price = 180; };
 	class rhsusf_acc_rotex5_tan								{ quality = 3; price = 180; };
 	class rhsusf_acc_SR25S									{ quality = 2; price = 190; };
+	class rhsusf_acc_SRS5S_wd                               { quality = 2; price = 190; };
+	class rhsusf_acc_SR25S_d                                { quality = 2; price = 190; };
 	class rhsusf_acc_M2010S									{ quality = 2; price = 200; };
 	//Russian
 	class rhs_acc_ak5										{ quality = 1; price = 140; };
@@ -463,6 +465,9 @@
 	///////////////////////////////////////////////////////////////////////////////
 	// Ammunition
 	///////////////////////////////////////////////////////////////////////////////
+	class rhsusf_20Rnd_762x51_SR25_m118_special_Mag         { quality = 1; price = 55; };
+	class rhsusf_20Rnd_762x51_SR25_m993_Mag                 { quality = 1; price = 55; };
+	class rhsusf_20Rnd_762x51_SR25_m62_Mag                  { quality = 1; price = 55; };
 	class rhsusf_mag_7x45acp_MHP                    		{ quality = 1; price = 6; };
 	class rhs_mag_9x18_12_57N181S                   		{ quality = 1; price = 6; };
 	class rhs_mag_9x19_17                         			{ quality = 1; price = 6; };
@@ -572,58 +577,58 @@
 	///////////////////////////////////////////////////////////////////////////////
 	// Assault Rifles
 	///////////////////////////////////////////////////////////////////////////////
-	/*	// Exile Dupe issue items un comment at your own risk
-	class rhs_weap_ak103							{ quality = 1; price = 450; };
-	class rhs_weap_ak103_1							{ quality = 1; price = 450; };
-	class rhs_weap_ak103_npz						{ quality = 1; price = 450; };
-	class rhs_weap_ak74m							{ quality = 1; price = 450; };
-	class rhs_weap_ak74m_2mag						{ quality = 1; price = 450; };
-	class rhs_weap_ak74m_2mag_camo					{ quality = 2; price = 400; };
-	class rhs_weap_ak74m_2mag_npz					{ quality = 1; price = 400; };
-	class rhs_weap_ak74m_camo						{ quality = 2; price = 400; };
-	class rhs_weap_ak74m_camo_folded				{ quality = 1; price = 450; };
-	class rhs_weap_ak74m_desert						{ quality = 2; price = 400; };
-	class rhs_weap_ak74m_desert_folded				{ quality = 1; price = 450; };
-	class rhs_weap_ak74m_desert_npz					{ quality = 2; price = 450; };
-	class rhs_weap_ak74m_folded						{ quality = 1; price = 450; };
-	class rhs_weap_ak74m_gp25						{ quality = 2; price = 600; };
-	class rhs_weap_ak74m_gp25_npz					{ quality = 2; price = 600; };
-	class rhs_weap_ak74m_npz						{ quality = 1; price = 400; };
-	class rhs_weap_ak74m_plummag					{ quality = 2; price = 450; };
-	class rhs_weap_ak74m_plummag_folded				{ quality = 1; price = 450; };
-	class rhs_weap_ak74m_plummag_npz				{ quality = 2; price = 400; };
-	class rhs_weap_ak74mr 							{ quality = 3; price = 550; };
-	class rhs_weap_ak74mr_gp25						{ quality = 3; price = 700; };
-	class rhs_weap_akm								{ quality = 1; price = 450; };
-	class rhs_weap_akm_gp25							{ quality = 1; price = 650; };
-	class rhs_weap_akms								{ quality = 1; price = 450; };
-	class rhs_weap_akms_gp25						{ quality = 1; price = 600; };
-	class rhs_weap_aks74 							{ quality = 1; price = 400; };
-	class rhs_weap_m16a4_carryhandle_grip			{ quality = 2; price = 400; };
-	class rhs_weap_m16a4_carryhandle_grip_pmag		{ quality = 2; price = 400; };
-	class rhs_weap_m16a4_grip						{ quality = 1; price = 350; };
-	class rhs_weap_m4								{ quality = 1; price = 350; };
-	class rhs_weap_m4_grip2							{ quality = 2; price = 400; };
-	class rhs_weap_m4a1_blockII_grip2				{ quality = 3; price = 500; };
-	class rhs_weap_m4a1_blockII_grip2_KAC			{ quality = 3; price = 500; };
-	class rhs_weap_m4a1_carryhandle_grip2			{ quality = 2; price = 400; };
-	class rhs_weap_m4a1_grip						{ quality = 2; price = 400; };
-	class rhs_weap_m4a1_grip2						{ quality = 2; price = 400; };
-	class rhs_weap_mk18_grip2						{ quality = 3; price = 500; };
-	class rhs_weap_mk18_grip2_KAC					{ quality = 3; price = 500; };
-	class rhs_weap_ak103_zenitco01					{ quality = 3; price = 500; };
+		// Exile Dupe issue items un comment at your own risk
+	class rhs_weap_ak103							{ quality = 4; price = 450; };
+	class rhs_weap_ak103_1							{ quality = 4; price = 450; };
+	class rhs_weap_ak103_npz						{ quality = 4; price = 450; };
+	class rhs_weap_ak74m							{ quality = 4; price = 450; };
+	class rhs_weap_ak74m_2mag						{ quality = 4; price = 450; };
+	class rhs_weap_ak74m_2mag_camo					{ quality = 4; price = 400; };
+	class rhs_weap_ak74m_2mag_npz					{ quality = 4; price = 400; };
+	class rhs_weap_ak74m_camo						{ quality = 4; price = 400; };
+	class rhs_weap_ak74m_camo_folded				{ quality = 4; price = 450; };
+	class rhs_weap_ak74m_desert						{ quality = 4; price = 400; };
+	class rhs_weap_ak74m_desert_folded				{ quality = 4; price = 450; };
+	class rhs_weap_ak74m_desert_npz					{ quality = 4; price = 450; };
+	class rhs_weap_ak74m_folded						{ quality = 4; price = 450; };
+	class rhs_weap_ak74m_gp25						{ quality = 4; price = 600; };
+	class rhs_weap_ak74m_gp25_npz					{ quality = 4; price = 600; };
+	class rhs_weap_ak74m_npz						{ quality = 4; price = 400; };
+	class rhs_weap_ak74m_plummag					{ quality = 4; price = 450; };
+	class rhs_weap_ak74m_plummag_folded				{ quality = 4; price = 450; };
+	class rhs_weap_ak74m_plummag_npz				{ quality = 4; price = 400; };
+	class rhs_weap_ak74mr 							{ quality = 4; price = 550; };
+	class rhs_weap_ak74mr_gp25						{ quality = 4; price = 700; };
+	class rhs_weap_akm								{ quality = 4; price = 450; };
+	class rhs_weap_akm_gp25							{ quality = 4; price = 650; };
+	class rhs_weap_akms								{ quality = 4; price = 450; };
+	class rhs_weap_akms_gp25						{ quality = 4; price = 600; };
+	class rhs_weap_aks74 							{ quality = 4; price = 400; };
+	class rhs_weap_m16a4_carryhandle_grip			{ quality = 4; price = 400; };
+	class rhs_weap_m16a4_carryhandle_grip_pmag		{ quality = 4; price = 400; };
+	class rhs_weap_m16a4_grip						{ quality = 4; price = 350; };
+	class rhs_weap_m4								{ quality = 4; price = 350; };
+	class rhs_weap_m4_grip2							{ quality = 4; price = 400; };
+	class rhs_weap_m4a1_blockII_grip2				{ quality = 4; price = 500; };
+	class rhs_weap_m4a1_blockII_grip2_KAC			{ quality = 4; price = 500; };
+	class rhs_weap_m4a1_carryhandle_grip2			{ quality = 4; price = 400; };
+	class rhs_weap_m4a1_grip						{ quality = 4; price = 400; };
+	class rhs_weap_m4a1_grip2						{ quality = 4; price = 400; };
+	class rhs_weap_mk18_grip2						{ quality = 4; price = 500; };
+	class rhs_weap_mk18_grip2_KAC					{ quality = 4; price = 500; };
+	class rhs_weap_ak103_zenitco01					{ quality = 4; price = 500; };
 	class rhs_weap_ak103_zenitco01_b33				{ quality = 4; price = 600; };
-	class rhs_weap_ak104_zenitco01					{ quality = 3; price = 500; };
+	class rhs_weap_ak104_zenitco01					{ quality = 4; price = 500; };
 	class rhs_weap_ak104_zenitco01_b33				{ quality = 4; price = 600; };
-	class rhs_weap_ak105_zenitco01					{ quality = 3; price = 500; };
+	class rhs_weap_ak105_zenitco01					{ quality = 4; price = 500; };
 	class rhs_weap_ak105_zenitco01_b33				{ quality = 4; price = 600; };
-	class rhs_weap_ak74m_zenitco01					{ quality = 3; price = 500; };
+	class rhs_weap_ak74m_zenitco01					{ quality = 4; price = 500; };
 	class rhs_weap_ak74m_zenitco01_b33				{ quality = 4; price = 500; };
-	class rhs_weap_aks74_gp25 						{ quality = 1; price = 550; };
-	class rhs_weap_aks74n							{ quality = 1; price = 500; };
-	class rhs_weap_aks74n_gp25						{ quality = 1; price = 600; };
-	class rhs_weap_m4_grip							{ quality = 2; price = 400; };
-	*/
+	class rhs_weap_aks74_gp25 						{ quality = 4; price = 550; };
+	class rhs_weap_aks74n							{ quality = 4; price = 500; };
+	class rhs_weap_aks74n_gp25						{ quality = 4; price = 600; };
+	class rhs_weap_m4_grip							{ quality = 4; price = 400; };
+	
 	class rhs_weap_hk416d10 						{ quality = 3; price = 550; };
 	class rhs_weap_hk416d10_LMT 					{ quality = 3; price = 550; };
 	class rhs_weap_hk416d10_m320 					{ quality = 4; price = 650; };
@@ -674,6 +679,8 @@
 	class rhsusf_weap_MP7A2_desert         			{ quality = 2; price = 800; };
 	class rhsusf_weap_MP7A2_aor1           			{ quality = 2; price = 800; };
 	class rhsusf_weap_MP7A2_winter         			{ quality = 2; price = 800; };
+	class rhs_weap_M590_5RD                         { quality = 2; price = 10000; };
+	class rhs_weap_m590_8RD                         { quality = 2; price = 10000; };
 	///////////////////////////////////////////////////////////////////////////////
 	// Sniper Rifles
 	///////////////////////////////////////////////////////////////////////////////

@@ -3,7 +3,7 @@ class CfgServerInfoMenu
     addAction = 0; // Enable/disable action menu item | use 0 to disable | default: 1 (enabled)
     antiHACK = "infiSTAR + BattlEye";
     hostedBy = "GTXGaming";
-    ipPort = "192.154.230.201:2302";
+    ipPort = "181.215.243.64:2302";
     openKey = ""; // https://community.bistudio.com/wiki/inputAction/actions
     openAtLogin = no;
     restart = 3; // Amount of hours before server automatically restarts
@@ -24,9 +24,9 @@ class CfgServerInfoMenu
 				"     <img image='scarCODE\ServerInfoMenu\img\deep.jpg' /><t color='#c91e49'>   DEEPDEMON211</t><br />",
 				//ADMIN
 				"<t size='1.35' color='#1750e0'>ADMIN:</t><br />",
-				"     <img image='scarCODE\ServerInfoMenu\img\0908.jpg' /><t color='#d3cd0c'>   0908</t><br />",
-				"     <img image='scarCODE\ServerInfoMenu\img\0908.jpg' /><t color='#d3cd0c'>   Softhands</t><br />",
-				"     <img image='scarCODE\ServerInfoMenu\img\0908.jpg' /><t color='#d3cd0c'>   Capdan</t><br />"
+				"     <img image='scarCODE\ServerInfoMenu\img\0908.jpg' /><t color='#d3cd0c'>   0908</t><br />"
+				//"     <img image='scarCODE\ServerInfoMenu\img\0908.jpg' /><t color='#d3cd0c'>   Softhands</t><br />",
+				//"     <img image='scarCODE\ServerInfoMenu\img\0908.jpg' /><t color='#d3cd0c'>   Capdan</t><br />"
 			};
 		};
 //===========================================================//
@@ -44,7 +44,7 @@ class CfgServerInfoMenu
 				"<br />",
 				//GAMETRACKER
 				"<t size='1.35' color='#1750e0'>GAMETRACKER INFO:</t><br />",
-				"     <a href='https://www.gametracker.com/server_info/192.154.230.201:2302/'><img image='scarCODE\ServerInfoMenu\img\gametracker.jpg' size='2' /></a>   Server Info<br />",
+				"     <a href='https://www.gametracker.com/server_info/181.215.243.64:2302/'><img image='scarCODE\ServerInfoMenu\img\gametracker.jpg' size='2' /></a>   Server Info<br />",
 				//"     <br />",
 				"<br />",
 				//DONATION LINK
@@ -61,13 +61,19 @@ class CfgServerInfoMenu
 			menuName = "Changelogs";
 			title = "Recent Changes";
 			content[] = 
-			{
-				"<t size='1.35' color='#1750e0'>(08/14/2018):</t><br />",
-				"    * ExileVG DISABLED.<br />",
-				"    * Added ExAdVirtualGarage.<br />",
-				"<t size='1.35' color='#1750e0'>(08/12/2018):</t><br />",
-				" 	 * Removed Ka Mod.<br />",
-				" 	 * Updated RHS MODS.<br />"
+			{   
+			    "<t size='1.35' color='#1750e0'>(08/31/2018):</t><br />", 
+	            "    * Added Cup Units Cup vehicles Cup Weapons Mods<br />",			
+			    "<t size='1.35' color='#1750e0'>(08/22/2018):</t><br />",
+			    "    * MISSION CALL OUTS ARE NOW 3000M OUT!<br />",
+				"    * ABLE TO SEE OTHER PLAYERS HAS INCREASED TO 2400M<br />",
+			    "<t size='1.35' color='#1750e0'>(08/21/2018):</t><br />",
+			    "    * UPDATED JSRS SOUND MOD<br />",
+     			"<t size='1.35' color='#1750e0'>(08/20/2018):</t><br />",
+			    "    * UPDATED JSRS SOUND MOD<br />",
+			    "<t size='1.35' color='#1750e0'>(08/19/2018):</t><br />",
+			    "    * UPDATED RHS MODS<br />",
+				"    * ADDED VIPER HELMETS AND NG'S IN APEX TOOLS TRADER<br />"
 			};
 		};
 //===========================================================//

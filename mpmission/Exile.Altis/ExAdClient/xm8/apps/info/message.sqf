@@ -7,7 +7,7 @@
 <t align='center' color='#FFFF00'>Anyone caught base raiding will be banned!</t><br />
 <t align='center' color='#FFFFFF'>Respect admins. Admins decide. Do not argue with admins!</t><br />
 <t align='center' color='#FFFF00'>Players can not kill each other, Anti-PvP script on.</t><br />
-<t align='center' color='#FFFFFF'>CALL MISSIONS FROM WITHIN 1500M IN SIDECHAT AND PLACE MARKER ON MAP IN SIDECHAT MODE. ONLY ONE MISSION CAN BE CLAIMED AT ONE TIME! 
+<t align='center' color='#FFFFFF'>CALL MISSIONS FROM WITHIN 3000M IN SIDECHAT AND PLACE MARKER ON MAP IN SIDECHAT MODE. ONLY ONE            MISSION CAN BE CLAIMED AT ONE TIME!  
                                   (HOLD LEFT SHIFT AND LEFT CLICK MOUSE ON MISSION)
                                   [ALSO PLZ CHANGE COLOR AND MARKER ON CLAIMING MISSIONS PZL. IF U DONT KNOW HAVE TO CHANGE MARKERS PLZ ASK ADMIN OR OTHER PLAYERS THANKS]</t><br />
 <t align='center' color='#FFFF00'>All rules may change without notice!</t><br />

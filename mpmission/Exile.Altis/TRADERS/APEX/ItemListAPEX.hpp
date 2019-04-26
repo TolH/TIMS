@@ -28,6 +28,10 @@
 	///////////////////////////////////////////////////////////////////////////////
 	// Uniforms
 	///////////////////////////////////////////////////////////////////////////////
+	class U_I_Protagonist_VR	                    { quality = 3; price = 1200; };
+    class U_B_Protagonist_VR                        { quality = 3; price = 1200; }; 
+    class U_O_Protagonist_VR                        { quality = 3; price = 1200; };
+	class U_C_Protagonist_VR                        { quality = 3; price = 1200; };
 	class U_B_CTRG_Soldier_2_F        				{ quality = 2; price = 40; };
 	class U_B_CTRG_Soldier_3_F        				{ quality = 2; price = 40; };
 	class U_B_CTRG_Soldier_F          				{ quality = 2; price = 40; };
@@ -244,15 +248,14 @@
 	///////////////////////////////////////////////////////////////////////////////
 	// Commented out of Exile files
 	///////////////////////////////////////////////////////////////////////////////
-	class H_HelmetO_ViperSP_ghex_F    				{ quality = 5; price = 10000; };	//Themal
-	class H_HelmetO_ViperSP_hex_F     				{ quality = 5; price = 10000; };	//Themal
-	class Laserdesignator_01_khk_F    				{ quality = 4; price = 1000; }; //Thermal
-	class Laserdesignator_02_ghex_F   				{ quality = 4; price = 1000; };	//Thermal
-	class NVGogglesB_blk_F            				{ quality = 5; price = 15000; }; //Normal NightV but fullscreen thermal
-	class NVGogglesB_grn_F            				{ quality = 5; price = 15000; };	//Normal NightV but fullscreen thermal
-	class NVGogglesB_gry_F            				{ quality = 5; price = 15000; };	//Normal NightV but fullscreen thermal
+	class H_HelmetO_ViperSP_ghex_F    				{ quality = 5; price = 50000; };	//Themal
+	class H_HelmetO_ViperSP_hex_F     				{ quality = 5; price = 50000; };	//Themal
+	class Laserdesignator_01_khk_F    				{ quality = 4; price = 5000; }; //Thermal
+	class Laserdesignator_02_ghex_F   				{ quality = 4; price = 5000; };	//Thermal
+	class NVGogglesB_blk_F            				{ quality = 5; price = 45000; }; //Normal NightV but fullscreen thermal
+	class NVGogglesB_grn_F            				{ quality = 5; price = 45000; };	//Normal NightV but fullscreen thermal
+	class NVGogglesB_gry_F            				{ quality = 5; price = 45000; };	//Normal NightV but fullscreen thermal
 	
-
 	///////////////////////////////////////////////////////////////////////////////
 	// Cars
 	///////////////////////////////////////////////////////////////////////////////

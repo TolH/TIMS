@@ -103,11 +103,6 @@
 	class B_Truck_01_medical_F							{ quality = 2; price = 20000; };
 	class B_Truck_01_mover_F							{ quality = 2; price = 20000; };
 	class B_Truck_01_transport_F 	            		{ quality = 2; price = 20000; };
-	class C_IDAP_Offroad_01_F							{ quality = 2; price = 20000; };
-	class C_IDAP_Offroad_02_unarmed_F					{ quality = 2; price = 20000; };
-	class C_IDAP_Truck_02_F								{ quality = 2; price = 20000; };
-	class C_IDAP_Truck_02_transport_F					{ quality = 2; price = 20000; };
-	class C_IDAP_Truck_02_water_F						{ quality = 2; price = 20000; };
 	class C_Truck_02_box_F								{ quality = 2; price = 20000; };
 	class C_Truck_02_covered_F							{ quality = 2; price = 20000; };
 	class C_Truck_02_fuel_F								{ quality = 5; price = 30000; };

@@ -4,6 +4,10 @@ class ApexUniforms
 	icon = "a3\ui_f\data\gui\Rsc\RscDisplayArsenal\uniform_ca.paa";
 	items[] =
 	{
+		"U_I_Protagonist_VR",
+		"U_B_Protagonist_VR",
+		"U_O_Protagonist_VR",
+		"U_C_Protagonist_VR",
 		"U_B_CTRG_Soldier_2_F",
 		"U_B_CTRG_Soldier_3_F",
 		"U_B_CTRG_Soldier_F",
@@ -309,7 +313,14 @@ class ApexTools
 		"NVGoggles_tna_F",
 		"O_NVGoggles_ghex_F",
 		"O_NVGoggles_hex_F",
-		"O_NVGoggles_urb_F"
+		"O_NVGoggles_urb_F",
+		"H_HelmetO_ViperSP_ghex_F",
+		"H_HelmetO_ViperSP_hex_F",
+		"Laserdesignator_01_khk_F",
+		"Laserdesignator_02_ghex_F",
+		"NVGogglesB_blk_F",
+		"NVGogglesB_grn_F",
+		"NVGogglesB_gry_F"
 	};
 };
 

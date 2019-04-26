@@ -8,23 +8,14 @@
 	//PaintShop
 	[] execVM "addons\paintshop\paintshop_serveraddon.sqf";
 	[] execVM "Custom\EnigmaRevive\init.sqf";
+	//ZOMB
+	//[] execVM "zombie\config.sqf";
+	execVM "debug\blckClient.sqf";
 //=========================================================//
 	if (hasInterface) then
 	{
 		[] execVM "addons\paintshop\paintshop.sqf";		// PaintShop
 	};
-//=========================================================//
-//NOTIFICATION
-	"layer_notifications" cutRsc ["rsc_notifications", "PLAIN"];
-
-	addMissionEventHandler ["Loaded",
-	{
-		[] spawn
-		{
-			sleep 2;
-			"layer_notifications" cutRsc ["rsc_notifications", "PLAIN"];
-		};
-	}];
 //=========================================================//
 
 

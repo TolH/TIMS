@@ -158,7 +158,9 @@
 			"RHSUGLAmmo",
 			"SAFMines",
 			"Smokes",
-			"StaticMGs"
+			"StaticMGs",
+			"TankDLCLaunchers",
+			"TankDLCLauncherAmmo"
 			//"UAVs",
 			//"WW2LAUNCHERS"
 			// Whatever your last line is make sure it doesn't have a comma! <<<<<<<<<<<<<<<< <<<<<<<<<<<<<<<< <<<<<<<<<<<<<<<<
@@ -217,9 +219,9 @@
 			"TRYKVests",
 			"Tools",
 			"Uniforms",
-			"Vests"
+			"Vests",
 			//"WW2Clothing"
-			//"APEXTools",		//not used
+			"APEXTools"		//not used
 			// Whatever your last line is make sure it doesn't have a comma! <<<<<<<<<<<<<<<< <<<<<<<<<<<<<<<< <<<<<<<<<<<<<<<<
 		};
 	};
@@ -277,6 +279,7 @@
 			//"CUGVs",
 			//"CUPArmed",
 			//"CUPUnarmed",
+			//"CUPBikes",
 			"FFAAUnarmed",
 			"FFAAArmed",
 			"Cars",
@@ -291,6 +294,9 @@
 			//"HAPTRUCKS",
 			//"HVPCars",
 			//"JonzieCars",
+			"LAWSOFWARVANS",
+			"LAWSOFWARTRUCKS",
+			"LAWSOFWAROFFROAD",
 			//"MASArmed",
 			//"MASCars",
 			//"MASTrucks",
@@ -330,6 +336,7 @@
 			//"CChoppers",
 			//"CPlanes",
 			//"CUPChoppers",
+			//"CUPPlanes",
 			"Choppers",
 			"FFAAPlanes",
 			"GREFChoppers",
@@ -339,6 +346,7 @@
 			//"HAFMPlane",
 			//"HAFMheli",
 			//"HVPPlanes",
+			"LAWSOFWARCHOPPER",
 			//"MASChoppers",
 			//"MASPlanes",
 			//"Nlheli",
@@ -371,6 +379,7 @@
 			"Boats",
 			"RHSBoats",
 			"FFAABoats"
+			//"CUPBoats"
 			// Whatever your last line is make sure it doesn't have a comma! <<<<<<<<<<<<<<<< <<<<<<<<<<<<<<<< <<<<<<<<<<<<<<<<
 		};
 	};

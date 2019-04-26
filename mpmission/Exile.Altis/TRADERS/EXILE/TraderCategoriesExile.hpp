@@ -539,7 +539,15 @@
 			//"Exile_Item_SprayCan_Green",
 			//"Exile_Item_SprayCan_Red",
 			//"Exile_Item_SprayCan_White",
-			"Exile_Item_Wrench"
+			"Exile_Item_Wrench",
+			"MineDetector",
+			"ToolKit",
+			"Exile_Item_Magazine01",
+			"Exile_Item_Magazine02",
+			"Exile_Item_Magazine03",
+			"Exile_Item_Magazine04",
+			"Exile_Item_RubberDuck"
+			
 		
 		};
 	};
@@ -686,6 +694,7 @@
 			"Laserdesignator",
 			"Laserdesignator_02",
 			"Laserdesignator_03"
+			
 		};
 	};
 
@@ -699,7 +708,8 @@
 			"Exile_Item_Heatpack",
 			"Exile_Item_InstaDoc",
 			"Exile_Item_Vishpirin",
-
+            "FirstAidKit",
+			"Medikit",
 			// Not available in 0.9.4!
 			"Exile_Item_Defibrillator"
 		};
@@ -836,10 +846,10 @@
 			"Exile_Magazine_75Rnd_545x39_RPK_Green",
 			"Exile_Magazine_7Rnd_45ACP",
 			"Exile_Magazine_8Rnd_74Slug",
-			"Exile_Magazine_8Rnd_9x18"
-			//"130Rnd_338_Mag", SPMG
-			//"150Rnd_93x64_Mag", // NAVID
-			//"Exile_Magazine_8Rnd_74Pellets",
+			"Exile_Magazine_8Rnd_9x18",
+			"130Rnd_338_Mag", //SPMG
+			"150Rnd_93x64_Mag", // NAVID
+			"Exile_Magazine_8Rnd_74Pellets"
 		};
 	};
 

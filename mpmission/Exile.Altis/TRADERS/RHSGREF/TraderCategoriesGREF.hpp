@@ -151,7 +151,8 @@
 			"rhsgref_BRDM2_msv",
 			"rhsgref_BRDM2_vdv",
 			"rhsgref_BRDM2_vmf",
- 			"rhsgref_un_m1117"
+ 			"rhsgref_un_m1117",
+			"rhsgref_ins_btr60"
 		};
 	};
 

@@ -10,15 +10,14 @@ class CfgRemoteExec
 		class fn_xm8apps_server { allowedTargets=2; };
 		//EXILE DEFAULT
 		class ExileServer_system_network_dispatchIncomingMessage { allowedTargets=2; };
-		//AIRDROP
-		//class APOC_srv_startAirdrop 							{ allowedTargets=2; };
 		//EXAD
 		class ExAdServer_fnc_clientRequest 						{ allowedTargets=2; };
 		//SLZ_ZEUS
 		class slz_fnc_assigncurator 							{jip=1; allowedTargets = 2;};
 		//ARES
 		class achilles_fnc_changeside_local						{jip=1; allowedTargets = 2;};
-		class achilles_fnc_spawn_remote							{jip=1; allowedTargets = 2;};
+		class Achilles_fnc_spawn_remote							{jip=1; allowedTargets = 2;};
+		class Achilles_fnc_spawn								{jip=1; allowedTargets = 2;};
 		class achilles_fnc_breachstun							{jip=1; allowedTargets = 2;};
 		class achilles_fnc_ambientanim							{jip=1; allowedTargets = 2;};
 		class bis_fnc_holdactionadd								{jip=1; allowedTargets = 2;};
@@ -69,10 +68,6 @@ class CfgRemoteExec
 		class AUR_Hide_Object_Global 							{ allowedTargets=2; };
 		class AUR_Enable_Rappelling_Animation_Global 			{ allowedTargets=2; };
 		class AUR_Play_Rappelling_Sounds_Global 				{ allowedTargets=2; }; 
-		//VCOM
-		//class vcm_serverask { allowedTargets=2; };
-		//SCAVENGE
-		class ExileExpansionServer_system_scavenge_spawnLoot	{ allowedTargets=0; };
 		//ADVANCED SLING LOADING
 		class ASL_Pickup_Ropes { allowedTargets=0; };
 		class ASL_Deploy_Ropes_Index { allowedTargets=0; };
@@ -86,6 +81,8 @@ class CfgRemoteExec
 		class ASL_Drop_Ropes { allowedTargets=0; };
 		class ASL_Hint { allowedTargets=1; };
 		class ASL_Hide_Object_Global { allowedTargets=2; };
+		//TEST GOM_fnc_handleResources
+		class GOM_fnc_handleResources { allowedTargets=2; };
 	};
 	class Commands
 	{
@@ -95,7 +92,10 @@ class CfgRemoteExec
 		class enableai											{jip=1; allowedTargets = 1;};
 		class disableai											{jip=1; allowedTargets = 1;};
 		class allowfleeing										{jip=1; allowedTargets = 1;};
-		class setpylonloadout									{jip=1; allowedTargets = 1;};
+		class SetPylonLoadout									{jip=1; allowedTargets = 1;};
+		class SetAmmoOnPylon									{jip=1; allowedTargets = 1;};
+		class removeWeaponGlobal								{jip=1; allowedTargets = 1;};
+		class setPylonsPriority									{jip=1; allowedTargets = 1;};
 		class setskill											{jip=1; allowedTargets = 1;};
 		class setunittrait										{jip=1; allowedTargets = 1;};
 		class sethitindex										{jip=1; allowedTargets = 1;};

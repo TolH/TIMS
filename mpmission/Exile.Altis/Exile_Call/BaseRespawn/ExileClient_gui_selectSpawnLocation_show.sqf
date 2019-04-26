@@ -24,7 +24,7 @@ fn_checkRespawnDelay = {
 		diag_log format["checkRespawn: checking flag %1, with reg %2", _markerName, _name];
 		if(_name isEqualTo _markerName) then 
 		{
-			if(_time > time-300) then 
+			if(_time > time-60) then 
 			{
 				_counter = _counter + 1;
 			};

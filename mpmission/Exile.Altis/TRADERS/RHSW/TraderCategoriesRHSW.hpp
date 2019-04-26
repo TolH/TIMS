@@ -428,6 +428,8 @@
 			"rhsusf_acc_SF3P556",
 			"rhsusf_acc_SFMB556",
 			"rhsusf_acc_SR25S",
+			"rhsusf_acc_SRS5S_wd",
+			"rhsusf_acc_SR25S_d",
 			"rhsusf_acc_M2010S",
 			"rhs_acc_dtk4short",
 			"rhs_acc_dtk4long",
@@ -547,7 +549,9 @@
 			"rhsusf_weap_MP7A2",
 			"rhsusf_weap_MP7A2_desert",
 			"rhsusf_weap_MP7A2_aor1",
-			"rhsusf_weap_MP7A2_winter"
+			"rhsusf_weap_MP7A2_winter",
+			"rhs_weap_M590_5RD",
+			"rhs_weap_m590_8RD"
 		};
 	};
 
@@ -597,8 +601,8 @@
 			"rhs_weap_mk18_bk",
 			"rhs_weap_mk18_d",
 			"rhs_weap_mk18_m320",
-			"rhs_weap_mk18_wd"
-		/*	// Exile Dupe issue items un comment at your own risk
+			"rhs_weap_mk18_wd",
+			// Exile Dupe issue items un comment at your own risk
 			"rhs_weap_ak103",
 			"rhs_weap_ak103_1",
 			"rhs_weap_ak103_npz",
@@ -649,7 +653,6 @@
 			"rhs_weap_m4a1_grip2",
 			"rhs_weap_mk18_grip2",
 			"rhs_weap_mk18_grip2_KAC"
-		*/
 		};
 	};
 
@@ -696,6 +699,9 @@
 		icon = "a3\ui_f\data\gui\Rsc\RscDisplayArsenal\itemacc_ca.paa";
 		items[]=
 		{
+			"rhsusf_20Rnd_762x51_SR25_m118_special_Mag",
+			"rhsusf_20Rnd_762x51_SR25_m993_Mag",
+			"rhsusf_20Rnd_762x51_SR25_m62_Mag",
 			"rhsusf_mag_7x45acp_MHP",
 			"rhs_mag_9x18_12_57N181S",
 			"rhs_mag_9x19_17",

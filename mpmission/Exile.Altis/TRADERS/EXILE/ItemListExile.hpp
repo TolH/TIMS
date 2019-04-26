@@ -18,7 +18,7 @@
 	class U_NikosBody 								{ quality = 1; price = 40; };
 	class U_OrestesBody 							{ quality = 1; price = 40; };
 	class U_Rangemaster 							{ quality = 1; price = 40; };
-
+	
 	///////////////////////////////////////////////////////////////////////////////
 	// Soldier Uniforms
 	///////////////////////////////////////////////////////////////////////////////
@@ -436,7 +436,14 @@
 	//class Exile_Item_MetalHedgehogKit				{ quality = 1; price = 1200; };
 	class Exile_Item_MetalWire					    { quality = 2; price = 100; };
 	class Exile_Item_Sand							{ quality = 2; price = 200; };
-
+	class MineDetector				                { quality = 2; price = 100; };
+	class ToolKit					                { quality = 2; price = 100; };
+	class Exile_Item_Magazine01                     { quality = 6; price = 5000; sellPrice = 2000; };
+	class Exile_Item_Magazine02                     { quality = 6; price = 5000; sellPrice = 2000; };
+	class Exile_Item_Magazine03                     { quality = 6; price = 5000; sellPrice = 2000; };
+	class Exile_Item_Magazine04						{ quality = 6; price = 5000; sellPrice = 2000; };
+    class Exile_Item_RubberDuck                     { quality = 6; price = 5000000; sellprice = 60000; };
+	
 	// Added in 1.0.3, but not used
 	//class Exile_Item_Bullets_556					{ quality = 2; price = 5; };
 	//class Exile_Item_Bullets_762					{ quality = 2; price = 5; };
@@ -518,7 +525,8 @@
 	class Exile_Item_Heatpack	                    { quality = 1; price = 50; };
 	class Exile_Item_InstaDoc                       { quality = 5; price = 1250; };
 	class Exile_Item_Vishpirin						{ quality = 3; price = 300; };
-
+    class FirstAidKit				                { quality = 2; price = 100; };
+	class Medikit 					                { quality = 2; price = 100; };
 	class Exile_Item_Defibrillator				    { quality = 3; price = 7500; };
 
 	///////////////////////////////////////////////////////////////////////////////
@@ -556,13 +564,13 @@
 	class ItemMap									{ quality = 1; price = 6; };
 	class ItemRadio									{ quality = 1; price = 40; };
 	class ItemWatch									{ quality = 1; price = 2; };
-	class Laserdesignator							{ quality = 6; price = 750; };
-	class Laserdesignator_02						{ quality = 6; price = 750; };
-	class Laserdesignator_03						{ quality = 6; price = 750; };
-	class NVGoggles									{ quality = 2; price = 100; };
-	class NVGoggles_INDEP							{ quality = 2; price = 100; };
-	class NVGoggles_OPFOR							{ quality = 2; price = 100; };
-	class Rangefinder								{ quality = 3; price = 200; };
+	class Laserdesignator							{ quality = 4; price = 5000; };
+	class Laserdesignator_02						{ quality = 4; price = 5000; };
+	class Laserdesignator_03						{ quality = 4; price = 5000; };
+	class NVGoggles									{ quality = 2; price = 1000; };
+	class NVGoggles_INDEP							{ quality = 2; price = 1000; };
+	class NVGoggles_OPFOR							{ quality = 2; price = 1000; };
+	class Rangefinder								{ quality = 3; price = 4000; };
 
 	///////////////////////////////////////////////////////////////////////////////
 	// Watch out for a Walter fart! He has gas!

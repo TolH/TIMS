@@ -6,52 +6,112 @@
 //#include "initServer.sqf"
 
 //Player Nametags
-addMissionEventHandler ["Draw3D", {1200 call ExileClient_gui_safezone_safeESP}];
-
+addMissionEventHandler ["Draw3D", {3200 call ExileClient_gui_safezone_safeESP}];
+//TEST BODYGUARD
+GUARD_AImax = 0;
 // Load Status Bar
 [] execVM "Custom\StatusBar\statusBar_init.sqf";
-
-//AUTO CHUTE
+//_add = _this spawn GOM_fnc_addAircraftLoadout;
+//RING TRANSFORM+ AUTOCHUTE
 //============================================////============================================//
 	[] spawn
 	{
 	  while {true} do
 		{
-		   private ["_chute"];
-			if (!(isTouchingGround player) && ((position player select 2) >= 6.98) && (vehicle player IsEqualto player) && (alive player)) then
+			if (vehicle player == player) then 
 			{
-				player switchCamera "EXTERNAL";
-				player allowDamage false;
-				waitUntil {(position player select 2) <= 6.95};
-				addCamShake [6, 3, 15];
-				_chute = createVehicle ["Steerable_Parachute_F", position Player, [], 0, "FLY"];
-				_chute setPos [(position player select 0), (position player select 1), (position player select 2)+15];
-				uiSleep 0.01;
-				_chute setDir direction player;
-				player moveIndriver _chute;
-				_chute allowDamage false;
-				player allowDamage true;
+			    private ["_chute"];
+				if (!(isTouchingGround player) && ((position player select 2) >= 6.98) && (vehicle player IsEqualto player) && (alive player)) then
+				{
+					player switchCamera "EXTERNAL";
+					player allowDamage false;
+					waitUntil {(position player select 2) <= 6.95};
+					addCamShake [6, 3, 15];
+					_chute = createVehicle ["Steerable_Parachute_F", position Player, [], 0, "FLY"];
+					_chute setPos [(position player select 0), (position player select 1), (position player select 2)+15];
+					uiSleep 0.01;
+					_chute setDir direction player;
+					player moveIndriver _chute;
+					_chute allowDamage false;
+					player allowDamage true;
+				};
+			}
+			
+			else
+			{
+				_isWater = surfaceIsWater position player;
+				//FROM AIR TO GROUND
+				if ((speed vehicle player <= 325) && !(isTouchingGround vehicle player) && (typeOf vehicle player == "I_Plane_Fighter_03_dynamicLoadout_F") && ((getPosATL vehicle player select 2) <= 50) && (!_isWater)) then
+				{
+					transformaction1 = player addAction ["<t color='#FF0000'>Switch to Ground</t>", "Custom\TIMS\misc\transform.sqf"];
+					uiSleep 4;
+					player removeAction transformaction1;
+				};
+				//FROM AIR TO WATER
+				if ((speed vehicle player <= 325) && !(isTouchingGround vehicle player) && (typeOf vehicle player == "I_Plane_Fighter_03_dynamicLoadout_F") && ((getPosASLW vehicle player select 2) <= 50) && (_isWater)) then
+				{
+					transformaction2 = player addAction ["<t color='#FF0000'>Switch to Water</t>", "Custom\TIMS\misc\transform.sqf"];
+					uiSleep 4;
+					player removeAction transformaction2;
+				};
+				//FROM GROUND TO AIR
+				if ((speed vehicle player >= 104) && (typeOf vehicle player == "rhsusf_m1043_w_mk19")) then
+				{
+					transformaction3 = player addAction ["<t color='#FF0000'>Switch to Air</t>", "Custom\TIMS\misc\transform.sqf"];
+					uiSleep 4;
+					player removeAction transformaction3;
+				};
+				//FROM GROUND TO TANK
+				if ((speed vehicle player <= -30) && (typeOf vehicle player == "rhsusf_m1043_w_mk19")) then
+				{
+					transformaction4 = player addAction ["<t color='#FF0000'>Switch to Tank</t>", "Custom\TIMS\misc\transform.sqf"];
+					uiSleep 4;
+					player removeAction transformaction4;
+				};
+				//FROM TANK TO GROUND
+				if ((speed vehicle player >= 50) && (typeOf vehicle player == "rhsgref_ins_t72bb")) then
+				{
+					transformaction5 = player addAction ["<t color='#FF0000'>Switch to Ground</t>", "Custom\TIMS\misc\transform.sqf"];
+					uiSleep 4;
+					player removeAction transformaction5;
+				};
+				//FROM WATER TO AIR
+				if ((speed vehicle player >= 73) && (typeOf vehicle player == "I_Boat_Armed_01_minigun_F")) then
+				{
+					transformaction6 = player addAction ["<t color='#FF0000'>Switch to Air</t>", "Custom\TIMS\misc\transform.sqf"];
+					uiSleep 4;
+					player removeAction transformaction6;
+				};
 			};
-		   uiSleep 1.8;
+		  uiSleep 1.8;
 		};
 	};
+//============================================//
 //============================================////============================================//
-#include "A3XAI_Client\A3XAI_initclient.sqf";
-
+//To use the function somewhere in another script executed everywhere:
+//	[[", because I called it."],"FUNC_I_WANT_EXECUTED",nil,true] spawn BIS_fnc_MP;
+//
+//or locally:
+//	[", because I called it."] call FUNC_I_WANT_EXECUTED;
+//
+//	FUNC_I_WANT_EXECUTED = {
+//	_a_passed_parameter = _this select 0;
+//	hint format ["My function just executed%1",_a_passed_parameter];
+//	};
 //============================================////============================================//
 		//SERVER CALL ALL CLIENT TO EXECUTE SQF SCRIPT
 	//============================================////============================================//
 			//SERVER USE:
-			//	Execute_Client_SQF = "GUI_ON_THE_FLY\tower\AI_tower_Bar_progress.sqf"; publicVariable "Execute_Client_SQF";
-			//	execVM Execute_Client_SQF;
+			//Execute_Client_SQF = "Custom\TIMS\misc\Bounty_VR_Notification.sqf"; publicVariable "Execute_Client_SQF";
+			//ExecVM Execute_Client_SQF;
 		//tower_Bar_progress
-		/*"Execute_Client_SQF" addPublicVariableEventHandler
+		"Execute_Client_SQF" addPublicVariableEventHandler
 		 {
 			private ["_forAll"];
-			
+			//_forAll1 = (_this select 1) select 0;
 			_forAll = _this select 1;
 			execVM _forAll;
-		 };*/
+		 };
 	//============================================////============================================//
 		//CUSTOM SOUND TO SEND TO EVERYONE
 	//============================================////============================================//
@@ -594,14 +654,48 @@ call ExileClient_object_trader_create;
 ]
 call ExileClient_object_trader_create;
 
-//REVIVE
-//call compileFinal preprocessFileLineNumbers "Custom\EnigmaRevive\init.sqf";
+////////////////////////////
+//CUSTOM JAY TRADER START
+////////////////////////////
+private _npcs = [
+["Exile_Trader_CommunityCustoms", ["[player","""STAND1""","""NONE""]","call","BIS_fnc_ambientAnim"], "Exile_Trader_CommunityCustoms", "WhiteHead_18", [["M1014","","","",["8rnd_B_Beneli_74Slug",8],[],""],[],["Exile_Weapon_TaurusGold","","","",["Exile_Magazine_6Rnd_45ACP",6],[],""],["U_B_survival_uniform",[["8rnd_B_Beneli_74Slug",3,8],["Exile_Magazine_6Rnd_45ACP",2,6]]],["V_PlateCarrier2_rgr",[]],["B_Messenger_Gray_F",[]],"H_Bandanna_camo","G_Bandanna_beast",["Laserdesignator","","","",["Laserbatteries",1],[],""],["","O_UavTerminal","","","ItemWatch",""]], [18453.2, 14264.2, 23.2597], [-0.86193, 0.507027, 0], [0, 0, 1]]
+];
 
+{
+    private _logic = "Logic" createVehicleLocal [0, 0, 0];
+    private _trader = (_x select 0) createVehicleLocal [0, 0, 0];
+    private _animations = _x select 1;
+    
+    _logic setPosWorld (_x select 5);
+    _logic setVectorDirAndUp [_x select 6, _x select 7];
+    
+    _trader setVariable ["BIS_enableRandomization", false];
+    _trader setVariable ["BIS_fnc_animalBehaviour_disable", true];
+    _trader setVariable ["ExileAnimations", _animations];
+    _trader setVariable ["ExileTraderType", _x select 2];
+    _trader disableAI "ANIM";
+    _trader disableAI "MOVE";
+    _trader disableAI "FSM";
+    _trader disableAI "AUTOTARGET";
+    _trader disableAI "TARGET";
+    _trader disableAI "CHECKVISIBLE";
+    _trader allowDamage false;
+    _trader setFace (_x select 3);
+    _trader setUnitLoadOut (_x select 4);
+    _trader setPosWorld (_x select 5);
+    _trader setVectorDirAndUp [_x select 6, _x select 7];
+    _trader reveal _logic;
+    _trader attachTo [_logic, [0, 0, 0]];
+    _trader switchMove (_animations select 0);
+    _trader addEventHandler ["AnimDone", {_this call ExileClient_object_trader_event_onAnimationDone}];
+}
+forEach _npcs;
+////////////////////////////
+//CUSTOM JAY TRADER END
+////////////////////////////
+if (name player in ["A Sniper","Frank","Poison","Blazin","pondo","Regen_","jayru"]) then
+{
+	["InitializePlayer", [player, true]] call BIS_fnc_dynamicGroups;
+};
 //Bones Super Advanced Repair System (SARS)
 Bones_fnc_salvageAndRepairMenu = compileFinal preprocessFileLineNumbers "Custom\advancedRepair\Bones_fnc_salvageAndRepairMenu.sqf"; 
-
-//weed and mining
-DDR_fnc_Mushrooms = compileFinal preprocessFileLineNumbers "custom\drugs\mushrooms.sqf";
-DDR_fnc_Weed = compileFinal preprocessFileLineNumbers "custom\drugs\weed.sqf";
-DDR_fnc_Ore_Mining = compileFinal preprocessFileLineNumbers "custom\mining\ore_mining.sqf";
-DDR_fnc_Crystal_Mining = compileFinal preprocessFileLineNumbers "custom\mining\crystal_mining.sqf";

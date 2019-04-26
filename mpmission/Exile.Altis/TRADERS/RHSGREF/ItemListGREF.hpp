@@ -128,6 +128,7 @@
  	class rhsgref_BRDM2_vdv								{ quality = 4; price = 99000; };
  	class rhsgref_BRDM2_vmf								{ quality = 4; price = 99000; };
  	class rhsgref_un_m1117								{ quality = 4; price = 99000; };
+	class rhsgref_ins_btr60								{ quality = 4; price = 99000; };
 
 	///////////////////////////////////////////////////////////////////////////////
 	//  RHS GREF vehicle wheel

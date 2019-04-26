@@ -19,7 +19,6 @@
 			"rhs_uniform_cu_ucp_82nd",
 			"rhs_uniform_cu_ocp_patchless",
 	        "rhs_uniform_cu_ucp_patchless",
-			// Added by ElShotte - 5 Items
 			"rhs_uniform_g3_m81",
 			"rhs_uniform_g3_blk",
 			"rhs_uniform_g3_mc",
@@ -51,10 +50,8 @@
 			"rhsusf_iotv_ocp_SAW",
 			"rhsusf_iotv_ocp_squadleader",
 			"rhsusf_iotv_ocp_teamleader",
-			//added by chainsaw - 2
 			"rhsusf_spc",
 			"rhsusf_spc_mg",
-			// Added by ElShotte - 12 Items
 			"rhsusf_spc_marksman",
 			"rhsusf_spc_corpsman",
 			"rhsusf_spc_patchless",
@@ -67,7 +64,6 @@
 			"rhsusf_spcs_ocp",
 			"rhsusf_spcs_ucp_rifleman",
 			"rhsusf_spcs_ucp"
-
 		};
 	};
 
@@ -170,7 +166,6 @@
 			"rhsusf_mich_helmet_marpatwd_norotos_arc",
 			"rhsusf_mich_helmet_marpatwd_norotos_arc_headset",
 			"rhsusf_mich_helmet_marpatwd_norotos_headset",
-			// added by chainsaw - 13
 			"rhsusf_patrolcap_ocp",
 			"rhsusf_patrolcap_ucp",
 			"rhsusf_opscore_01",
@@ -184,7 +179,6 @@
 			"rhsusf_hgu56p_mask",
 			"rhsusf_cvc_green_helmet",
 			"rhsusf_cvc_green_ess",
-			// Added by ElShotte - 41 Items
 			"rhsusf_opscore_bk_pelt",
 			"rhsusf_opscore_bk",
 			"rhsusf_opscore_coy_cover",
@@ -235,8 +229,7 @@
 			"rhsusf_falconii_coy",
 			"rhsusf_falconii_mc",
 			"rhsusf_falconii",
-			"RHS_M2_Gun_Bag",
-
+			"RHS_M2_Gun_Bag"
 		};
 	};
 
@@ -266,7 +259,6 @@
 			"rhsusf_acc_anpeq15",
 			"rhsusf_acc_anpeq15A",
 			"rhsusf_acc_anpeq15_light",
-			// Added by ElShotte - 11 Items
 			"rhsusf_acc_anpeq15_bk",
 			"rhsusf_acc_anpeq15_bk_light"
 		};
@@ -279,7 +271,6 @@
 		items[] =
 		{
 			"rhsusf_acc_harris_bipod"
-
 		};
 	};
 
@@ -295,7 +286,6 @@
 			"rhsusf_acc_grip2_tan",
 			"rhsusf_acc_grip3",
 			"rhsusf_acc_grip3_tan"
-
 		};
 	};
 
@@ -311,14 +301,12 @@
 			"rhsusf_acc_nt4_tan",
 			"rhsusf_acc_SF3P556",
 			"rhsusf_acc_SFMB556",
-			"rhsusf_acc_SR25S",
 			"rhsusf_acc_M2010S",
-			// Added by ElShotte - 6 Items
 			"rhsusf_acc_omega9k",
 			"rhsusf_acc_rotex_mp7",
 			"rhsusf_acc_rotex_mp7_desert",
 			"rhsusf_acc_rotex_mp7_winter",
-			"rhsusf_acc_rotex_mp7_aor1"
+			"rhsusf_acc_rotex_mp7_aor1",
 		};
 	};
 
@@ -343,8 +331,6 @@
 			"rhsusf_acc_ACOG3_USMC",
 			"rhsusf_acc_LEUPOLDMK4_2",
 			"rhsusf_acc_EOTECH",
-
-			// Added by ElShotte - 19 Items
 			"rhsusf_acc_ACOG_MDO",
 			"rhsusf_acc_ACOG_RMR",
 			"rhsusf_acc_ACOG_d",
@@ -361,7 +347,6 @@
 			"rhsusf_acc_M8541_low",
 			"rhsusf_acc_M8541_low_d",
 			"rhsusf_acc_M8541_low_wd"
-
 		};
 	};
 
@@ -393,7 +378,6 @@
 			"rhs_weap_m240B",
 			"rhs_weap_m240B_CAP",
 			"rhs_weap_m240G"
-
 		};
 	};
 
@@ -459,57 +443,55 @@
 			"rhs_weap_mk18_d",
 			"rhs_weap_mk18_m320",
 			"rhs_weap_mk18_wd"
-			// Exile Dupe issue items un comment at your own risk
-			//"rhs_weap_ak103",
-			//"rhs_weap_ak103_1",
-			//"rhs_weap_ak103_npz",
-			//"rhs_weap_ak103_zenitco01",
-			//"rhs_weap_ak103_zenitco01_b33",
-			//"rhs_weap_ak104_zenitco01",
-			//"rhs_weap_ak104_zenitco01_b33",
-			//"rhs_weap_ak105_zenitco01",
-			//"rhs_weap_ak105_zenitco01_b33",
-			//"rhs_weap_ak74m",
-			//"rhs_weap_ak74m_2mag",
-			//"rhs_weap_ak74m_2mag_camo",
-			//"rhs_weap_ak74m_2mag_npz",
-			//"rhs_weap_ak74m_camo",
-			//"rhs_weap_ak74m_camo_folded",
-			//"rhs_weap_ak74m_desert",
-			//"rhs_weap_ak74m_desert_folded",
-			//"rhs_weap_ak74m_desert_npz",
-			//"rhs_weap_ak74m_folded",
-			//"rhs_weap_ak74m_gp25",
-			//"rhs_weap_ak74m_gp25_npz",
-			//"rhs_weap_ak74m_npz",
-			//"rhs_weap_ak74m_plummag",
-			//"rhs_weap_ak74m_plummag_folded",
-			//"rhs_weap_ak74m_plummag_npz",
-			//"rhs_weap_ak74m_zenitco01",
-			//"rhs_weap_ak74m_zenitco01_b33",
-			//"rhs_weap_ak74mr",
-			//"rhs_weap_ak74mr_gp25",
-			//"rhs_weap_akm",
-			//"rhs_weap_akm_gp25",
-			//"rhs_weap_akms",
-			//"rhs_weap_akms_gp25",
-			//"rhs_weap_aks74",
-			//"rhs_weap_aks74_gp25",
-			//"rhs_weap_aks74n",
-			//"rhs_weap_aks74n_gp25",
-			//"rhs_weap_m16a4_carryhandle_grip",
-			//"rhs_weap_m16a4_carryhandle_grip_pmag",
-			//"rhs_weap_m16a4_grip",
-			//"rhs_weap_m4_grip",
-			//"rhs_weap_m4_grip2",
-			//"rhs_weap_m4a1_blockII_grip2",
-			//"rhs_weap_m4a1_blockII_grip2_KAC",
-			//"rhs_weap_m4a1_carryhandle_grip2",
-			//"rhs_weap_m4a1_grip",
-			//"rhs_weap_m4a1_grip2",
-			//"rhs_weap_mk18_grip2",
-			//"rhs_weap_mk18_grip2_KAC"
-
+			"rhs_weap_ak103",
+			"rhs_weap_ak103_1",
+			"rhs_weap_ak103_npz",
+			"rhs_weap_ak103_zenitco01",
+			"rhs_weap_ak103_zenitco01_b33",
+			"rhs_weap_ak104_zenitco01",
+			"rhs_weap_ak104_zenitco01_b33",
+			"rhs_weap_ak105_zenitco01",
+			"rhs_weap_ak105_zenitco01_b33",
+			"rhs_weap_ak74m",
+			"rhs_weap_ak74m_2mag",
+			"rhs_weap_ak74m_2mag_camo",
+			"rhs_weap_ak74m_2mag_npz",
+			"rhs_weap_ak74m_camo",
+			"rhs_weap_ak74m_camo_folded",
+			"rhs_weap_ak74m_desert",
+			"rhs_weap_ak74m_desert_folded",
+			"rhs_weap_ak74m_desert_npz",
+			"rhs_weap_ak74m_folded",
+			"rhs_weap_ak74m_gp25",
+			"rhs_weap_ak74m_gp25_npz",
+			"rhs_weap_ak74m_npz",
+			"rhs_weap_ak74m_plummag",
+			"rhs_weap_ak74m_plummag_folded",
+			"rhs_weap_ak74m_plummag_npz",
+			"rhs_weap_ak74m_zenitco01",
+			"rhs_weap_ak74m_zenitco01_b33",
+			"rhs_weap_ak74mr",
+			"rhs_weap_ak74mr_gp25",
+			"rhs_weap_akm",
+			"rhs_weap_akm_gp25",
+			"rhs_weap_akms",
+			"rhs_weap_akms_gp25",
+			"rhs_weap_aks74",
+			"rhs_weap_aks74_gp25",
+			"rhs_weap_aks74n",
+			"rhs_weap_aks74n_gp25",
+			"rhs_weap_m16a4_carryhandle_grip",
+			"rhs_weap_m16a4_carryhandle_grip_pmag",
+			"rhs_weap_m16a4_grip",
+			"rhs_weap_m4_grip",
+			"rhs_weap_m4_grip2",
+			"rhs_weap_m4a1_blockII_grip2",
+			"rhs_weap_m4a1_blockII_grip2_KAC",
+			"rhs_weap_m4a1_carryhandle_grip2",
+			"rhs_weap_m4a1_grip",
+			"rhs_weap_m4a1_grip2",
+			"rhs_weap_mk18_grip2",
+			"rhs_weap_mk18_grip2_KAC"
 		};
 	};
 
@@ -526,14 +508,12 @@
 			"rhs_weap_XM2010_wd",
 			"rhs_weap_XM2010_d",
 			"rhs_weap_XM2010_sa",
-			// added by chainsaw
 			"rhs_weap_m24sws",
 			"rhs_weap_m24sws_blk",
 			"rhs_weap_m24sws_ghillie",
 			"rhs_weap_m40a5",
 			"rhs_weap_m40a5_d",
 			"rhs_weap_m40a5_w",
-			// Addd by ElShotte - 14 Items
 			"rhs_weap_M107",
 			"rhs_weap_M107_d",
 			"rhs_weap_M107_w",
@@ -549,7 +529,6 @@
 		icon = "a3\ui_f\data\gui\Rsc\RscDisplayArsenal\itemacc_ca.paa";
 		items[]=
 		{
-
 			"rhs_200rnd_556x45_M_SAW",
 			"rhs_200rnd_556x45_B_SAW",
 			"rhs_200rnd_556x45_T_SAW",
@@ -561,14 +540,8 @@
 			"rhsusf_100Rnd_762x51_m80a1epr",
 			"rhsusf_20Rnd_762x51_m993_Mag",
 			"rhsusf_5Rnd_300winmag_xm2010",
-
-
-			// Added by ElShotte - 26 Items
-			//M-107 and M82A1
 			"rhsusf_mag_10Rnd_STD_50BMG_M33",
-			"rhsusf_mag_10Rnd_STD_50BMG_mk211",  // <- Exploding 50 Cal rounds (WAY too powerful)
-
-			// M590
+			"rhsusf_mag_10Rnd_STD_50BMG_mk211",  // <- Exploding 50 Cal rounds (WAY too powerful)			
 			"rhsusf_5Rnd_00Buck",
 			"rhsusf_8Rnd_00Buck",
 			"rhsusf_8Rnd_Slug",
@@ -576,25 +549,15 @@
 			"rhsusf_5Rnd_FRAG",
 			"rhsusf_5Rnd_HE",
 			"rhsusf_8Rnd_HE",
-			"rhsusf_8Rnd_doomsday_Buck",
-
-			// M24 SWS
+			"rhsusf_8Rnd_doomsday_Buck",			
 			"rhsusf_5Rnd_762x51_m118_special_Mag",
 			"rhsusf_5Rnd_762x51_m993_Mag",
-			"rhsusf_5Rnd_762x51_m62_Mag",
-
-			// M40A5
-			"rhsusf_10Rnd_762x51_m62_Mag",
-			"rhsusf_10Rnd_762x51_m993_Mag",
-			"rhsusf_10Rnd_762x51_m118_special_Mag",
-
-			// Pistols
+			"rhsusf_5Rnd_762x51_m62_Mag",			
 			"rhsusf_mag_15Rnd_9x19_FMJ",
 			"rhsusf_mag_15Rnd_9x19_JHP",
 			"rhsusf_mag_17Rnd_9x19_JHP",
 			"rhsusf_mag_17Rnd_9x19_FMJ"
-
-		};
+        };
 	};
 
 	class RHSExplosives
@@ -606,7 +569,6 @@
 			"rhsusf_m112_mag",
 			"rhsusf_m112x4_mag",
 			"rhsusf_mine_m14_mag",
-			// grenades
 			"rhs_mag_fakel",
 			"rhs_mag_m576",
 			"rhs_mag_m18_green",
@@ -620,6 +582,5 @@
 			"rhs_mag_m7a3_cs",
 			"rhs_mag_an_m8hc",
 			"rhs_mag_an_m14_th3"
-
 		};
 	};

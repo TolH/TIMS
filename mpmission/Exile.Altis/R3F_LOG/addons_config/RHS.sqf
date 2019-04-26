@@ -689,6 +689,7 @@ R3F_LOG_CFG_can_be_towed = R3F_LOG_CFG_can_be_towed +
 			"rhsusf_rg33_usmc_wd",
 			"rhsusf_rg33_wd"	,					//Broken?
 			"rhs_btr60_msv",
+			"rhsusf_CGRCAT1A2_M2_usmc_wd",			
 			"rhs_btr60_vv",
 			"rhs_t72ba_tv",
 			"rhs_t72bc_tv",
@@ -823,7 +824,9 @@ R3F_LOG_CFG_can_lift = R3F_LOG_CFG_can_lift +
 			"rhs_mi28n_vvsc",
 			"rhsusf_CH53E_USMC",
 			"rhsusf_CH53E_USMC_D",
-			"RHS_MELB_AH6M_L"
+			"RHS_MELB_AH6M_L",
+			"rhs_uh1h_hidf",
+            "rhs_uh1h_hidf_gunship"
 
 ];
 
@@ -879,7 +882,7 @@ R3F_LOG_CFG_can_be_lifted = R3F_LOG_CFG_can_be_lifted +
 			"RHS_Ural_Repair_MSV_01",
 			"RHS_Ural_Repair_VDV_01",
 			"RHS_Ural_Repair_VMF_01",
-			"RHS_Ural_Repair_VV_01",
+			"RHS_Ural_Repair_VV_01",			
 			"rhs_bmp3_late_msv",
 			"rhs_bmp3mera_msv",
 			"rhs_btr60_chdkz",
@@ -987,6 +990,7 @@ R3F_LOG_CFG_can_be_lifted = R3F_LOG_CFG_can_be_lifted +
 			"rhs_ural_open_chdkz",
 			"rhs_ural_work_chdkz",
 			"rhs_ural_work_open_chdkz",
+			"rhsusf_CGRCAT1A2_M2_usmc_wd",			
 			"rhsusf_M1078A1P2_B_CP_fmtv_usarmy",
 			"rhsusf_M1078A1P2_B_D_CP_fmtv_usarmy",
 			"rhsusf_M1078A1P2_B_M2_D_flatbed_fmtv_usarmy",
@@ -1358,6 +1362,7 @@ R3F_LOG_CFG_can_transport_cargo = R3F_LOG_CFG_can_transport_cargo +
 			["rhs_ural_open_chdkz", 60],
 			["rhs_ural_work_chdkz", 60],
 			["rhs_ural_work_open_chdkz", 60],
+			["rhsusf_CGRCAT1A2_M2_usmc_wd", 120],			
 			["rhsusf_M1078A1P2_B_CP_fmtv_usarmy", 60],
 			["rhsusf_M1078A1P2_B_D_CP_fmtv_usarmy", 60],
 			["rhsusf_M1078A1P2_B_M2_D_flatbed_fmtv_usarmy", 60],
@@ -1626,8 +1631,8 @@ R3F_LOG_CFG_can_transport_cargo = R3F_LOG_CFG_can_transport_cargo +
 			["rhs_mi28n_s13_vvsc", 60],
 			["rhs_mi28n_vvs", 60],
 			["rhs_mi28n_vvsc", 60],
-			["rhsusf_CH53E_USMC", 60],
-			["rhsusf_CH53E_USMC_D", 60],
+			["rhsusf_CH53E_USMC", 120],
+			["rhsusf_CH53E_USMC_D", 120],
 			["RHS_MELB_AH6M_L", 60],
 			["RHS_A10", 60],
 			["RHS_C130J", 60],
@@ -1657,7 +1662,9 @@ R3F_LOG_CFG_can_transport_cargo = R3F_LOG_CFG_can_transport_cargo +
 			["rhs_pchela1t_vvs", 60],
 			["rhs_pchela1t_vvsc", 60],
 			["rhsusf_f22", 60],
-			["rhsusf_mkvsoc", 60]
+			["rhsusf_mkvsoc", 60],
+			["rhs_uh1h_hidf", 60],
+            ["rhs_uh1h_hidf_gunship", 60]
 ];
 
 /**
