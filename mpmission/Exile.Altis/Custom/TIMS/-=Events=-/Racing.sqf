@@ -7,9 +7,9 @@ RACETIMER = 30;
 if (player == vehicle player) then 
 {
 	//RANDOMIZE SLEEP IN CASE I WANT TO FIRE THE SCRIPT TO EVERYONE ON THE SERVER BY HANDS SO THEY ALL SPAWN AROUND WITHOUT EXPLODING...
-	private _RandomSleep1 selectRandom [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9];
-	private _RandomSleep2 selectRandom [0.9, 0.8, 0.7, 0.6, 0.5, 0.4, 0.3, 0.2, 0.1];
-	uiSleep round (_RandomSleep1 + _RandomSleep2);
+	private _RandomSleep1 = selectRandom [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9];
+	private _RandomSleep2 = selectRandom [0.5, 0.4, 0.3, 0.2, 0.1];
+	uiSleep (_RandomSleep1 + _RandomSleep2);
 	//TEMP SAVE CURRENT PLAYER POSITION TO TELEPORT HIM BACK WHERE HE WAS
 	profileNamespace setVariable ["TP_BACK_POS", getPos player];
 	//START
