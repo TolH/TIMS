@@ -46,9 +46,10 @@ private _AddLocation = 0;
 			//JUST SEND NOTIFICATION FOR NOW AS TESTING
 			["ErrorTitleAndText", ["TIME BONUS: OFFROAD (-10)"]] call ExileClient_gui_toaster_addTemplateToast;
 			RACETIMER = RACETIMER - 10;
-			systemchat format ["OFFROAD, PUTTING YOU BACK ON TRACK. (LOST 10 SECONDS) -%1-  (THIS FUNCTION IS NOT YET ACTIVATED)", _RacingVehicle distance _nearestRoad];
-			_RacingVehicle setPos (getPos _nearestRoadRespawn);
-			_RacingVehicle setdamage 0;
+			//systemchat format ["OFFROAD, PUTTING YOU BACK ON TRACK. (LOST 10 SECONDS) -%1-  (THIS FUNCTION IS NOT YET ACTIVATED)", _RacingVehicle distance _nearestRoad];
+			_RacingVehicle setPos [(getPos _nearestRoadRespawn select 0), (getPos _nearestRoadRespawn select 1), (getPos _nearestRoadRespawn select 2)+3];
+			//ADD A SCRIPT HERE CAUSE I CANT SLEEP HERE BECAUSE OF TIMER FOR THE RESPAWN.
+			[_RacingVehicle] execVM "Custom\TIMS\-=Events=-\OFFROAD_RESPAWN.sqf";
 		};
 		//IF PLAYER GET OUT OF THE CAR OR FROM THE DRIVER SEAT THEN RACE ENDS
 		if !(_inVehicle and (driver _vehicle == player)) then 

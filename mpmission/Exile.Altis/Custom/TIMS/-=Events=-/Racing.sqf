@@ -3,7 +3,7 @@
 //============================================////============================================//
 //MISSION ACCEPTED BY PLAYER FROM THE GUI CONFIRM MISSION
 //FIRST VEHICLE CHECK
-RACETIMER = 50;
+RACETIMER = 40;
 if (player == vehicle player) then 
 {
 	//TEMP SAVE CURRENT PLAYER POSITION TO TELEPORT HIM BACK WHERE HE WAS
