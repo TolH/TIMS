@@ -1,24 +1,51 @@
 //============================================////============================================//
 //					 -= RACING SCRIPT FOR Racing event by TOLH/0908 =-
-//TO USE: [_AI_Checkpoint,_RacingVehicle] execVM "Custom\TIMS\-=Events=-\RacingScript.sqf";
+//TO USE: [_AI_Checkpoint,_RacingVehicle,_SpeedBonusArrowOrange] execVM "Custom\TIMS\-=Events=-\RacingScript.sqf";
 //============================================////============================================//
 //============================================//
 private _AI_Checkpoint = _this select 0;
 private _RacingVehicle = _this select 1;
+private _SpeedBonusArrowOrange = _this select 2;
 //============================================//
 private _vehicle = vehicle player;
 private _inVehicle = (_vehicle != player);
+private _SpeedBoostADD = 0;
 private _AddLocation = 0;
+private _speed = 50;
 //============================================//
 	while {RACETIMER > 0} do 
 	{
+		private _SpeedBonusCheckDistance = _RacingVehicle distance _SpeedBonusArrowOrange;
 		private _VehicleDistCheckpoint = _RacingVehicle distance _AI_Checkpoint;
 		private _nearestRoad = [getPosATL _RacingVehicle, 50] call BIS_fnc_nearestRoad;
 		private _nearestRoadRespawn = [getPosATL _RacingVehicle, 100] call BIS_fnc_nearestRoad;
-		//START RANGE CHECK
-		if (_VehicleDistCheckpoint <= 28) then 
+		//START RANGE CHECK BONUS SPEED
+		if (_SpeedBonusCheckDistance <= 27) then 
 		{
-			_AddLocation = _AddLocation + 1;
+			private _dirPlayer = direction _vehicle;
+			private _vel = velocity _vehicle;
+			//BOOST BEFORE JUMP
+			_RacingVehicle setVelocity 
+			[ 
+				(_vel select 0) + (sin _dirPlayer * _speed),
+				(_vel select 1) + (cos _dirPlayer * _speed),
+				(_vel select 2)
+			];
+			//MOVE BOOST TO NEXT LOCATION
+			if (_SpeedBoostADD == 0) then { _SpeedBonusArrowOrange setPos (getMarkerPos "RACING_WAYPOINT_1"); };
+			if (_SpeedBoostADD == 1) then { _SpeedBonusArrowOrange setPos (getMarkerPos "RACING_WAYPOINT_2"); };
+			if (_SpeedBoostADD == 2) then { _SpeedBonusArrowOrange setPos (getMarkerPos "RACING_WAYPOINT_3"); };
+			if (_SpeedBoostADD == 3) then { _SpeedBonusArrowOrange setPos (getMarkerPos "RACING_WAYPOINT_4"); };
+			if (_SpeedBoostADD == 4) then { _SpeedBonusArrowOrange setPos (getMarkerPos "RACING_WAYPOINT_5"); };
+			if (_SpeedBoostADD == 5) then { _SpeedBonusArrowOrange setPos (getMarkerPos "RACING_WAYPOINT_6"); };
+			if (_SpeedBoostADD == 6) then { _SpeedBonusArrowOrange setPos (getMarkerPos "RACING_WAYPOINT_7"); };
+			if (_SpeedBoostADD == 7) then { _SpeedBonusArrowOrange setPos (getMarkerPos "RACING_WAYPOINT_8"); };
+			if (_SpeedBoostADD == 8) then { _SpeedBonusArrowOrange setPos (getMarkerPos "RACING_WAYPOINT_9"); };
+			_SpeedBoostADD = _SpeedBoostADD + 1;
+		};
+		//START RANGE CHECK CHECKPOINTS
+		if (_VehicleDistCheckpoint <= 27) then 
+		{
 			//GIVE TIME WHEN NEAR THE ARROW
 			RACETIMER = RACETIMER + 30;
 			["SuccessTitleAndText", ["TIME BONUS: (+30)"]] call ExileClient_gui_toaster_addTemplateToast;
@@ -54,18 +81,19 @@ private _AddLocation = 0;
 	};
 //============================================//
 //END RACE AND DELETE EVERYTHING
-_RacingVehicle allowdamage true;
-_RacingVehicle setdamage 1;
-["ErrorTitleAndText", ["THE RACE IS OVER FOR YOU!"]] call ExileClient_gui_toaster_addTemplateToast;
-uiSleep 5;
-deleteVehicle _RacingVehicle;
-deleteVehicle _AI_Checkpoint;
-uiSleep 2;
-private _TeleportPos = profileNamespace getVariable "TP_BACK_POS";
-titleText ["Teleporting you back...", "BLACK OUT", 7];
-uiSleep 7;
-player setPos _TeleportPos;
-titleText ["", "BLACK IN", 7];
-player allowdamage true;
+	_RacingVehicle allowdamage true;
+	_RacingVehicle setdamage 1;
+	["ErrorTitleAndText", ["THE RACE IS OVER FOR YOU!"]] call ExileClient_gui_toaster_addTemplateToast;
+		uiSleep 5;
+	deleteVehicle _RacingVehicle;
+	deleteVehicle _AI_Checkpoint;
+		uiSleep 2;
+	private _TeleportPos = profileNamespace getVariable "TP_BACK_POS";
+	titleText ["Teleporting you back...", "BLACK OUT", 7];
+		uiSleep 7;
+	player setPos _TeleportPos;
+	titleText ["", "BLACK IN", 7];
+		uiSleep 3;
+	player allowdamage true;
 //============================================//
 //============================================////============================================//
