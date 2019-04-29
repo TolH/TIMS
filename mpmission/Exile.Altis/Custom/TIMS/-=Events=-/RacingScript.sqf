@@ -23,21 +23,31 @@ PLAYER_IS_RACING = 1;
 		//START RANGE CHECK CHECKPOINTS (FIRST THING TO CHECK, CHECKPOINTS PRIORITY BEFORE ANYTHING ELSE SO IT HAPPENS FIRST)
 		if (_VehicleDistCheckpoint <= 28) then 
 		{
-			//GIVE TIME WHEN NEAR THE ARROW
+			//GIVE TIME WHEN NEAR THE CHECKPOINT
 			RACETIMER = RACETIMER + 30;
 			["SuccessTitleAndText", ["TIME BONUS: (+30)"]] call ExileClient_gui_toaster_addTemplateToast;
-			//MOVE ARROW TO NEXT TARGET
-			if (_AddLocation == 0) then { _AI_Checkpoint setPos (getMarkerPos "RACING_WAYPOINT_1"); ["SuccessTitleAndText", ["CHECK_#0"]] call ExileClient_gui_toaster_addTemplateToast; };
-			if (_AddLocation == 1) then { _AI_Checkpoint setPos (getMarkerPos "RACING_WAYPOINT_2"); ["SuccessTitleAndText", ["CHECK_#1"]] call ExileClient_gui_toaster_addTemplateToast; };
-			if (_AddLocation == 2) then { _AI_Checkpoint setPos (getMarkerPos "RACING_WAYPOINT_3"); ["SuccessTitleAndText", ["CHECK_#2"]] call ExileClient_gui_toaster_addTemplateToast; };
-			if (_AddLocation == 3) then { _AI_Checkpoint setPos (getMarkerPos "RACING_WAYPOINT_4"); ["SuccessTitleAndText", ["CHECK_#3"]] call ExileClient_gui_toaster_addTemplateToast; };
-			if (_AddLocation == 4) then { _AI_Checkpoint setPos (getMarkerPos "RACING_WAYPOINT_5"); ["SuccessTitleAndText", ["CHECK_#4"]] call ExileClient_gui_toaster_addTemplateToast; };
-			if (_AddLocation == 5) then { _AI_Checkpoint setPos (getMarkerPos "RACING_WAYPOINT_6"); ["SuccessTitleAndText", ["CHECK_#5"]] call ExileClient_gui_toaster_addTemplateToast; };
-			if (_AddLocation == 6) then { _AI_Checkpoint setPos (getMarkerPos "RACING_WAYPOINT_7"); ["SuccessTitleAndText", ["CHECK_#6"]] call ExileClient_gui_toaster_addTemplateToast; };
-			if (_AddLocation == 7) then { _AI_Checkpoint setPos (getMarkerPos "RACING_WAYPOINT_8"); ["SuccessTitleAndText", ["CHECK_#7"]] call ExileClient_gui_toaster_addTemplateToast; };
-			if (_AddLocation == 8) then { _AI_Checkpoint setPos (getMarkerPos "RACING_WAYPOINT_9"); ["SuccessTitleAndText", ["CHECK_#8"]] call ExileClient_gui_toaster_addTemplateToast; };
-			if (_AddLocation == 9) then { _AI_Checkpoint setPos (getMarkerPos "RACING_WAYPOINT_10"); ["SuccessTitleAndText", ["CHECK_#9"]] call ExileClient_gui_toaster_addTemplateToast; };
-			if (_AddLocation == 10) then { ["SuccessTitleAndText", ["CHECK_#10 (100%) CONGRATS! You won nothing... for now."]] call ExileClient_gui_toaster_addTemplateToast; };
+			//MOVE CHECKPOINT TO NEXT POSITION #CHANGED "IF" TO "SWITCH DO"  https://community.bistudio.com/wiki/switch_do
+			switch (_AddLocation) do
+			{
+				case 0: { _AI_Checkpoint setPos (getMarkerPos "RACING_WAYPOINT_1"); ["SuccessTitleAndText", ["CHECK_#0"]] call ExileClient_gui_toaster_addTemplateToast; };
+				case 1: { _AI_Checkpoint setPos (getMarkerPos "RACING_WAYPOINT_2"); ["SuccessTitleAndText", ["CHECK_#1"]] call ExileClient_gui_toaster_addTemplateToast; };
+				case 2: { _AI_Checkpoint setPos (getMarkerPos "RACING_WAYPOINT_3"); ["SuccessTitleAndText", ["CHECK_#2"]] call ExileClient_gui_toaster_addTemplateToast; };
+				case 3: { _AI_Checkpoint setPos (getMarkerPos "RACING_WAYPOINT_4"); ["SuccessTitleAndText", ["CHECK_#3"]] call ExileClient_gui_toaster_addTemplateToast; };
+				case 4: { _AI_Checkpoint setPos (getMarkerPos "RACING_WAYPOINT_5"); ["SuccessTitleAndText", ["CHECK_#4"]] call ExileClient_gui_toaster_addTemplateToast; };
+				case 5: { _AI_Checkpoint setPos (getMarkerPos "RACING_WAYPOINT_6"); ["SuccessTitleAndText", ["CHECK_#5"]] call ExileClient_gui_toaster_addTemplateToast; };
+				case 6: { _AI_Checkpoint setPos (getMarkerPos "RACING_WAYPOINT_7"); ["SuccessTitleAndText", ["CHECK_#6"]] call ExileClient_gui_toaster_addTemplateToast; };
+				case 7: { _AI_Checkpoint setPos (getMarkerPos "RACING_WAYPOINT_8"); ["SuccessTitleAndText", ["CHECK_#7"]] call ExileClient_gui_toaster_addTemplateToast; };
+				case 8: { _AI_Checkpoint setPos (getMarkerPos "RACING_WAYPOINT_9"); ["SuccessTitleAndText", ["CHECK_#8"]] call ExileClient_gui_toaster_addTemplateToast; };
+				case 9: { _AI_Checkpoint setPos (getMarkerPos "RACING_WAYPOINT_10"); ["SuccessTitleAndText", ["CHECK_#9"]] call ExileClient_gui_toaster_addTemplateToast; };
+				case 10: { _AI_Checkpoint setPos (getMarkerPos "RACING_WAYPOINT_11"); ["SuccessTitleAndText", ["CHECK_#10"]] call ExileClient_gui_toaster_addTemplateToast; };
+				case 11: { _AI_Checkpoint setPos (getMarkerPos "RACING_WAYPOINT_12"); ["SuccessTitleAndText", ["CHECK_#11"]] call ExileClient_gui_toaster_addTemplateToast; };
+				case 12: { _AI_Checkpoint setPos (getMarkerPos "RACING_WAYPOINT_13"); ["SuccessTitleAndText", ["CHECK_#12"]] call ExileClient_gui_toaster_addTemplateToast; };
+				case 13: { _AI_Checkpoint setPos (getMarkerPos "RACING_WAYPOINT_14"); ["SuccessTitleAndText", ["CHECK_#13"]] call ExileClient_gui_toaster_addTemplateToast; };
+				case 14: { _AI_Checkpoint setPos (getMarkerPos "RACING_WAYPOINT_15"); ["SuccessTitleAndText", ["CHECK_#14"]] call ExileClient_gui_toaster_addTemplateToast; };
+				case 15: { _AI_Checkpoint setPos (getMarkerPos "RACING_WAYPOINT_16"); ["SuccessTitleAndText", ["CHECK_#15"]] call ExileClient_gui_toaster_addTemplateToast; };
+				case 16: { _AI_Checkpoint setPos (getMarkerPos "RACING_WAYPOINT_17"); ["SuccessTitleAndText", ["CHECK_#16"]] call ExileClient_gui_toaster_addTemplateToast; };
+				case 17: { ["SuccessTitleAndText", ["CHECK_#17 END OF GROUND VEHICLE STUFF!!!"]] call ExileClient_gui_toaster_addTemplateToast; };
+			};
 			_AddLocation = _AddLocation + 1;
 		};
 		//START RANGE CHECK BONUS SPEED
@@ -45,19 +55,25 @@ PLAYER_IS_RACING = 1;
 		{
 			private _dirPlayer = direction _vehicle;
 			private _vel = velocity _vehicle;
-			//BOOST BEFORE JUMP
-			_RacingVehicle setVelocity 
-			[ 
-				(_vel select 0) + (sin _dirPlayer * _speed),
-				(_vel select 1) + (cos _dirPlayer * _speed),
-				(_vel select 2)
-			];
-			//BOOST EFFECT+DELETE
+			//BOOST EFFECT
 			private _fire1 = "test_EmptyObjectForFireBig" createVehicle position _RacingVehicle;
-			_fire1 attachto [_RacingVehicle, [0,-5,0]];
-			[3] execVM "Custom\TIMS\-=Events=-\DeleteParticules.sqf";
+			_fire1 attachto [_RacingVehicle, [0,-3.5,-3.7]];
+			//BOOST BEFORE JUMP
+			_RacingVehicle setVelocity [ (_vel select 0) + (sin _dirPlayer * _speed), (_vel select 1) + (cos _dirPlayer * _speed), (_vel select 2) ];
 			//MOVE BOOST TO NEXT LOCATION
-			if (_SpeedBoostADD == 0) then { _SpeedBonusArrowOrange setPos (getMarkerPos "RACING_WAYPOINT_3"); };
+			switch (_SpeedBoostADD) do
+			{
+				case 0: { _SpeedBonusArrowOrange setPos (getMarkerPos "RACING_WAYPOINT_3"); [3] execVM "Custom\TIMS\-=Events=-\DeleteParticules.sqf"; };
+				case 1: { _SpeedBonusArrowOrange setPos (getMarkerPos "RACING_WAYPOINT_6"); [3] execVM "Custom\TIMS\-=Events=-\DeleteParticules.sqf"; };
+				case 2: { _SpeedBonusArrowOrange setPos (getMarkerPos "RACING_WAYPOINT_7"); [3] execVM "Custom\TIMS\-=Events=-\DeleteParticules.sqf"; };
+				case 3: { _SpeedBonusArrowOrange setPos (getMarkerPos "RACING_WAYPOINT_9"); [3] execVM "Custom\TIMS\-=Events=-\DeleteParticules.sqf"; };
+				case 4: { _SpeedBonusArrowOrange setPos (getMarkerPos "RACING_WAYPOINT_11"); [3] execVM "Custom\TIMS\-=Events=-\DeleteParticules.sqf"; };
+				case 5: { _SpeedBonusArrowOrange setPos (getMarkerPos "RACING_WAYPOINT_12"); [3] execVM "Custom\TIMS\-=Events=-\DeleteParticules.sqf"; };
+				case 6: { _SpeedBonusArrowOrange setPos (getMarkerPos "RACING_WAYPOINT_13"); [3] execVM "Custom\TIMS\-=Events=-\DeleteParticules.sqf"; };
+				case 7: { _SpeedBonusArrowOrange setPos (getMarkerPos "RACING_WAYPOINT_14"); [3] execVM "Custom\TIMS\-=Events=-\DeleteParticules.sqf"; };
+				case 8: { _SpeedBonusArrowOrange setPos (getMarkerPos "RACING_WAYPOINT_15"); [3] execVM "Custom\TIMS\-=Events=-\DeleteParticules.sqf"; };
+				case 9: { _SpeedBonusArrowOrange setPos (getMarkerPos "RACING_WAYPOINT_17"); [3] execVM "Custom\TIMS\-=Events=-\DeleteParticules.sqf"; };
+			};
 			_SpeedBoostADD = _SpeedBoostADD + 1;
 		};
 		//CHECK IF VEHICLE IS ON THE ROADS, IF NOT TP HIM BACK TO NEAREST ONE. INCLUDING ALSO DAMAGE IN THAT CHECK (LIKE CHECK IF WHEELS ARE BROKEN OR NOT)
@@ -67,6 +83,8 @@ PLAYER_IS_RACING = 1;
 			["ErrorTitleAndText", ["TIME BONUS: OFFROAD (-5)"]] call ExileClient_gui_toaster_addTemplateToast;
 			RACETIMER = RACETIMER - 5;
 			_RacingVehicle setPos [(getPos _nearestRoadRespawn select 0), (getPos _nearestRoadRespawn select 1), (getPos _nearestRoadRespawn select 2)+3];
+			//RERUN EFFECT DELETER AS SOMETIMES WHEN CRASHING WITH BOOST ON AND RESPAWNING, IT DOESNT DELETE THE FIRE
+			[3] execVM "Custom\TIMS\-=Events=-\DeleteParticules.sqf";
 		};
 		//IF PLAYER GET OUT OF THE CAR OR FROM THE DRIVER SEAT THEN RACE ENDS
 		if !(_inVehicle and (driver _vehicle == player)) then 

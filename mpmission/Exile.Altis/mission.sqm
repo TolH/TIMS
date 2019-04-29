@@ -90,7 +90,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=121;
+		items=129;
 		class Item0
 		{
 			dataType="Marker";
@@ -3370,7 +3370,7 @@ class Mission
 			position[]={21495.248,14.272,8025.0659};
 			name="RACING_START";
 			type="hd_dot";
-			alpha=0.10410464;
+			alpha=0;
 			id=190;
 			atlOffset=-0.00035381317;
 		};
@@ -3380,6 +3380,7 @@ class Mission
 			position[]={20942.412,20.495787,8649.3789};
 			name="RACING_WAYPOINT_0";
 			type="hd_dot";
+			alpha=0;
 			id=194;
 		};
 		class Item111
@@ -3388,6 +3389,7 @@ class Mission
 			position[]={20233.021,52.370491,9849.1514};
 			name="RACING_WAYPOINT_1";
 			type="hd_dot";
+			alpha=0;
 			id=195;
 		};
 		class Item112
@@ -3396,6 +3398,7 @@ class Mission
 			position[]={20362.123,46.705711,11092.021};
 			name="RACING_WAYPOINT_2";
 			type="hd_dot";
+			alpha=0;
 			id=196;
 		};
 		class Item113
@@ -3404,6 +3407,7 @@ class Mission
 			position[]={19800.709,33.352051,12387.623};
 			name="RACING_WAYPOINT_3";
 			type="hd_dot";
+			alpha=0;
 			id=197;
 			atlOffset=-45.055588;
 		};
@@ -3413,6 +3417,7 @@ class Mission
 			position[]={18712.5,27.978516,12992.095};
 			name="RACING_WAYPOINT_4";
 			type="hd_dot";
+			alpha=0;
 			id=198;
 			atlOffset=-6.5739059;
 		};
@@ -3422,6 +3427,7 @@ class Mission
 			position[]={16878.57,19.155739,12738.645};
 			name="RACING_WAYPOINT_5";
 			type="hd_dot";
+			alpha=0;
 			id=199;
 		};
 		class Item116
@@ -3430,6 +3436,7 @@ class Mission
 			position[]={17403.303,-2.9902344,13931.391};
 			name="RACING_WAYPOINT_6";
 			type="hd_dot";
+			alpha=0;
 			id=200;
 			atlOffset=-8.4466286;
 		};
@@ -3439,6 +3446,7 @@ class Mission
 			position[]={16965.197,17.254648,15118.548};
 			name="RACING_WAYPOINT_7";
 			type="hd_dot";
+			alpha=0;
 			id=201;
 		};
 		class Item118
@@ -3447,6 +3455,7 @@ class Mission
 			position[]={15799.92,13.67936,16306.38};
 			name="RACING_WAYPOINT_8";
 			type="hd_dot";
+			alpha=0;
 			id=202;
 		};
 		class Item119
@@ -3455,6 +3464,7 @@ class Mission
 			position[]={15527.12,14.322827,17491.686};
 			name="RACING_WAYPOINT_9";
 			type="hd_dot";
+			alpha=0;
 			id=203;
 		};
 		class Item120
@@ -3463,8 +3473,118 @@ class Mission
 			position[]={13753.619,75.686676,16138.711};
 			name="RACING_WAYPOINT_10";
 			type="hd_dot";
+			alpha=0;
 			id=204;
 			atlOffset=56.47784;
+		};
+		class Item121
+		{
+			dataType="Marker";
+			position[]={11022.913,116.92979,15687.559};
+			name="RACING_WAYPOINT_11";
+			type="hd_dot";
+			alpha=0;
+			id=205;
+			atlOffset=56.941181;
+		};
+		class Item122
+		{
+			dataType="Marker";
+			position[]={9168.5059,177.1346,15812.129};
+			name="RACING_WAYPOINT_12";
+			type="hd_dot";
+			alpha=0;
+			id=206;
+			atlOffset=57.317398;
+		};
+		class Item123
+		{
+			dataType="Marker";
+			position[]={7164.8154,136.43402,16060.42};
+			name="RACING_WAYPOINT_13";
+			type="hd_dot";
+			alpha=0;
+			id=207;
+			atlOffset=56.477821;
+		};
+		class Item124
+		{
+			dataType="Marker";
+			position[]={6207.9038,83.705414,15070.402};
+			name="RACING_WAYPOINT_14";
+			type="hd_dot";
+			alpha=0;
+			id=208;
+			atlOffset=56.47773;
+		};
+		class Item125
+		{
+			dataType="Marker";
+			position[]={5012.2173,74.213356,14450.885};
+			name="RACING_WAYPOINT_15";
+			type="hd_dot";
+			alpha=0;
+			id=209;
+			atlOffset=57.199703;
+		};
+		class Item126
+		{
+			dataType="Marker";
+			position[]={3778.033,67.982193,13437.442};
+			name="RACING_WAYPOINT_16";
+			type="hd_dot";
+			alpha=0;
+			id=210;
+			atlOffset=56.47784;
+		};
+		class Item127
+		{
+			dataType="Marker";
+			position[]={3135.4312,64.960007,12448.069};
+			name="RACING_WAYPOINT_17";
+			type="hd_dot";
+			alpha=0;
+			id=217;
+			atlOffset=59.9519;
+		};
+		class Item128
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={3117.658,9.0507898,12434.395};
+				angles[]={0,4.0476975,0};
+			};
+			side="Empty";
+			flags=5;
+			class Attributes
+			{
+			};
+			id=212;
+			type="Land_VR_Slope_01_F";
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="allowDamage";
+					expression="_this allowdamage _value;";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"BOOL"
+								};
+							};
+							value=0;
+						};
+					};
+				};
+				nAttributes=1;
+			};
 		};
 	};
 };

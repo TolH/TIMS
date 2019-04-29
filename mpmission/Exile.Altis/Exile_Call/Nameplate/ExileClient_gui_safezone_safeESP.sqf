@@ -103,7 +103,7 @@ if (!isNull cameraOn) then
 			{
 				private _font4 = "RobotoCondensedBold";
 				private _distance4 = cameraOn distance _x;
-				private _alpha4 = (1-(_distance4/3000));
+				private _alpha4 = (1-(_distance4/3500));
 				private _clr4 = [1,1,1,_alpha4];//WHITE
 				private _crew4 = crew (vehicle _x);
 				private _name4 = '';
@@ -114,14 +114,12 @@ if (!isNull cameraOn) then
 					if(_forEachIndex == 0) then
 					{
 						_name4 = _name4 + format['[%1m]||[--%2--]', round(player distance _x), [(RACETIMER/3600),"HH:MM:SS"] call BIS_fnc_timetostring];
-						//_name4 = '';
 					}
 					else
 					{
 						if (alive _x) then 
 						{
 							_name4 = _name4 + format['[%1m]||[-%2-]', round(player distance _x), [(RACETIMER/3600),"HH:MM:SS"] call BIS_fnc_timetostring];
-							//_name4 = '';
 						};
 					};
 				}forEach _crew4;

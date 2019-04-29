@@ -13,10 +13,11 @@ OBJECT_USED =
 ];
 */
 //MISSION ACCEPTED BY PLAYER FROM THE GUI CONFIRM MISSION
-RACETIMER = 60;
+RACETIMER = 120;
 if (player == vehicle player) then 
 {
-	uiSleep (1 + random 3);
+	//RANDOMIZE SLEEP IN CASE " PLAYER ACTIVATE THE RACE AT THE SAME TIME"
+	uiSleep (1 + random 5);
 	//TEMP SAVE CURRENT PLAYER POSITION TO TELEPORT HIM BACK WHERE HE WAS
 	profileNamespace setVariable ["TP_BACK_POS", getPos player];
 	//START
@@ -31,7 +32,6 @@ if (player == vehicle player) then
 		//SPAWN STUFF AND START THE ACTUAL RACE
 		player allowdamage false;
 		private _GrpResistance = createGroup resistance;
-		uiSleep (1 + random 4);
 		//RACING CAR
 		private _RacingVehicle = createVehicle ["Octavia_Civ_03", (getMarkerPos "RACING_START") findEmptyPosition [1,25], [], 0, "NONE"];
 		//SPEED BONUS ARROW
@@ -50,6 +50,8 @@ if (player == vehicle player) then
 		player moveInDriver _RacingVehicle;
 		titleText ["RACE IS STARTING SHORTLY! GET READY...", "BLACK IN", 7];
 			uiSleep 7;
+		//playSound "KNIGHTRIDER";
+			//uiSleep 1;
 		//START COUNTDOWN (NEED SOUNDS AND MAYBE AI AROUND DOING AI STUFF)
 		titleText ["<t color='#0cd620' size='10'>3...</t><br/>", "PLAIN", -1, true, true];
 			uiSleep 1.5;
@@ -58,7 +60,7 @@ if (player == vehicle player) then
 		titleText ["<t color='#ffb200' size='10'>1.</t><br/>", "PLAIN", -1, true, true];
 			uiSleep 1.5;
 		_RacingVehicle setFuel 1;
-		titleText ["<t color='#ff0000' size='6'>GOGOGO!!!</t><br/>", "PLAIN", -1, true, true];
+		titleText ["<t color='#ff0000' size='6'>START!!!</t><br/>", "PLAIN", -0.3, true, true];
 			uiSleep 1;
 		//LAUNCH MAIN TIMER AND CHECKPOINTS
 		[_AI_Checkpoint, _RacingVehicle, _SpeedBonusArrowOrange] execVM "Custom\TIMS\-=Events=-\RacingScript.sqf";

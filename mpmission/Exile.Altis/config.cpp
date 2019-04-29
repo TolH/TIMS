@@ -4248,7 +4248,7 @@ class CfgVirtualGarage
 };
 class CfgXM8 
 {
-	extraApps[] = {"ExAd_JX","ExAd_Info","ExAd_CHVD","BRAmaRecipes","BaseMarker","ExAd_Quad","ExAd_Unit","scarCode","ExAd_VG"/*,"UAV_SPAWN","GPS_ADV"*/};
+	extraApps[] = {"ExAd_JX","ExAd_Info","ExAd_CHVD","BRAmaRecipes","BaseMarker","ExAd_Quad","ExAd_Unit","scarCode","ExAd_VG","CAR_RACING"/*,"UAV_SPAWN","GPS_ADV"*/};
 	
 	class settings
 	{
@@ -4355,14 +4355,14 @@ class CfgXM8
         autoCleanUp = 1;
         quickFunction = "['ExAd_Quad'] call ExAd_XM8_DV_fnc_spawnVehicle";
     };
-	/*class UAV_SPAWN
+	class CAR_RACING
     {
-        title = "Deploy UAV";
-        logo = "Custom\TIMS\misc\uav.paa";
+        title = "Racing Test";
+        logo = "Custom\TIMS\misc\RaceCar.paa";
         onLoad = "ExAdClient\XM8\Apps\Info\onLoad.sqf";
         onOpen = "ExAdClient\XM8\Apps\Info\onOpen.sqf";
         onClose = "ExAdClient\XM8\Apps\Info\onClose.sqf";
-    };*/
+    };
 	/*class GPS_ADV
     {
         title = "Open GPS";
@@ -4513,13 +4513,13 @@ class XM8_App13_Button: RscExileXM8AppButton1x1
     resource = "";
 };
 
-/*class XM8_App14_Button: RscExileXM8AppButton1x1
+class XM8_App14_Button: RscExileXM8AppButton1x1
 {
-    textureNoShortcut = "Custom\TIMS\misc\uav.paa";
-    text = "Deploy UAV";
-    onButtonClick = "ExileClientXM8CurrentSlide = 'apps';closeDialog 0;[] execVM 'Custom\TIMS\misc\UAV_Spawn.sqf'";
+    textureNoShortcut = "Custom\TIMS\misc\RaceCar.paa";
+    text = "Racing Test";
+    onButtonClick = "ExileClientXM8CurrentSlide = 'apps'; closeDialog 0; createDialog 'TIMS_MISSION_1_RACING'; ";
     resource = "";
-};*/
+};
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

@@ -12,6 +12,6 @@ uiSleep _TimeDelay;
 		{ 
 			deletevehicle _x;
 		};
-	} foreach (player nearObjects 5);
+	} foreach (player nearObjects 7);
 //============================================//
 //============================================////============================================//

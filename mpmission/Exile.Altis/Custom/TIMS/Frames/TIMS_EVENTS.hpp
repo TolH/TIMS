@@ -1,12 +1,14 @@
 //============================================////============================================//
 // TO SHOW INGAME: createDialog "TIMS_MISSION_1_RACING";
-// IDD USED FOR INFISTAR: #77877
+//				   createDialog "TIMS_MISSION_1_RACING_TIMEBOARD";
+// IDD USED FOR INFISTAR: #77877, #77879
+//============================================////============================================//
 	class TIMS_MISSION_1_RACING
 	{
 		idd = 77877;
 		class controls
 		{
-			class MissionButtonClose 
+			class REFUSE_RACE_Button 
 			{
 				idc = -1;
 				type = CT_BUTTON;
@@ -35,10 +37,10 @@
 				y = "SafeZoneY + (570.000000000001 / 1080) * SafeZoneH";
 				w = "(179.792387543253 / 1920) * SafeZoneW";
 				h = "(29.9999999999995 / 1080) * SafeZoneH";
-				text = "								Refuse";
-				action = " closeDialog 0; [""ErrorTitleAndText"", [""REFUSED RACING!""]] call ExileClient_gui_toaster_addTemplateToast; ";
+				text = "								  Nah";
+				action = " closeDialog 0; [""ErrorTitleAndText"", [""Nah... not right now.""]] call ExileClient_gui_toaster_addTemplateToast; ";
 			};
-			class MissionButtonReset 
+			class ACCEPT_RACE_Button 
 			{
 				idc = -1;
 				type = CT_BUTTON;
@@ -67,10 +69,42 @@
 				y = "SafeZoneY + (525.000000000001 / 1080) * SafeZoneH";
 				w = "(179.792387543253 / 1920) * SafeZoneW";
 				h = "(29.9999999999995 / 1080) * SafeZoneH";
-				text = "								Accept";
-				action = " execVM ""Custom\TIMS\-=Events=-\Racing.sqf""; closeDialog 0; [""SuccessTitleAndText"", [""ACCEPTED RACING!""]] call ExileClient_gui_toaster_addTemplateToast; ";
+				text = "								  Yes";
+				action = " execVM ""Custom\TIMS\-=Events=-\Racing.sqf""; closeDialog 0; [""SuccessTitleAndText"", [""Race starting soon... Good luck!""]] call ExileClient_gui_toaster_addTemplateToast; ";
 			};
-			class BODYGUARD_INFORMATION_TEXT
+			class TIMEBOARD_Button 
+			{
+				idc = -1;
+				type = CT_BUTTON;
+				style = ST_LEFT;
+				default = false;
+				font = "PuristaBold";
+				sizeEx = 0.04;
+				colorText[] = {0,0,0,1};
+				colorFocused[] = { 1, 0, 0, 1 };   // border color for focused state
+				colorDisabled[] = {0.3,0.3,0.3,1};
+				colorBackground[] = {0.6,0.6,0.6,1};
+				colorBackgroundDisabled[] = {0.6,0.6,0.6,1};
+				colorBackgroundActive[] = {1,0.5,0,1};
+				offsetX = 0.003;
+				offsetY = 0.003;
+				offsetPressedX = 0.002;
+				offsetPressedY = 0.002;
+				colorShadow[] = { 0, 0, 0, 0.5 };
+				colorBorder[] = { 0, 0, 0, 1 };
+				borderSize = 0;
+				soundEnter[] = { "", 1, 1 };  // no sound
+				soundPush[] = { "", 1, 1 };
+				soundClick[] = { "", 0, 1 };  // no sound
+				soundEscape[] = { "", 0, 1 };  // no sound
+				x = "SafeZoneX + (870.207612456747 / 1920) * SafeZoneW";
+				y = "SafeZoneY + (480.000000000001 / 1080) * SafeZoneH";
+				w = "(179.792387543253 / 1920) * SafeZoneW";
+				h = "(29.9999999999995 / 1080) * SafeZoneH";
+				text = "			  TimerBoard";
+				action = " ";
+			};
+			class RACE_INFORMATION_TEXT
 			{
 				idc = -1;
 				access = 0;
@@ -88,4 +122,16 @@
 			};
 		};
 	};
+//============================================////============================================//
+	/*class TIMS_MISSION_1_RACING_TIMEBOARD
+	{
+		idd = 77878;
+		class controls
+		{
+			class TIMEBOARD_Button 
+			{
+
+			};
+		};
+	};*/
 //============================================////============================================//

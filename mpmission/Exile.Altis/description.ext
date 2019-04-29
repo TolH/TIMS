@@ -157,7 +157,14 @@ class CfgSounds
 		sound[] = {"Custom\TIMS\Sounds\Tactical_Ping.wss", 1, 1, 5};
 		titles[] = {0,""};
 	};
-	class zomb1
+	//KNIGHTRIDER
+	class KNIGHTRIDER
+	{
+		name = "KNIGHTRIDER_MUSIC";
+		sound[] = {"Custom\TIMS\Sounds\KR.ogg", 1, 1, 5};
+		titles[] = {0,""};
+	};
+	/*class zomb1
 	{
 		name = "zomb1";
 		sound[] = {"\zombie\sounds\zomb1.ogg", 1, 1};
@@ -174,7 +181,7 @@ class CfgSounds
 		name = "zomb3";
 		sound[] = {"\zombie\sounds\zomb3.ogg", 1, 1};
 		titles[] = {};
-	};
+	};*/
 };
 class CfgNotifications
 {
