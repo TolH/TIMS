@@ -4,7 +4,7 @@
 /*
 OBJECT_USED =  
 [
-	"VR_3DSelector_01_incomplete_F",	//ORANGE
+	"VR_3DSelector_01_incomplete_F",	//ORANGE SPEED BOOST
 	"VR_3DSelector_01_default_F",	//BLUE
 	"VR_3DSelector_01_exit_F",	//RED
 	"VR_3DSelector_01_complete_F",	//BROWNISH/ORANGE/GOLD ??
@@ -17,7 +17,7 @@ OBJECT_USED =
 RACETIMER = 180;
 if (player == vehicle player) then 
 {
-	uiSleep (1 + random 4);
+	uiSleep (1 + random 3);
 	//TEMP SAVE CURRENT PLAYER POSITION TO TELEPORT HIM BACK WHERE HE WAS
 	profileNamespace setVariable ["TP_BACK_POS", getPos player];
 	//START
@@ -32,7 +32,7 @@ if (player == vehicle player) then
 		//SPAWN STUFF AND START THE ACTUAL RACE
 		player allowdamage false;
 		private _GrpResistance = createGroup resistance;
-		uiSleep (1 + random 5);
+		uiSleep (1 + random 4);
 		//RACING CAR
 		private _RacingVehicle = createVehicle ["Octavia_Civ_03", (getMarkerPos "RACING_START") findEmptyPosition [1,25], [], 0, "NONE"];
 		//SPEED BONUS ARROW

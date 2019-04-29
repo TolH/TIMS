@@ -11,6 +11,7 @@ private _vehicle = vehicle player;
 private _inVehicle = (_vehicle != player);
 private _SpeedBoostADD = 0;
 private _AddLocation = 0;
+private _FireTime = 0;
 private _speed = 50;
 //============================================//
 	while {RACETIMER > 0} do 
@@ -20,7 +21,7 @@ private _speed = 50;
 		private _nearestRoad = [getPosATL _RacingVehicle, 50] call BIS_fnc_nearestRoad;
 		private _nearestRoadRespawn = [getPosATL _RacingVehicle, 100] call BIS_fnc_nearestRoad;
 		//START RANGE CHECK BONUS SPEED
-		if (_SpeedBonusCheckDistance <= 27) then 
+		if (_SpeedBonusCheckDistance <= 28) then 
 		{
 			private _dirPlayer = direction _vehicle;
 			private _vel = velocity _vehicle;
@@ -31,20 +32,16 @@ private _speed = 50;
 				(_vel select 1) + (cos _dirPlayer * _speed),
 				(_vel select 2)
 			];
+			//BOOST EFFECT+DELETE
+			private _fire1 = "test_EmptyObjectForFireBig" createVehicle position _RacingVehicle;
+			_fire1 attachto [_RacingVehicle, [0,-3,0]];
+			[3] execVM "Custom\TIMS\-=Events=-\DeleteParticules.sqf";
 			//MOVE BOOST TO NEXT LOCATION
 			if (_SpeedBoostADD == 0) then { _SpeedBonusArrowOrange setPos (getMarkerPos "RACING_WAYPOINT_1"); };
-			if (_SpeedBoostADD == 1) then { _SpeedBonusArrowOrange setPos (getMarkerPos "RACING_WAYPOINT_2"); };
-			if (_SpeedBoostADD == 2) then { _SpeedBonusArrowOrange setPos (getMarkerPos "RACING_WAYPOINT_3"); };
-			if (_SpeedBoostADD == 3) then { _SpeedBonusArrowOrange setPos (getMarkerPos "RACING_WAYPOINT_4"); };
-			if (_SpeedBoostADD == 4) then { _SpeedBonusArrowOrange setPos (getMarkerPos "RACING_WAYPOINT_5"); };
-			if (_SpeedBoostADD == 5) then { _SpeedBonusArrowOrange setPos (getMarkerPos "RACING_WAYPOINT_6"); };
-			if (_SpeedBoostADD == 6) then { _SpeedBonusArrowOrange setPos (getMarkerPos "RACING_WAYPOINT_7"); };
-			if (_SpeedBoostADD == 7) then { _SpeedBonusArrowOrange setPos (getMarkerPos "RACING_WAYPOINT_8"); };
-			if (_SpeedBoostADD == 8) then { _SpeedBonusArrowOrange setPos (getMarkerPos "RACING_WAYPOINT_9"); };
 			_SpeedBoostADD = _SpeedBoostADD + 1;
 		};
 		//START RANGE CHECK CHECKPOINTS
-		if (_VehicleDistCheckpoint <= 27) then 
+		if (_VehicleDistCheckpoint <= 28) then 
 		{
 			//GIVE TIME WHEN NEAR THE ARROW
 			RACETIMER = RACETIMER + 30;
@@ -86,6 +83,7 @@ private _speed = 50;
 	["ErrorTitleAndText", ["THE RACE IS OVER FOR YOU!"]] call ExileClient_gui_toaster_addTemplateToast;
 		uiSleep 5;
 	deleteVehicle _RacingVehicle;
+	deleteVehicle _SpeedBonusArrowOrange;
 	deleteVehicle _AI_Checkpoint;
 		uiSleep 2;
 	private _TeleportPos = profileNamespace getVariable "TP_BACK_POS";
