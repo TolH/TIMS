@@ -13,8 +13,7 @@ OBJECT_USED =
 ];
 */
 //MISSION ACCEPTED BY PLAYER FROM THE GUI CONFIRM MISSION
-//FIRST VEHICLE CHECK
-RACETIMER = 180;
+RACETIMER = 60;
 if (player == vehicle player) then 
 {
 	uiSleep (1 + random 3);
@@ -40,6 +39,7 @@ if (player == vehicle player) then
 		_SpeedBonusArrowOrange enableSimulation false;
 		//CHECKPOINT AI
 		private _AI_Checkpoint = _GrpResistance createUnit ["B_Soldier_VR_F", (getMarkerPos "RACING_WAYPOINT_0"), [], 0, "CAN_COLLIDE"];
+		_AI_Checkpoint hideObject true;
 		_AI_Checkpoint setCaptive 1;
 		[_AI_Checkpoint] joinSilent _GrpResistance;
 		_AI_Checkpoint enableSimulation false;

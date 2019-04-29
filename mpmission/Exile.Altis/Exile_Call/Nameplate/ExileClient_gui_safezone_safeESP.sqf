@@ -98,8 +98,8 @@ if (!isNull cameraOn) then
 				_pos3 set[2, (_pos3 select 2) + 0.50];
 				drawIcon3D["a3\ui_f\data\gui\Rsc\RscDisplayArsenal\cargoMisc_ca.paa", _clr3, _pos3, 0.60, 0.60, 0, _name3, 2, 0.032, _font3];
 			};
-			//BONUS LOOT FROM VEHICLES
-			if (_x isKindOf "B_Soldier_VR_F") then 
+			//RACING EVENTS ONLY SHOW FOR ACTUAL RACER
+			if ((_x isKindOf "B_Soldier_VR_F") && (PLAYER_IS_RACING == 1) && (isObjectHidden _x)) then 
 			{
 				private _font4 = "RobotoCondensedBold";
 				private _distance4 = cameraOn distance _x;
