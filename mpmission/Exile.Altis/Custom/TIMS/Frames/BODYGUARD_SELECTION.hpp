@@ -175,8 +175,8 @@
 				colorShadow[] = { 0, 0, 0, 0.5 };
 				colorBorder[] = { 0, 0, 0, 1 };
 				borderSize = 0;
-				soundEnter[] = { "buttonpushed.ogg", 1, 1 };  // no sound
-				soundPush[] = { "buttonpushed.ogg", 1, 1 };
+				soundEnter[] = { "", 1, 1 };  // no sound
+				soundPush[] = { "", 1, 1 };
 				soundClick[] = { "", 0, 1 };  // no sound
 				soundEscape[] = { "", 0, 1 };  // no sound
 			x = "SafeZoneX + (870.207612456747 / 1920) * SafeZoneW";
@@ -207,8 +207,8 @@
 				colorShadow[] = { 0, 0, 0, 0.5 };
 				colorBorder[] = { 0, 0, 0, 1 };
 				borderSize = 0;
-				soundEnter[] = { "buttonpushed.ogg", 1, 1 };  // no sound
-				soundPush[] = { "buttonpushed.ogg", 1, 1 };
+				soundEnter[] = { "", 1, 1 };  // no sound
+				soundPush[] = { "", 1, 1 };
 				soundClick[] = { "", 0, 1 };  // no sound
 				soundEscape[] = { "", 0, 1 };  // no sound
 			x = "SafeZoneX + (870.207612456747 / 1920) * SafeZoneW";
@@ -216,7 +216,7 @@
 			w = "(179.792387543253 / 1920) * SafeZoneW";
 			h = "(29.9999999999995 / 1080) * SafeZoneH";
 				text = "								Reset";
-				action = " uiSleep 0.5; [player] execVM ""Custom\TIMS\Bodyguard\BodyGuard_Delete.sqf""; {deleteVehicle _x;}forEach units group player; deleteGroup group player; GUARD_AImax = 0; [""SuccessTitleAndText"",[""Bodyguard has been reset.""]] call ExileClient_gui_toaster_addTemplateToast; ";
+				action = " [player] execVM ""Custom\TIMS\Bodyguard\BodyGuard_Delete.sqf""; {deleteVehicle _x;}forEach units group player; deleteGroup group player; GUARD_AImax = 0; [""SuccessTitleAndText"",[""Bodyguard has been reset.""]] call ExileClient_gui_toaster_addTemplateToast; ";
 			};
 			class MySelection_Button1 
 			{
@@ -240,7 +240,7 @@
 				colorBorder[] = { 0, 0, 0, 1 };
 				borderSize = 0;
 				soundEnter[] = { "", 0, 1 };  // no sound
-				soundPush[] = { "buttonpushed.ogg", 1, 1 };
+				soundPush[] = { "", 1, 1 };
 				soundClick[] = { "", 1, 1 };  // no sound
 				soundEscape[] = { "", 1, 1 };  // no sound
 			x = "SafeZoneX + (345.207612456747 / 1920) * SafeZoneW";
@@ -248,7 +248,7 @@
 			w = "(224.792387543253 / 1920) * SafeZoneW";
 			h = "(29.9999999999995 / 1080) * SafeZoneH";
 				text = "															AT";
-				action = " uiSleep 0.5; if (GUARD_AImax < 3) then {GUARD_AImax = GUARD_AImax + 1; private _unit = group player createUnit [""I_Soldier_VR_F"", getPos player, [], 0, ""FORM""]; _unit setUnitLoadout [getUnitLoadout ""B_CTRG_soldier_GL_LAT_F"", true]; systemChat ""AntiTank BodyGuard Joined Your Party!""; _unit setskill 0.6; _unit setCombatMode ""RED""; _unit allowFleeing 0; _unit addMPEventHandler [""MPKilled"",{ GUARD_AImax = GUARD_AImax - 1; deleteVehicle (_this select 0); }]; [_unit] execVM ""Custom\TIMS\Bodyguard\BodyGuard_Delete.sqf"";}; if (GUARD_AImax == 1) then {[""SuccessTitleAndText"",[""Bodyguard Deployed 1/3""]] call ExileClient_gui_toaster_addTemplateToast;}; if (GUARD_AImax == 2) then {[""SuccessTitleAndText"",[""Bodyguard Deployed 2/3""]] call ExileClient_gui_toaster_addTemplateToast;}; if (GUARD_AImax == 3) then {[""SuccessTitleAndText"",[""Bodyguard Deployed 3/3""]] call ExileClient_gui_toaster_addTemplateToast;}; if (GUARD_AImax >= 3) then {[""ErrorTitleAndText"",[""You can only have 3 Bodyguards at a time...""]] call ExileClient_gui_toaster_addTemplateToast;}; ";
+				action = " closeDialog 0; if (GUARD_AImax < 3) then {GUARD_AImax = GUARD_AImax + 1; private _unit = group player createUnit [""I_Soldier_VR_F"", getPos player, [], 0, ""FORM""]; _unit setUnitLoadout [getUnitLoadout ""B_CTRG_soldier_GL_LAT_F"", true]; systemChat ""AntiTank BodyGuard Joined Your Party!""; _unit setskill 0.6; _unit setCombatMode ""RED""; _unit allowFleeing 0; _unit addMPEventHandler [""MPKilled"",{ GUARD_AImax = GUARD_AImax - 1; deleteVehicle (_this select 0); }]; [_unit] execVM ""Custom\TIMS\Bodyguard\BodyGuard_Delete.sqf"";}; if (GUARD_AImax == 1) then {[""SuccessTitleAndText"",[""Bodyguard Deployed 1/3""]] call ExileClient_gui_toaster_addTemplateToast;}; if (GUARD_AImax == 2) then {[""SuccessTitleAndText"",[""Bodyguard Deployed 2/3""]] call ExileClient_gui_toaster_addTemplateToast;}; if (GUARD_AImax == 3) then {[""SuccessTitleAndText"",[""Bodyguard Deployed 3/3""]] call ExileClient_gui_toaster_addTemplateToast;}; if (GUARD_AImax >= 3) then {[""ErrorTitleAndText"",[""You can only have 3 Bodyguards at a time...""]] call ExileClient_gui_toaster_addTemplateToast;}; [] execVM ""Custom\TIMS\Bodyguard\test.sqf""; ";
 			};
 			class MySelection_Button2 
 			{
@@ -272,7 +272,7 @@
 				colorBorder[] = { 0, 0, 0, 1 };
 				borderSize = 0;
 				soundEnter[] = { "", 0, 1 };  // no sound
-				soundPush[] = { "buttonpushed.ogg", 1, 1 };
+				soundPush[] = { "", 1, 1 };
 				soundClick[] = { "", 0, 1 };  // no sound
 				soundEscape[] = { "", 0, 1 };  // no sound
 			x = "SafeZoneX + (600.207612456747 / 1920) * SafeZoneW";
@@ -280,7 +280,7 @@
 			w = "(224.792387543253 / 1920) * SafeZoneW";
 			h = "(29.9999999999995 / 1080) * SafeZoneH";
 				text = "											Sniper";
-				action = " uiSleep 0.5; if (GUARD_AImax < 3) then {GUARD_AImax = GUARD_AImax + 1; private _unit = group player createUnit [""I_Soldier_VR_F"", getPos player, [], 0, ""FORM""]; _unit setUnitLoadout [getUnitLoadout ""B_ghillie_ard_F"", true]; systemChat ""Sniper BodyGuard Joined Your Party!""; _unit setskill 0.6; _unit setCombatMode ""RED""; _unit allowFleeing 0; _unit addMPEventHandler [""MPKilled"",{ GUARD_AImax = GUARD_AImax - 1; deleteVehicle (_this select 0); }]; [_unit] execVM ""Custom\TIMS\Bodyguard\BodyGuard_Delete.sqf"";}; if (GUARD_AImax == 1) then {[""SuccessTitleAndText"",[""Bodyguard Deployed 1/3""]] call ExileClient_gui_toaster_addTemplateToast;}; if (GUARD_AImax == 2) then {[""SuccessTitleAndText"",[""Bodyguard Deployed 2/3""]] call ExileClient_gui_toaster_addTemplateToast;}; if (GUARD_AImax == 3) then {[""SuccessTitleAndText"",[""Bodyguard Deployed 3/3""]] call ExileClient_gui_toaster_addTemplateToast;}; if (GUARD_AImax >= 3) then {[""ErrorTitleAndText"",[""You can only have 3 Bodyguards at a time...""]] call ExileClient_gui_toaster_addTemplateToast;}; ";
+				action = " closeDialog 0; if (GUARD_AImax < 3) then {GUARD_AImax = GUARD_AImax + 1; private _unit = group player createUnit [""I_Soldier_VR_F"", getPos player, [], 0, ""FORM""]; _unit setUnitLoadout [getUnitLoadout ""B_ghillie_ard_F"", true]; systemChat ""Sniper BodyGuard Joined Your Party!""; _unit setskill 0.6; _unit setCombatMode ""RED""; _unit allowFleeing 0; _unit addMPEventHandler [""MPKilled"",{ GUARD_AImax = GUARD_AImax - 1; deleteVehicle (_this select 0); }]; [_unit] execVM ""Custom\TIMS\Bodyguard\BodyGuard_Delete.sqf"";}; if (GUARD_AImax == 1) then {[""SuccessTitleAndText"",[""Bodyguard Deployed 1/3""]] call ExileClient_gui_toaster_addTemplateToast;}; if (GUARD_AImax == 2) then {[""SuccessTitleAndText"",[""Bodyguard Deployed 2/3""]] call ExileClient_gui_toaster_addTemplateToast;}; if (GUARD_AImax == 3) then {[""SuccessTitleAndText"",[""Bodyguard Deployed 3/3""]] call ExileClient_gui_toaster_addTemplateToast;}; if (GUARD_AImax >= 3) then {[""ErrorTitleAndText"",[""You can only have 3 Bodyguards at a time...""]] call ExileClient_gui_toaster_addTemplateToast;}; [] execVM ""Custom\TIMS\Bodyguard\test.sqf""; ";
 			};
 			class MySelection_Button3 
 			{
@@ -304,7 +304,7 @@
 				colorBorder[] = { 0, 0, 0, 1 };
 				borderSize = 0;
 				soundEnter[] = { "", 0, 1 };  // no sound
-				soundPush[] = { "buttonpushed.ogg", 1, 1 };
+				soundPush[] = { "", 1, 1 };
 				soundClick[] = { "", 0, 1 };  // no sound
 				soundEscape[] = { "", 0, 1 };  // no sound
 			x = "SafeZoneX + (855.20761245675 / 1920) * SafeZoneW";
@@ -312,7 +312,7 @@
 			w = "(224.792387543253 / 1920) * SafeZoneW";
 			h = "(29.9999999999994 / 1080) * SafeZoneH";
 				text = "											Medic";
-				action = " uiSleep 0.5; if (GUARD_AImax < 3) then {GUARD_AImax = GUARD_AImax + 1; private _unit = group player createUnit [""I_Soldier_VR_F"", getPos player, [], 0, ""FORM""]; _unit setUnitLoadout [getUnitLoadout ""O_V_Soldier_Medic_ghex_F"", true]; systemChat ""Medic BodyGuard Joined Your Party!""; _unit setskill 0.6; _unit setCombatMode ""RED""; _unit allowFleeing 0; _unit addMPEventHandler [""MPKilled"",{ GUARD_AImax = GUARD_AImax - 1; deleteVehicle (_this select 0); }]; [_unit] execVM ""Custom\TIMS\Bodyguard\BodyGuard_Delete.sqf"";}; if (GUARD_AImax == 1) then {[""SuccessTitleAndText"",[""Bodyguard Deployed 1/3""]] call ExileClient_gui_toaster_addTemplateToast;}; if (GUARD_AImax == 2) then {[""SuccessTitleAndText"",[""Bodyguard Deployed 2/3""]] call ExileClient_gui_toaster_addTemplateToast;}; if (GUARD_AImax == 3) then {[""SuccessTitleAndText"",[""Bodyguard Deployed 3/3""]] call ExileClient_gui_toaster_addTemplateToast;}; if (GUARD_AImax >= 3) then {[""ErrorTitleAndText"",[""You can only have 3 Bodyguards at a time...""]] call ExileClient_gui_toaster_addTemplateToast;}; ";
+				action = " closeDialog 0; if (GUARD_AImax < 3) then {GUARD_AImax = GUARD_AImax + 1; private _unit = group player createUnit [""I_Soldier_VR_F"", getPos player, [], 0, ""FORM""]; _unit setUnitLoadout [getUnitLoadout ""O_V_Soldier_Medic_ghex_F"", true]; systemChat ""Medic BodyGuard Joined Your Party!""; _unit setskill 0.6; _unit setCombatMode ""RED""; _unit allowFleeing 0; _unit addMPEventHandler [""MPKilled"",{ GUARD_AImax = GUARD_AImax - 1; deleteVehicle (_this select 0); }]; [_unit] execVM ""Custom\TIMS\Bodyguard\BodyGuard_Delete.sqf"";}; if (GUARD_AImax == 1) then {[""SuccessTitleAndText"",[""Bodyguard Deployed 1/3""]] call ExileClient_gui_toaster_addTemplateToast;}; if (GUARD_AImax == 2) then {[""SuccessTitleAndText"",[""Bodyguard Deployed 2/3""]] call ExileClient_gui_toaster_addTemplateToast;}; if (GUARD_AImax == 3) then {[""SuccessTitleAndText"",[""Bodyguard Deployed 3/3""]] call ExileClient_gui_toaster_addTemplateToast;}; if (GUARD_AImax >= 3) then {[""ErrorTitleAndText"",[""You can only have 3 Bodyguards at a time...""]] call ExileClient_gui_toaster_addTemplateToast;}; [] execVM ""Custom\TIMS\Bodyguard\test.sqf""; ";
 			};
 			class MySelection_Button4 
 			{
@@ -336,7 +336,7 @@
 				colorBorder[] = { 0, 0, 0, 1 };
 				borderSize = 0;
 				soundEnter[] = { "", 0, 1 };  // no sound
-				soundPush[] = { "buttonpushed.ogg", 1, 1 };
+				soundPush[] = { "", 1, 1 };
 				soundClick[] = { "", 0, 1 };  // no sound
 				soundEscape[] = { "", 0, 1 };  // no sound
 			x = "SafeZoneX + (1110.20761245675 / 1920) * SafeZoneW";
@@ -344,7 +344,7 @@
 			w = "(224.792387543253 / 1920) * SafeZoneW";
 			h = "(29.9999999999995 / 1080) * SafeZoneH";
 				text = "														LMG";
-				action = " uiSleep 0.5; if (GUARD_AImax < 3) then {GUARD_AImax = GUARD_AImax + 1; private _unit = group player createUnit [""I_Soldier_VR_F"", getPos player, [], 0, ""FORM""]; _unit setUnitLoadout [getUnitLoadout ""B_Patrol_Soldier_MG_F"", true]; systemChat ""LMG BodyGuard Joined Your Party!""; _unit setskill 0.6; _unit setCombatMode ""RED""; _unit allowFleeing 0; _unit addMPEventHandler [""MPKilled"",{ GUARD_AImax = GUARD_AImax - 1; deleteVehicle (_this select 0); }]; [_unit] execVM ""Custom\TIMS\Bodyguard\BodyGuard_Delete.sqf"";}; if (GUARD_AImax == 1) then {[""SuccessTitleAndText"",[""Bodyguard Deployed 1/3""]] call ExileClient_gui_toaster_addTemplateToast;}; if (GUARD_AImax == 2) then {[""SuccessTitleAndText"",[""Bodyguard Deployed 2/3""]] call ExileClient_gui_toaster_addTemplateToast;}; if (GUARD_AImax == 3) then {[""SuccessTitleAndText"",[""Bodyguard Deployed 3/3""]] call ExileClient_gui_toaster_addTemplateToast;}; if (GUARD_AImax >= 3) then {[""ErrorTitleAndText"",[""You can only have 3 Bodyguards at a time...""]] call ExileClient_gui_toaster_addTemplateToast;}; ";
+				action = " closeDialog 0; if (GUARD_AImax < 3) then {GUARD_AImax = GUARD_AImax + 1; private _unit = group player createUnit [""I_Soldier_VR_F"", getPos player, [], 0, ""FORM""]; _unit setUnitLoadout [getUnitLoadout ""B_Patrol_Soldier_MG_F"", true]; systemChat ""LMG BodyGuard Joined Your Party!""; _unit setskill 0.6; _unit setCombatMode ""RED""; _unit allowFleeing 0; _unit addMPEventHandler [""MPKilled"",{ GUARD_AImax = GUARD_AImax - 1; deleteVehicle (_this select 0); }]; [_unit] execVM ""Custom\TIMS\Bodyguard\BodyGuard_Delete.sqf"";}; if (GUARD_AImax == 1) then {[""SuccessTitleAndText"",[""Bodyguard Deployed 1/3""]] call ExileClient_gui_toaster_addTemplateToast;}; if (GUARD_AImax == 2) then {[""SuccessTitleAndText"",[""Bodyguard Deployed 2/3""]] call ExileClient_gui_toaster_addTemplateToast;}; if (GUARD_AImax == 3) then {[""SuccessTitleAndText"",[""Bodyguard Deployed 3/3""]] call ExileClient_gui_toaster_addTemplateToast;}; if (GUARD_AImax >= 3) then {[""ErrorTitleAndText"",[""You can only have 3 Bodyguards at a time...""]] call ExileClient_gui_toaster_addTemplateToast;}; [] execVM ""Custom\TIMS\Bodyguard\test.sqf""; ";
 			};
 			class MySelection_Button5 
 			{
@@ -368,7 +368,7 @@
 				colorBorder[] = { 0, 0, 0, 1 };
 				borderSize = 0;
 				soundEnter[] = { "", 0, 1 };  // no sound
-				soundPush[] = { "buttonpushed.ogg", 1, 1 };
+				soundPush[] = { "", 1, 1 };
 				soundClick[] = { "", 0, 1 };  // no sound
 				soundEscape[] = { "", 0, 1 };  // no sound
 			x = "SafeZoneX + (1365.20761245675 / 1920) * SafeZoneW";
@@ -376,7 +376,7 @@
 			w = "(224.792387543253 / 1920) * SafeZoneW";
 			h = "(29.9999999999995 / 1080) * SafeZoneH";
 				text = "									  Clone";
-				action = " uiSleep 0.5; if (GUARD_AImax < 3) then {GUARD_AImax = GUARD_AImax + 1; private _unit = group player createUnit [""I_Soldier_VR_F"", getPos player, [], 0, ""FORM""]; _unit setUnitLoadout [getUnitLoadout player, true]; systemChat ""Clone BodyGuard Joined Your Party!""; _unit setskill 0.6; _unit setCombatMode ""RED""; _unit allowFleeing 0; _unit addMPEventHandler [""MPKilled"",{ GUARD_AImax = GUARD_AImax - 1; deleteVehicle (_this select 0); }]; [_unit] execVM ""Custom\TIMS\Bodyguard\BodyGuard_Delete.sqf"";}; if (GUARD_AImax == 1) then {[""SuccessTitleAndText"",[""Bodyguard Deployed 1/3""]] call ExileClient_gui_toaster_addTemplateToast;}; if (GUARD_AImax == 2) then {[""SuccessTitleAndText"",[""Bodyguard Deployed 2/3""]] call ExileClient_gui_toaster_addTemplateToast;}; if (GUARD_AImax == 3) then {[""SuccessTitleAndText"",[""Bodyguard Deployed 3/3""]] call ExileClient_gui_toaster_addTemplateToast;}; if (GUARD_AImax >= 3) then {[""ErrorTitleAndText"",[""You can only have 3 Bodyguards at a time...""]] call ExileClient_gui_toaster_addTemplateToast;}; ";
+				action = " closeDialog 0; if (GUARD_AImax < 3) then {GUARD_AImax = GUARD_AImax + 1; private _unit = group player createUnit [""I_Soldier_VR_F"", getPos player, [], 0, ""FORM""]; _unit setUnitLoadout [getUnitLoadout player, true]; systemChat ""Clone BodyGuard Joined Your Party!""; _unit setskill 0.6; _unit setCombatMode ""RED""; _unit allowFleeing 0; _unit addMPEventHandler [""MPKilled"",{ GUARD_AImax = GUARD_AImax - 1; deleteVehicle (_this select 0); }]; [_unit] execVM ""Custom\TIMS\Bodyguard\BodyGuard_Delete.sqf"";}; if (GUARD_AImax == 1) then {[""SuccessTitleAndText"",[""Bodyguard Deployed 1/3""]] call ExileClient_gui_toaster_addTemplateToast;}; if (GUARD_AImax == 2) then {[""SuccessTitleAndText"",[""Bodyguard Deployed 2/3""]] call ExileClient_gui_toaster_addTemplateToast;}; if (GUARD_AImax == 3) then {[""SuccessTitleAndText"",[""Bodyguard Deployed 3/3""]] call ExileClient_gui_toaster_addTemplateToast;}; if (GUARD_AImax >= 3) then {[""ErrorTitleAndText"",[""You can only have 3 Bodyguards at a time...""]] call ExileClient_gui_toaster_addTemplateToast;}; [] execVM ""Custom\TIMS\Bodyguard\test.sqf""; ";
 			};
 			class MySelection_Button6 
 			{
@@ -400,7 +400,7 @@
 				colorBorder[] = { 0, 0, 0, 1 };
 				borderSize = 0;
 				soundEnter[] = { "", 0, 1 };  // no sound
-				soundPush[] = { "buttonpushed.ogg", 1, 1 };
+				soundPush[] = { "", 1, 1 };
 				soundClick[] = { "", 0, 1 };  // no sound
 				soundEscape[] = { "", 0, 1 };  // no sound
 			x = "SafeZoneX + (615.20761245675 / 1920) * SafeZoneW";
@@ -408,7 +408,7 @@
 			w = "(194.792387543253 / 1920) * SafeZoneW";
 			h = "(29.9999999999995 / 1080) * SafeZoneH";
 				text = "										UAV1";
-				action = " uiSleep 0.5; if !((""I_UavTerminal"" in (vestItems player + uniformItems player + backpackItems player + assignedItems player))) then {player addItem ""I_UavTerminal"";}; private _UAV_SELECTION_1 = createVehicle [""I_UGV_01_rcws_F"", getPos player, [], 0, ""NONE""]; [""SuccessTitleAndText"",[""Deployed UAV1!""]] call ExileClient_gui_toaster_addTemplateToast; closeDialog 0; ";
+				action = " closeDialog 0; if !((""I_UavTerminal"" in (vestItems player + uniformItems player + backpackItems player + assignedItems player))) then {player addItem ""I_UavTerminal"";}; private _UAV_SELECTION_1 = createVehicle [""I_UGV_01_rcws_F"", getPos player, [], 0, ""NONE""]; [""SuccessTitleAndText"",[""Deployed UAV1!""]] call ExileClient_gui_toaster_addTemplateToast; ";
 			};
 			class MySelection_Button7 
 			{
@@ -432,7 +432,7 @@
 				colorBorder[] = { 0, 0, 0, 1 };
 				borderSize = 0;
 				soundEnter[] = { "", 0, 1 };  // no sound
-				soundPush[] = { "buttonpushed.ogg", 1, 1 };
+				soundPush[] = { "", 1, 1 };
 				soundClick[] = { "", 0, 1 };  // no sound
 				soundEscape[] = { "", 0, 1 };  // no sound
 			x = "SafeZoneX + (1125.20761245675 / 1920) * SafeZoneW";
@@ -440,7 +440,7 @@
 			w = "(194.792387543253 / 1920) * SafeZoneW";
 			h = "(29.9999999999995 / 1080) * SafeZoneH";
 				text = "										UAV2";
-				action = " uiSleep 0.5; if !((""I_UavTerminal"" in (vestItems player + uniformItems player + backpackItems player + assignedItems player))) then {player addItem ""I_UavTerminal"";}; private _UAV_SELECTION_1 = createVehicle [""B_T_UAV_03_F"", getPos player, [], 0, ""NONE""]; [""SuccessTitleAndText"",[""Deployed UAV2!""]] call ExileClient_gui_toaster_addTemplateToast; closeDialog 0; ";
+				action = " closeDialog 0; if !((""I_UavTerminal"" in (vestItems player + uniformItems player + backpackItems player + assignedItems player))) then {player addItem ""I_UavTerminal"";}; private _UAV_SELECTION_1 = createVehicle [""B_T_UAV_03_F"", getPos player, [], 0, ""NONE""]; [""SuccessTitleAndText"",[""Deployed UAV2!""]] call ExileClient_gui_toaster_addTemplateToast; ";
 			};
 			class BODYGUARD_INFORMATION_TEXT
 			{

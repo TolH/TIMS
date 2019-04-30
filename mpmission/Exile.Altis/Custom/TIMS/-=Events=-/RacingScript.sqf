@@ -60,19 +60,21 @@ PLAYER_IS_RACING = 1;
 			_fire1 attachto [_RacingVehicle, [0,-3.5,-3.7]];
 			//BOOST BEFORE JUMP
 			_RacingVehicle setVelocity [ (_vel select 0) + (sin _dirPlayer * _speed), (_vel select 1) + (cos _dirPlayer * _speed), (_vel select 2) ];
+			//DELETE FIRE AFTER X SECONDS
+			[3] execVM "Custom\TIMS\-=Events=-\DeleteParticules.sqf";
 			//MOVE BOOST TO NEXT LOCATION
 			switch (_SpeedBoostADD) do
 			{
-				case 0: { _SpeedBonusArrowOrange setPos (getMarkerPos "RACING_WAYPOINT_3"); [3] execVM "Custom\TIMS\-=Events=-\DeleteParticules.sqf"; };
-				case 1: { _SpeedBonusArrowOrange setPos (getMarkerPos "RACING_WAYPOINT_6"); [3] execVM "Custom\TIMS\-=Events=-\DeleteParticules.sqf"; };
-				case 2: { _SpeedBonusArrowOrange setPos (getMarkerPos "RACING_WAYPOINT_7"); [3] execVM "Custom\TIMS\-=Events=-\DeleteParticules.sqf"; };
-				case 3: { _SpeedBonusArrowOrange setPos (getMarkerPos "RACING_WAYPOINT_9"); [3] execVM "Custom\TIMS\-=Events=-\DeleteParticules.sqf"; };
-				case 4: { _SpeedBonusArrowOrange setPos (getMarkerPos "RACING_WAYPOINT_11"); [3] execVM "Custom\TIMS\-=Events=-\DeleteParticules.sqf"; };
-				case 5: { _SpeedBonusArrowOrange setPos (getMarkerPos "RACING_WAYPOINT_12"); [3] execVM "Custom\TIMS\-=Events=-\DeleteParticules.sqf"; };
-				case 6: { _SpeedBonusArrowOrange setPos (getMarkerPos "RACING_WAYPOINT_13"); [3] execVM "Custom\TIMS\-=Events=-\DeleteParticules.sqf"; };
-				case 7: { _SpeedBonusArrowOrange setPos (getMarkerPos "RACING_WAYPOINT_14"); [3] execVM "Custom\TIMS\-=Events=-\DeleteParticules.sqf"; };
-				case 8: { _SpeedBonusArrowOrange setPos (getMarkerPos "RACING_WAYPOINT_15"); [3] execVM "Custom\TIMS\-=Events=-\DeleteParticules.sqf"; };
-				case 9: { _SpeedBonusArrowOrange setPos (getMarkerPos "RACING_WAYPOINT_17"); [3] execVM "Custom\TIMS\-=Events=-\DeleteParticules.sqf"; };
+				case 0: { _SpeedBonusArrowOrange setPos (getMarkerPos "RACING_WAYPOINT_3"); };
+				case 1: { _SpeedBonusArrowOrange setPos (getMarkerPos "RACING_WAYPOINT_6"); };
+				case 2: { _SpeedBonusArrowOrange setPos (getMarkerPos "RACING_WAYPOINT_7"); };
+				case 3: { _SpeedBonusArrowOrange setPos (getMarkerPos "RACING_WAYPOINT_9"); };
+				case 4: { _SpeedBonusArrowOrange setPos (getMarkerPos "RACING_WAYPOINT_11"); };
+				case 5: { _SpeedBonusArrowOrange setPos (getMarkerPos "RACING_WAYPOINT_12"); };
+				case 6: { _SpeedBonusArrowOrange setPos (getMarkerPos "RACING_WAYPOINT_13"); };
+				case 7: { _SpeedBonusArrowOrange setPos (getMarkerPos "RACING_WAYPOINT_14"); };
+				case 8: { _SpeedBonusArrowOrange setPos (getMarkerPos "RACING_WAYPOINT_15"); };
+				case 9: { _SpeedBonusArrowOrange setPos (getMarkerPos "RACING_WAYPOINT_17"); };
 			};
 			_SpeedBoostADD = _SpeedBoostADD + 1;
 		};
@@ -83,8 +85,6 @@ PLAYER_IS_RACING = 1;
 			["ErrorTitleAndText", ["TIME BONUS: OFFROAD (-5)"]] call ExileClient_gui_toaster_addTemplateToast;
 			RACETIMER = RACETIMER - 5;
 			_RacingVehicle setPos [(getPos _nearestRoadRespawn select 0), (getPos _nearestRoadRespawn select 1), (getPos _nearestRoadRespawn select 2)+3];
-			//RERUN EFFECT DELETER AS SOMETIMES WHEN CRASHING WITH BOOST ON AND RESPAWNING, IT DOESNT DELETE THE FIRE
-			[3] execVM "Custom\TIMS\-=Events=-\DeleteParticules.sqf";
 		};
 		//IF PLAYER GET OUT OF THE CAR OR FROM THE DRIVER SEAT THEN RACE ENDS
 		if !(_inVehicle and (driver _vehicle == player)) then 

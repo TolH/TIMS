@@ -35,8 +35,8 @@ GUARD_AImax = 0;
 					_chute allowDamage false;
 					player allowDamage true;
 				};
-			}
-			
+			};
+			/*
 			else
 			{
 				_isWater = surfaceIsWater position player;
@@ -82,7 +82,7 @@ GUARD_AImax = 0;
 					uiSleep 4;
 					player removeAction transformaction6;
 				};
-			};
+			};*/
 		  uiSleep 1.8;
 		};
 	};

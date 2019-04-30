@@ -1739,7 +1739,7 @@ class CfgExileAnimals
 	 * Clients will despawn animals if no player is in this radius around the animal
 	 * This check is ran every 1 minute, so it is pretty unprecise, but performance-friendly. 
 	 */
-	keepAliveRadius = 500;
+	keepAliveRadius = 300;
 
 	/**
 	 * Defines the minimum lifetime of an animal in seconds. During this time, right after spawning,
@@ -1773,6 +1773,10 @@ class CfgExileCustomCode
 {
 	//NAMEPLATE
 	ExileClient_gui_safezone_safeESP 						= "Exile_Call\Nameplate\ExileClient_gui_safezone_safeESP.sqf";
+	//SAFEZONE GODMODE DISABLED
+	ExileClient_object_player_event_onEnterSafezone 		= "Exile_Call\Nameplate\ExileClient_object_player_event_onEnterSafezone.sqf";
+	ExileClient_object_player_event_onLeaveSafezone 		= "Exile_Call\Nameplate\ExileClient_object_player_event_onLeaveSafezone.sqf";
+	ExileClient_object_player_event_onFiredSafeZoneVehicle 	= "Exile_Call\Nameplate\ExileClient_object_player_event_onFiredSafeZoneVehicle.sqf";
 	//ExAdXM8
     ExileClient_gui_xm8_slide                   			= "Exile_Call\ExAdClient\ExileClient_gui_xm8_slide.sqf";
     ExileClient_gui_xm8_show                    			= "Exile_Call\ExAdClient\ExileClient_gui_xm8_show.sqf";
@@ -3286,13 +3290,13 @@ class CfgTerritories
 	 * Defines the minimum distance to safe zones / trader cities where players
 	 * cannot build territories
 	 */
-	minimumDistanceToTraderZones = 1000;
+	minimumDistanceToTraderZones = 1200;
 
 	/**
 	 * Defines the minimum distance to spawn zones where players
 	 * cannot build territories
 	 */
-	minimumDistanceToSpawnZones = 1000;
+	minimumDistanceToSpawnZones = 1200;
 
 	// Amount of pop tabs per object to pay
 	popTabAmountPerObject = 200;
