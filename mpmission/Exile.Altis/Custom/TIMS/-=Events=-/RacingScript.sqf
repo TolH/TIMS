@@ -11,8 +11,9 @@ private _vehicle = vehicle player;
 private _inVehicle = (_vehicle != player);
 private _SpeedBoostADD = 0;
 private _AddLocation = 0;
+private _CarAFK = 0;
 private _speed = 50;
-PLAYER_IS_RACING = 1;
+PLAYER_IS_RACING = 1; //SEND NAMEPLATE ACTIVATION ONLY FOR PLAYER RACING
 //============================================//
 	while {RACETIMER > 0} do 
 	{
@@ -61,7 +62,7 @@ PLAYER_IS_RACING = 1;
 			//BOOST BEFORE JUMP
 			_RacingVehicle setVelocity [ (_vel select 0) + (sin _dirPlayer * _speed), (_vel select 1) + (cos _dirPlayer * _speed), (_vel select 2) ];
 			//DELETE FIRE AFTER X SECONDS
-			[3] execVM "Custom\TIMS\-=Events=-\DeleteParticules.sqf";
+			execVM "Custom\TIMS\-=Events=-\DeleteParticules.sqf";
 			//MOVE BOOST TO NEXT LOCATION
 			switch (_SpeedBoostADD) do
 			{
@@ -86,6 +87,21 @@ PLAYER_IS_RACING = 1;
 			RACETIMER = RACETIMER - 5;
 			_RacingVehicle setPos [(getPos _nearestRoadRespawn select 0), (getPos _nearestRoadRespawn select 1), (getPos _nearestRoadRespawn select 2)+3];
 		};
+		//DO SAME THING BUT IF CAR HAS NOT BEEN MOVING FOR 3 SECONDS
+		if (speed _vehicle == 0) then 
+		{
+			//START AFK CHECK
+			if (_CarAFK == 3) then 
+			{
+				_RacingVehicle setPos [(getPos _nearestRoadRespawn select 0), (getPos _nearestRoadRespawn select 1), (getPos _nearestRoadRespawn select 2)+3]; 
+				_CarAFK = 0;
+			};
+			_CarAFK = _CarAFK + 1;
+		}
+		else
+		{
+			_CarAFK = 0;
+		};
 		//IF PLAYER GET OUT OF THE CAR OR FROM THE DRIVER SEAT THEN RACE ENDS
 		if !(_inVehicle and (driver _vehicle == player)) then 
 		{ 
@@ -105,6 +121,7 @@ PLAYER_IS_RACING = 1;
 	deleteVehicle _SpeedBonusArrowOrange;
 	deleteVehicle _AI_Checkpoint;
 		uiSleep 2;
+	//TP BACK TO SAVED VAR EARLIER
 	private _TeleportPos = profileNamespace getVariable "TP_BACK_POS";
 	titleText ["Teleporting you back...", "BLACK OUT", 7];
 		uiSleep 7;

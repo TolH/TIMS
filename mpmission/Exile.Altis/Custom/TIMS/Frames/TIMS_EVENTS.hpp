@@ -95,14 +95,14 @@
 				borderSize = 0;
 				soundEnter[] = { "", 1, 1 };  // no sound
 				soundPush[] = { "", 1, 1 };
-				soundClick[] = { "", 0, 1 };  // no sound
+				soundClick[] = { "", 0, 1 };  // no sound   profileNamespace getVariable "TP_BACK_POS";
 				soundEscape[] = { "", 0, 1 };  // no sound
 				x = "SafeZoneX + (870.207612456747 / 1920) * SafeZoneW";
 				y = "SafeZoneY + (480.000000000001 / 1080) * SafeZoneH";
 				w = "(179.792387543253 / 1920) * SafeZoneW";
 				h = "(29.9999999999995 / 1080) * SafeZoneH";
 				text = "			  TimerBoard";
-				action = " ";
+				action = " profileNamespace setVariable [""TP_BACK_POS_GUI_TEST"", getPos player]; systemchat format [""TEST:(%1), (%2)"", profileNamespace getVariable ""TP_BACK_POS_GUI_TEST"", name player]; ";
 			};
 			class RACE_INFORMATION_TEXT
 			{
